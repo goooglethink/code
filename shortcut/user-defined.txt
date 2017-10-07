@@ -1,0 +1,4 @@
+startup folder		nautilus	Ctrl+Alt+N
+startup stardict	stardict	Ctrl+Alt+M
+startup	guake		guake		Ctrl+Alt+L
+startup	terminator	terminator	Ctrl+Alt+P

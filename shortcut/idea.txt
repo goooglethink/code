@@ -1,0 +1,50 @@
+Crtl+Shift+Alt++	vim的自动切换
+Ctrl + F	在当前文件进行文本查找
+Ctrl + R	在当前文件进行文本替换
+Ctrl + Z	撤销
+Ctrl + Y	删除光标所在行 或 删除选中的行
+Ctrl + X	剪切光标所在行 或 剪切选择内容
+Ctrl + C	复制光标所在行 或 复制选择内容
+Ctrl + D	复制光标所在行 或 复制选择内容，并把复制内容插入光标位置下面
+Ctrl + W	递进式选择代码块。可选中光标所在的单词或段落，连续按会在原有选中的基础上再扩展选中范围
+Ctrl + E	显示最近打开的文件记录列表
+Ctrl + N	根据输入的 类名 查找类文件
+Ctrl + G	在当前文件跳转到指定行处
+Ctrl + J	插入自定义动态代码模板
+Ctrl + O	选择可重写的方法
+Ctrl + I	选择可继承的方法
+Ctrl + +	展开代码
+Ctrl + -	折叠代码
+Ctrl + /	注释光标所在行代码，会根据当前不同文件类型使用不同的注释符号 
+Ctrl + [	移动光标到当前所在代码的花括号开始位置
+Ctrl + ]	移动光标到当前所在代码的花括号结束位置
+Ctrl + F1	在光标所在的错误代码处显示错误信息 
+Ctrl + F3	调转到所选中的词的下一个引用位置 
+Ctrl + F4	关闭当前编辑文件
+Ctrl + End	跳到文件尾
+Ctrl + Home	跳到文件头
+Ctrl + Tab	编辑窗口切换，如果在切换的过程又加按上delete，则是关闭对应选中的窗口
+Ctrl + F12	弹出当前文件结构层，可以在弹出的层上直接输入，进行筛选
+Ctrl + Space	基础代码补全
+Shift + F2	跳转到上一个高亮错误 或 警告位置
+Ctrl + Shift + +	展开所有代码 
+Ctrl + Shift + -	折叠所有代码
+Ctrl + Shift + F7	高亮显示所有该选中文本，按Esc高亮消失 
+Ctrl + Shift + Space	智能代码提示
+Ctrl + Shift + 1,2,3...9	快速添加指定数值的书签
+Ctrl + 1,2,3...9	定位到对应数值的书签位置 
+Alt + Shift + F9	弹出 Debug 的可选择菜单
+Alt + Shift + F10	弹出 Run 的可选择菜单
+
+
+缩写补全:
+psvm	public static void main(String[] args){}
+sout	System.out.println(); (在 Kotlin 中是 println())
+souf	System.out.printf();
+serr	System.err.println();
+psf	public static final
+psfi	public static final int
+psfs	public static final String
+
+
+

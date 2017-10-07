@@ -1,0 +1,8 @@
+打开主菜单  Alt + F1
+最大化当前窗口  Alt + F10
+关闭当前窗口  Alt + F4
+截取全屏  Print Screen
+截取窗口  Alt + Print Screen
+切换桌面  Alt+Ctrl+PageUp/PageDn
+不最大化当前窗口 Alt+F5
+切换窗口  Alt+ Tab

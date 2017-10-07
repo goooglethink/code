@@ -1,0 +1,47 @@
+操作前缀: Ctrl-a	# use C-a, since it's on the home row and easier to hit than C-b
+#前置功能键,所有快捷键都是在此之后输入来触发的
+
+?		列出按键绑定
+:		进入命令模式
+C-z		挂起
+C-a-方向键	以每次1,5像素调整pane大小
+
+窗格操作
+\(%) 左右平分出两个窗格
+-(")上下平分出两个窗格
+Ctrl-hjkl 窗口移动
+Ctrl-a-hjkl 窗口移动
+Ctrl-a-q 展示窗口数字并选择跳转
+Ctrl-a-o 循环切换
+Ctrl-a-[ Ctrl-f(PgDn) Ctrl-b(PgUp) across pane
+x 关闭当前窗格
+{ 当前窗格前移
+} 当前窗格后移
+space 切换窗格布局，tmux 内置了五种窗格布局，也可以通过 ⌥1 至 ⌥5来切换
+z 最大化当前窗格，再次执行可恢复原来大小
+q 显示所有窗格的序号，在序号出现期间按下对应的数字，即可跳转至对应的窗格
+o 选择下一个窗格，也可以使用上下左右方向键来选择
+
+窗口操作(window)
+c 新建窗口，此时当前窗口会切换至新窗口，不影响原有窗口的状态
+Ctrl-a-T(p) 切换至上一窗口
+Ctrl-a-t(n) 切换至下一窗口
+Ctrl-a-<number> 
+w 窗口列表选择 
+& 关闭当前窗口
+, 重命名窗口，可以使用中文，重命名后能在 tmux 状态栏更快速的识别窗口 id
+f 根据窗口名搜索选择窗口，可模糊匹配
+
+会话操作(session)
+$ 重命名当前会话
+s 在tmux中查看会话列表并切换
+d detach 分离会话，运行后将会退出 tmux 进程，返回至 shell 主进程
+tmux detach
+tmux new -s <name-of-my-session> 	创建一个新的会话
+:new -s <name-of-my-session>		在tmux中创建一个会话
+tmux ls 				查看已有会话列表(list-session)
+tmux attach -t <session>		连接会话(只有一个)
+tmux kill-session -t <session> # 删除名称为 <session> 的会话
+tmux kill-server # 删除所有的会话
+
+

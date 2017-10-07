@@ -1,0 +1,4 @@
+Ctrl+Q 退出
+Alt+Z 最小化窗口
+Alt+X 隐藏窗口
+Alt+C 或 ESC 清空输入框中的文本

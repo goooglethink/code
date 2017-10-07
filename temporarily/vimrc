@@ -1,0 +1,7 @@
+vim +PluginInstall +qall
+
+:PlugInstall     install                      安装插件
+:PlugUpdate      install or update            更新插件
+:PlugClean       remove plugin not in list    删除本地无用插件
+:PlugUpgrade     Upgrade vim-plug itself      升级本身
+:PlugStatus      Check the status of plugins  查看插件状态

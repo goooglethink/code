@@ -1,0 +1,165 @@
+------------------------------------------------------------------
+设置配置命令
+git config --global user.name "XXX"  
+#设置用户
+git config --global user.email "goooglethink@gmail.com"  
+#设置用户邮箱(以我邮箱为例)
+git config --list
+#显示当前的用户和用户邮箱
+git config -e --global
+#在终端中打开配置文件
+注明:git的配置文件是 .gitconfig , 用 --global选择指定对所有项目有效。
+-------------------------------------------------------------------
+
+-------------------------------------------------------------------
+新建代码库:
+git init
+#在当前目录中新建一个.git代码库
+git init XXX
+#在当前目录中创建一个名为XXX的文件夹,并且在文件夹里面新建一个.git代码库
+-------------------------------------------------------------------
+
+-------------------------------------------------------------------
+添加文件
+添加文件或目录到暂存区:
+git add file
+#添加名为XXX的文件到暂存区
+git add ZZZ/
+#添加名为ZZZ的目录到暂存区，包括子目录中的文件
+git add .
+#添加当前目录中所有文件到暂存区
+-------------------------------------------------------------------
+
+-------------------------------------------------------------------
+删除文件
+git rm -f file 
+#删除工作区文件，并且将这次删除放入暂存区
+-------------------------------------------------------------------
+
+-------------------------------------------------------------------
+代码提交
+git commit -m "update" file 
+#提交暂存区所有文件到仓库区，并指定提交说明
+git commit . -m "update"
+#提交文件，.是当前目录，就是提交所有文件
+git commit -m "delete"
+#将删除放入暂存区的文件
+-------------------------------------------------------------------
+
+-------------------------------------------------------------------
+分支命令:
+git branch
+#列出所有本地分支
+git branch -r
+#列出所有远程分支
+git branch -a
+#列出所有远程和本地的分支
+git branch xxx
+#新建一个名为xxx的分支，但会停留在目前的分支
+git checkout xxx
+#切换到xxx分支
+git checkout -b xxx
+#新建一个名为xxx分支，并切换到该分支
+git merge xxx
+#合并xxx(指定分支)到当前分支
+git branch -d xxx
+#删除本地xxx分支
+------------------------------------------------------------------
+
+------------------------------------------------------------------
+撤销
+git reset --hard HEAD^(^代表倒退几步)
+git reset --hard HEAD~4(后退4步)
+#重置暂存区与工作区，与最新的commit保持一致
+git reset HEAD 
+#重置暂存区与工作区，并将工作区文件倒退到没有添加暂存区之前
+git reset --hard [commitVersionNumber] 
+#重置当前分支的HEAD为指定commit.同时重置暂存区和工作区,与commit一致
+------------------------------------------------------------------
+
+------------------------------------------------------------------
+远程同步
+git remote add origin https://github.com/.......
+#本地和github上的仓库进行关联
+git push -u(第一次要用-u以后不需要) origin master
+#把本地库的内容推送到远程git push命令,实际上是把当前分支master推送到远程服务器。
+git push -u origin +master 
+#更新被拒绝，因为远程仓库包含您本地尚不存在的提交。通过+master强行更新
+git push origin master 
+#将本地内容部署到远程
+git clone [url] 
+#下载一个项目和它的整个代码历史
+git remote -v 
+#显示所有远程仓库
+ssh-keygen -t rsa -C goooglethink@gmail.com
+创建SSHKEY，验证能否连接到远程服务器
+ssh -T git@github.com
+实现远程库与本地库的连接和通讯
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+查看日志,历史,文件
+git status
+#显示所有变更文件
+git log file 
+#显示当前分支的版本历史
+git log --pretty=oneline file
+#显示当前分支的版本历史(简洁)
+git diff file 
+#显示暂存区和工作区的差异
+git reflog 
+#显示当前分支的几次提交的信息
+git checkout -- file 
+#撤销本次工作区的修改
+---------------------------------------------------------------------
+
+
+
+=====================================================================
+解决版本冲突实例:
+google@google:~/git/more$ git merge dev 
+自动合并 a.txt
+冲突（内容）：合并冲突于 a.txt
+自动合并失败，修正冲突然后提交修正的结果。
+google@google:~/git/more$ git checkout dev 
+a.txt: needs merge
+error: 您需要先解决当前索引的冲突
+google@google:~/git/more$ cat a.txt
+dev update
+<<<<<<< HEAD
+master update
+=======
+dev update22
+>>>>>>> dev
+google@google:~/git/more$ vi a.txt 
+google@google:~/git/more$ cat a.txt 
+dev update
+master update
+dev update22
+google@google:~/git/more$ git add a.txt 
+google@google:~/git/more$ git commit -m "fix conflict bug"
+[master 6b4fb89] fix conflict bug
+google@google:~/git/more$ git status 
+位于分支 master
+无文件要提交，干净的工作区
+google@google:~/git/more$ cat a.txt 
+dev update
+master update
+dev update22
+
+
+Git交互模型
+一般工作流程:
+1.克隆Git资源作为工作目录。
+2.在克隆的资源上添加或修改文件。
+3.如果其他人修改了，你可以更新资源。
+4.在提交前查看修改。
+5.提交修改
+6.在修改完成后,如果发现错误，可以撤回提交并再次修改并提交
+
+
+git 设置 socks5 代理
+git config --global http.proxy 'socks5://127.0.0.1:9090'
+git config --global https.proxy 'socks5://127.0.0.1:9090'
+git config --global http.proxy 'socks5://127.0.0.1:9666'
+git config --global https.proxy 'socks5://127.0.0.1:9666'

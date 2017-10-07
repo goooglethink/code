@@ -1,0 +1,12 @@
+
+make start-tor-browser file
+if [ "`id -u`" -eq 1 ]; then
+ complain "The Tor Browser Bundle should not be run as root.  Exiting."
+ exit 1
+fi
+
+
+
+
+
+

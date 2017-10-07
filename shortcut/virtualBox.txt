@@ -1,0 +1,10 @@
+Host+F           切换到全屏模式
+Host+L           切换到无缝模式
+Host+C           切换到自动缩放模式
+Host+A           切换到自动调整窗口大小
+Host+G           切换到自动调整显示尺寸
+Host+N           运行状态(n)
+Host+R           重启(R)
+Host+P           暂停(P)
+Host+H           正常关闭(H)
+Host+Q           退出(C)

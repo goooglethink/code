@@ -1,0 +1,115 @@
+1)install wireless network driver 
+gedit /etc/apt/sources.list
+1.Add a "non-free" component to /etc/apt/sources.list, for example:
+deb http://httpredir.debian.org/debian/ jessie main contrib non-free
+2.Update the list of available packages and install the firmware-iwlwifi package:
+apt-get update && apt-get install firmware-iwlwifi
+3.As the iwlwifi module is automatically loaded for supported devices, reinsert this module to access installed firmware:
+modprobe -r iwlwifi ; modprobe iwlwifi
+
+Debian 软件源
+gedit  /etc/apt/sources.list
+
+在文档中替换添加软件源:
+deb http://mirrors.163.com/debian/ jessie main non-free contrib
+deb http://mirrors.163.com/debian/ jessie-updates main non-free contrib
+deb http://mirrors.163.com/debian/ jessie-backports main non-free contrib
+deb-src http://mirrors.163.com/debian/ jessie main non-free contrib
+deb-src http://mirrors.163.com/debian/ jessie-updates main non-free contrib
+deb-src http://mirrors.163.com/debian/ jessie-backports main non-free contrib
+deb http://mirrors.163.com/debian-security/ jessie/updates main non-free contrib
+deb-src http://mirrors.163.com/debian-security/ jessie/updates main non-free contrib
+
+apt-get update && apt-get upgrade && apt-get dist-upgrade
+apt-get install sudo
+
+
+
+解决:用户不在 sudoers 文件中的问题
+终端执行：
+1.su root
+2.sudo gedit /etc/sudoers
+
+# Members of the admin group may gain root privileges
+%admin ALL=(ALL:ALL) ALL
+# Allow members of group sudo to execute any command
+%sudo ALL=(ALL) ALL
+xx ALL=(ALL) ALL (将此处的XX修改为出现改问题的用户名！）
+
+Debian Missing add-apt-repository command
+Step 1.Install the software-properties-common Package
+$ sudo apt-get install software-properties-common python-software-properties
+
+Step 2.Add the PPA
+$ sudo add-apt-repository ppa:git-core/ppa
+$ sudo apt-get update
+$ sudo apt-get install git
+
+
+sudo apt-get autoclean && sudo apt-get clean && sudo apt-get autoremove 
+sudo apt-get install vim
+
+How to install VMwareTools
+
+1.安装GCC编译器和make：
+apt-get install gcc
+apt-get install make
+
+2.安装开发工具
+sudo apt-get install build-essential
+
+3.安装内核编译头文件.安装内核头文件的命令如下：
+查看系统版本号：uname -r
+安装内核头文件命令：apt-get install linux-headers-2.6.26-2-686
+
+4.安装VMwareTools(仅用文字描述，具体操作请自行摸索  :> )：  
+ 首先挂载VMwareTools。然后在VMware的VM菜单选择Install VMware Tools，接着系统会自动挂装VMware Tools到系统光驱。到/cdrom目录下将 VMwareTools-8.4.3-282343.tar.gz(各版本不同)拷贝到一个目录下。然后提取里面的文件，最后在 vmware-tools-distrib目录下执行 ./vmware-install.pl。
+
+安装chrome
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo apt-get install libappindicator1 libindicator7
+sudo dpkg -i google-chrome-stable_current_amd64.deb
+sudo apt-get -f install
+
+安装openJdk
+sudo apt-get install openjdk-7-jdk
+
+make /etc/hosts and clone github
+
+
+sudo apt-get install vlc
+
+sudo apt-get install axel
+
+sudo apt-get install aria2
+
+sudo apt-get install uget
+
+
+install VMware Workstation
+sudo apt-get install build-essential
+
+Download VMware
+https://www.vmware.com/
+
+wget https://download3.vmware.com/software/wkst/file/VMware-Workstation-Full-12.5.6-5528349.x86_64.bundle
+
+4.install  install VMware Workstation
+chmod +x VMware-Workstation-Full-12.5.6-5528349.x86_64.bundle
+sudo ./VMware-Workstation-Full-12.5.6-5528349.x86_64.bundle
+
+
+kernel headers for version 3.16.0-4-amd64 were not found
+
+1.sudo apt-get install build-essential linux-headers-$(uname -r)
+
+
+sudo apt-get install mysql-server
+sudo apt-get install mysql-client
+sudo apt-get install libmysqlclient-dev
+sudo apt-get install mysql-workbench
+
+
+
+
+
