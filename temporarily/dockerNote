@@ -1,4 +1,9 @@
 Docker镜像和容器的默认存放位置为:/var/lib/docker
+sudo gedit /etc/systemd/system/multi-user.target.wants/docker.service
+ExecStart=/usr/bin/dockerd --registry-mirror=https://registry.docker-cn.com
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+sudo ps -ef | grep dockerd
 #===========================================================================================
 # install dependencies 4 cert
 sudo apt-get install apt-transport-https
@@ -18,6 +23,7 @@ sudo apt-get install docker-ce -y
 # manage Docker as a non-root user,建立docker组并将当前用户加入docker组:
 sudo groupadd docker
 sudo usermod -aG docker $USER
+sudo usermod -aG docker google
 
 # configure Docker to start on boot
 sudo systemctl enable docker
