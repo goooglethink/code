@@ -1,4 +1,6 @@
 Docker镜像和容器的默认存放位置为:/var/lib/docker
+
+#docker添加官方加速器
 sudo gedit /etc/systemd/system/multi-user.target.wants/docker.service
 ExecStart=/usr/bin/dockerd --registry-mirror=https://registry.docker-cn.com
 sudo systemctl daemon-reload
