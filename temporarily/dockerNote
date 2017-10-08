@@ -145,6 +145,14 @@ docker network connect my_network [container ID or NAMES]
 docker network disconnect my_network [container ID or NAMES]
 docker network rm my_network
 
+#lantern
+docker run -d -p 8787:8787 kent72/lantern
+
+
+
+
+
+
 #使用Macvlan构建Docker网络(macvlan是kernel的模块名)
 docker network create -d macvlan --subnet=192.168.43.0/24 --gateway=192.168.43.1 -o parent=wlan0 kali_net
 --subnet: 指定网段(宿主机) --gateway: 指定网关(宿主机) parent: 注定父网卡(宿主机)
