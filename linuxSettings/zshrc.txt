@@ -349,7 +349,7 @@ alias ddstop='docker stop $(docker ps -a -q)'
 alias drm='docker rm'
 alias ddrm='docker rm $(docker ps -a -q)'
 alias dpsa='docker ps -a'
-alias dimage='docker imges'
+alias dimage='docker images'
 
 
 echo -e "\033[36m                                                    \033[1m"
