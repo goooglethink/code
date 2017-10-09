@@ -8,30 +8,30 @@ Author Information:
 My Github Project:
 ----
 
-1.Command , Note and Shortcut
- + 1-1:Linux,Git,Shell,YouGet,Youbule-dl,Vim,Cmatrix,Tmux Command
- + 1-2:Kali-tools,docker Note
- + 1-3:Chrome,idea,Stardict,User-defined,Terminator,System,VimPlugin,Vimium,Zsh,VirtualBox Shortcut
+1.Command , Note and Shortcut  
+&emsp;1-1:Linux,Git,Shell,YouGet,Youbule-dl,Vim,Cmatrix,Tmux Command  
+&emsp;1-2:Kali-tools,docker Note  
+&emsp;1-3:Chrome,idea,Stardict,User-defined,Terminator,System,VimPlugin,Vimium,Zsh,VirtualBox Shortcut
 
-2.Script Project
- + 2-1:Shell Script
- + 2-2:Python Script
- + 2-3:Chrome Script
+2.Script Project  
+&emsp;2-1:Shell Script  
+&emsp;2-2:Python Script  
+&emsp;2-3:Chrome Script
 
-3.Network Project
- + 3-1:Hosts File
- + 3-2:GoGo Proxy
- + 3-3:Ultrasurf Proxy
- + 3-4:net-speeder-master
+3.Network Project  
+&emsp;3-1:Hosts File  
+&emsp;3-2:GoGo Proxy  
+&emsp;3-3:Ultrasurf Proxy  
+&emsp;3-4:net-speeder-master
 
-4.Linux Configuration
- + 4-1:.bashrc .zshrc .tmux settings
- + 4-2:Linux kernel tuning settings for large number of concurrent in sysctl.conf
- + 4-3:Strat up TCP congestion control:Hybla Google BBR
- + 4-4:Configure DNS address
+4.Linux Configuration  
+&emsp;4-1:.bashrc .zshrc .tmux settings  
+&emsp;4-2:Linux kernel tuning settings for large number of concurrent in sysctl.conf  
+&emsp;4-3:Strat up TCP congestion control:Hybla Google BBR  
+&emsp;4-4:Configure DNS address
 
-5.My Using
- + 5-1:Vim+Zsh+Terminator+Tmux
+5.My Using  
+&emsp;5-1:Vim+Zsh+Terminator+Tmux
 
 ------
 
