@@ -154,4 +154,5 @@ docker network create -d macvlan --subnet=192.168.43.0/24 --gateway=192.168.43.1
 docker run --net=kali_net --ip=192.168.43.39 -it --name test1 kalilinux/kali-linux-docker
 --net 指定使用的网络,--ip 用于指定网段内 IP;
 
-
+docker run -itd --restart=always --name lantern -p 8787:8787 kent72/lantern
+docker run --rm --name lantern -p 8787:8787 kent72/lantern > ~/Documents/lantern.log 2>~/Documents/lantern.error
