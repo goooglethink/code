@@ -10,8 +10,8 @@ sudo ps -ef | grep dockerd
 # install dependencies 4 cert
 sudo apt-get install apt-transport-https
 sudo apt-get install ca-certificates
-sudo apt-get install curl
 sudo apt-get install gnupg2
+sudo apt-get install curl
 sudo apt-get install software-properties-common
 sudo apt-get install lsb-release
 
@@ -40,6 +40,7 @@ docker version
 #获取镜像
 docker pull [选项] [Docker Registry地址]<仓库名>:<标签>
 docker pull kalilinux/kali-linux-docker
+docker pull kent72/lantern
 
 #启动一个bash终端,允许用户进行交互
 docker run -it  --rm kalilinux/kali-linux-docker bash
@@ -126,6 +127,7 @@ docker attach [container ID or NAMES]
 docker run -it --name kali_port -p ip:hostPort:containerPort kalilinux/kali-linux-docker 
 docker run -it --name kali_port -p ip::containerPort kalilinux/kali-linux-docker 
 docker run -it --name kali_port -p hostPort:containerPort kalilinux/kali-linux-docker 
+docker run -d -p 8787:8787 --name lantern kent72/lantern
 
 #查看容器指定端口的绑定情况
 docker port [container ID or NAMES]
@@ -144,14 +146,6 @@ docker network connect my_network [container ID or NAMES]
 #断开网络与网络删除(注意：删除网络时，需要已断开所容器的连接，否则会删除失败)
 docker network disconnect my_network [container ID or NAMES]
 docker network rm my_network
-
-#lantern
-docker run -d -p 8787:8787 kent72/lantern
-
-
-
-
-
 
 #使用Macvlan构建Docker网络(macvlan是kernel的模块名)
 docker network create -d macvlan --subnet=192.168.43.0/24 --gateway=192.168.43.1 -o parent=wlan0 kali_net

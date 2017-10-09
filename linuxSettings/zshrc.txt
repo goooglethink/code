@@ -343,6 +343,15 @@ alias root='bash ~/code/shellCode/suroot.sh'
 alias rm='rm -rf'
 alias ping='ping www.google.com'
 
+#docker alias
+alias dstop='docker stop'
+alias ddstop='docker stop $(docker ps -a -q)'
+alias drm='docker rm'
+alias ddrm='docker rm $(docker ps -a -q)'
+alias dpsa='docker ps -a'
+alias dimage='docker imges'
+
+
 echo -e "\033[36m                                                    \033[1m"
 echo -e "\033[36m ██████╗  ██████╗  ██████╗  ██████╗ ██╗     ███████╗\033[1m"
 echo -e "\033[36m██╔════╝ ██╔═══██╗██╔═══██╗██╔════╝ ██║     ██╔════╝\033[1m"
