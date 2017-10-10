@@ -342,6 +342,8 @@ alias sudo='echo "google" | sudo -S'
 alias root='bash ~/code/shellCode/suroot.sh'
 alias rm='rm -rf'
 alias ping='ping www.google.com'
+alias vi='vim'
+alias svi='sudo vim'
 
 #docker alias
 alias dstop='docker stop'
@@ -350,7 +352,6 @@ alias drm='docker rm'
 alias ddrm='docker rm $(docker ps -a -q)'
 alias dpsa='docker ps -a'
 alias dimage='docker images'
-
 
 echo -e "\033[36m                                                    \033[1m"
 echo -e "\033[36m ██████╗  ██████╗  ██████╗  ██████╗ ██╗     ███████╗\033[1m"
