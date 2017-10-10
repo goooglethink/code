@@ -158,12 +158,21 @@ docker run -itd --restart=always --name lantern -p 8787:8787 kent72/lantern
 docker run --rm --name lantern -p 8787:8787 kent72/lantern > ~/Documents/lantern.log 2>~/Documents/lantern.error
 
 #使用 Docker 部署 opengrok
-docker run --rm \
+docker run --rm --name opengrok-sever \
     -v /home/google/opengrob/source:/src \
     -v /home/google/opengrob/opengrok_data:/data \
     -p 8888:8080 \
     -d scue/docker-opengrok
-
+# 登录到已创建容器:
+docker exec -it opengrok-server bash
+# 容器中操作:
+root@0a75d4fe98d1:/usr/local/tomcat# pwd
+/usr/local/tomcat
+# 切换到 opengrok 目录:
+cd /opengrok*
+root@0a75d4fe98d1:/opengrok-0.12.1.5#
+# 源码初始化索引:
+/opengrok-0.12.1.5/bin/OpenGrok index /src
 
 
 
