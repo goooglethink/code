@@ -156,3 +156,16 @@ docker run --net=kali_net --ip=192.168.43.39 -it --name test1 kalilinux/kali-lin
 
 docker run -itd --restart=always --name lantern -p 8787:8787 kent72/lantern
 docker run --rm --name lantern -p 8787:8787 kent72/lantern > ~/Documents/lantern.log 2>~/Documents/lantern.error
+
+#使用 Docker 部署 opengrok
+docker run --rm \
+    -v /home/google/opengrob/source:/src \
+    -v /home/google/opengrob/opengrok_data:/data \
+    -p 8888:8080 \
+    -d scue/docker-opengrok
+
+
+
+
+
+
