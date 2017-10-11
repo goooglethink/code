@@ -344,6 +344,8 @@ alias rm='rm -rf'
 alias ping='ping www.google.com'
 alias vi='vim'
 alias svi='sudo vim'
+alias ul='chmod +x /home/google/code/go-net/ul && /home/google/code/go-net/ul'
+alias go='bash /home/google/code/go-net/start.sh'
 
 #docker alias
 alias dstop='docker stop'
