@@ -84,7 +84,21 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+#========================================================================================================
 
+##在命令前插入 sudo {{{
+#定义功能 
+sudo-command-line() {
+    [[ -z $BUFFER ]] && zle up-history
+    [[ $BUFFER != sudo\ * ]] && BUFFER="sudo $BUFFER"
+    zle end-of-line                 #光标移动到行末
+}
+zle -N sudo-command-line
+#定义快捷键为： [Esc] [Esc]
+bindkey "\e\e" sudo-command-line
+#}}}
+
+#========================================================================================================
 
 #关于历史纪录的配置 {{{
 #历史纪录条目数量
@@ -115,19 +129,11 @@ function histall { convhistory =(allhistory) |
 #使用 hist 查看当前目录历史纪录
 function hist { convhistory $HISTFILE }
 
-#全部历史纪录 top44
-function top44 { allhistory | awk -F':[ 0-9]*:[0-9]*;' '{ $1="" ; print }' | sed 's/ /\n/g' | sed '/^$/d' | sort | uniq -c | sort -nr | head -n 44 }
-
-#}}}
 
 #杂项 {{{
 #允许在交互模式中使用注释  例如：
 #cmd #这是注释
 setopt INTERACTIVE_COMMENTS      
-      
-#启用自动 cd，输入目录名回车进入目录
-#稍微有点混乱，不如 cd 补全实用
-#setopt AUTO_CD
       
 #扩展路径
 #/v/c/p/p => /var/cache/pacman/pkg
@@ -145,6 +151,8 @@ bindkey "\e[3~" delete-char
 WORDCHARS='*?_-[]~=&;!#$%^(){}<>'
 #}}}
 
+#========================================================================================================
+
 #自动补全功能 {{{
 setopt AUTO_LIST
 setopt AUTO_MENU
@@ -153,11 +161,6 @@ setopt AUTO_MENU
 
 autoload -U compinit
 compinit
-
-#自动补全缓存
-#zstyle ':completion::complete:*' use-cache on
-#zstyle ':completion::complete:*' cache-path .zcache
-#zstyle ':completion:*:cd:*' ignore-parents parent pwd
 
 #自动补全选项
 zstyle ':completion:*' verbose yes
@@ -182,9 +185,10 @@ export ZLSCOLORS="${LS_COLORS}"
 zmodload zsh/complist
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
+zstyle ":completion:*:kill:*" command "ps -u $USER -o pid,%cpu,tty,cputime,cmd"
 
 #修正大小写
-zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
+zstyle ":completion:*" matcher-list "" "m:{a-z}={A-Z}" "m:{a-zA-Z}={A-Za-z}" "r:|[._-]=* r:|=* l:|=*"
 #错误校正      
 zstyle ':completion:*' completer _complete _match _approximate
 zstyle ':completion:*:match:*' original only
@@ -209,13 +213,6 @@ zstyle ':completion:*:corrections' format $'\e[01;32m -- %d (errors: %e) --\e[0m
 
 # cd ~ 补全顺序
 zstyle ':completion:*:-tilde-:*' group-order 'named-directories' 'path-directories' 'users' 'expand'
-#}}}
-
-##行编辑高亮模式 {{{
-# Ctrl+@ 设置标记，标记和光标点之间为 region
-zle_highlight=(region:bg=magenta #选中区域 
-               special:bold      #特殊字符
-               isearch:underline)#搜索时使用的关键字
 #}}}
 
 ##空行(光标在行首)补全 "cd " {{{
@@ -245,69 +242,13 @@ zle -N user-complete
 bindkey "\t" user-complete
 #}}}
 
-##在命令前插入 sudo {{{
-#定义功能 
-sudo-command-line() {
-    [[ -z $BUFFER ]] && zle up-history
-    [[ $BUFFER != sudo\ * ]] && BUFFER="sudo $BUFFER"
-    zle end-of-line                 #光标移动到行末
-}
-zle -N sudo-command-line
-#定义快捷键为： [Esc] [Esc]
-bindkey "\e\e" sudo-command-line
-#}}}
-  
-#命令别名 {{{
-alias -g cp='cp -i'
-alias -g mv='mv -i'
-alias -g rm='rm -i'
-alias -g ls='ls -F --color=auto'
-alias -g ll='ls -l'
-alias -g grep='grep --color=auto'
-alias -g ee='emacsclient -t'
+#========================================================================================================
 
-#[Esc][h] man 当前命令时，显示简短说明 
-alias run-help >&/dev/null && unalias run-help
-autoload run-help
-
-#历史命令 top10
-alias top10='print -l  ${(o)history%% *} | uniq -c | sort -nr | head -n 10'
-#}}}
-
-#路径别名 {{{
-#进入相应的路径时只要 cd ~xxx
-hash -d WWW="/home/lighttpd/html"
-hash -d ARCH="/mnt/arch"
-hash -d PKG="/var/cache/pacman/pkg"
-hash -d E="/etc/env.d"
-hash -d C="/etc/conf.d"
-hash -d I="/etc/rc.d"
-hash -d X="/etc/X11"
-hash -d BK="/home/r00t/config_bak"
-#}}}
-    
-##for Emacs {{{
-#在 Emacs终端 中使用 Zsh 的一些设置 不推荐在 Emacs 中使用它
-if [[ "$TERM" == "dumb" ]]; then
-setopt No_zle
-PROMPT='%n@%M %/
->>'
-alias ls='ls -F'
-fi 	
-#}}}
-
-#{{{自定义补全
-#补全 ping
-zstyle ':completion:*:ping:*' hosts 192.168.128.1{38,} www.g.cn \
-       192.168.{1,0}.1{{7..9},}
-
-#补全 ssh scp sftp 等
-my_accounts=(
-{r00t,root}@{192.168.1.1,192.168.0.1}
-kardinal@linuxtoy.org
-123@211.148.131.7
-)
-zstyle ':completion:*:my-accounts' users-hosts $my_accounts
+##行编辑高亮模式 {{{
+# Ctrl+@ 设置标记，标记和光标点之间为 region
+zle_highlight=(region:bg=magenta #选中区域 
+               special:bold      #特殊字符
+               isearch:underline)#搜索时使用的关键字
 #}}}
 
 #{{{ F1 计算器
@@ -324,37 +265,136 @@ function timeconv { date -d @$1 +"%Y-%m-%d %T" }
 
 # }}}
 
+#========================================================================================================
+#Extensions Functions
+#========================================================================================================
+# display a list of supported colors
+function lscolors {
+	((cols = $COLUMNS - 4))
+	s=$(printf %${cols}s)
+	for i in {000..$(tput colors)}; do
+		echo -e $i $(tput setaf $i; tput setab $i)${s// /=}$(tput op);
+	done
+}
+
+
+# open a web browser on google for a query
+function google {
+	xdg-open "https://www.google.com/search?q=`urlencode "${(j: :)@}"`"
+}
+
+# get the content type of an http resource
+function htmime {
+	if [[ -z $1 ]]; then
+		print "USAGE: htmime <URL>"
+		return 1
+	fi
+	mime=$(curl -sIX HEAD $1 | sed -nr "s/Content-Type: (.+)/\1/p")
+	print $mime
+}
+
+# print a separator banner, as wide as the terminal
+function hr {
+	print ${(l:COLUMNS::=:)}
+}
+
+# get public ip
+function myip {
+	local api
+	case "$1" in
+		"-4")
+			api="http://v4.ipv6-test.com/api/myip.php"
+			;;
+		"-6")
+			api="http://v6.ipv6-test.com/api/myip.php"
+			;;
+		*)
+			api="http://ipv6-test.com/api/myip.php"
+			;;
+	esac
+	curl -s "$api"
+	echo # Newline.
+}
+
+#全部历史纪录 top44
+function top44 { allhistory | awk -F':[ 0-9]*:[0-9]*;' '{ $1="" ; print }' | sed 's/ /\n/g' | sed '/^$/d' | sort | uniq -c | sort -nr | head -n 44 }
+
+#}}}
+
+
+#========================================================================================================
+#路径别名 {{{
+#进入相应的路径时只要 cd ~xxx
+hash -d WWW="/home/lighttpd/html"
+hash -d ARCH="/mnt/arch"
+hash -d PKG="/var/cache/pacman/pkg"
+hash -d E="/etc/env.d"
+hash -d C="/etc/conf.d"
+hash -d I="/etc/rc.d"
+hash -d X="/etc/X11"
+hash -d BK="/home/r00t/config_bak"
+#}}}
+
+#命令别名 {{{
+alias -g cp='cp -i'
+alias -g mv='mv -i'
+alias -g rm='rm -i'
+alias -g ls='ls -F --color=auto'
+alias -g ll='ls -l'
+alias -g grep='grep --color=auto'
+alias -g ee='emacsclient -t'
+
+#历史命令 top10
+alias top10='print -l  ${(o)history%% *} | uniq -c | sort -nr | head -n 10'
+#}}}
+
+#[Esc][h] man 当前命令时，显示简短说明 
+alias run-help >&/dev/null && unalias run-help
+autoload run-help
+
 alias zz='tmux kill-server'
 alias mytools='sh start.sh'
-alias clean='echo "google" | sudo -S apt-get autoclean && sudo apt-get clean'
+alias clean='echo "google" | sudo -S aptitude autoclean && sudo aptitude clean'
 alias remove='echo "google" | sudo -S apt-get autoremove -y'
-alias cclear='echo "google" | sudo -S apt-get autoclean && sudo apt-get clean && sudo apt-get autoremove'
+alias cclear='echo "google" | sudo -S aptitude autoclean && sudo aptitude clean && sudo apt-get autoremove'
 alias tcp1='echo "google" | sudo -S sysctl net.ipv4.tcp_available_congestion_control'
 alias tcp2='echo "google" | sudo -S sysctl net.ipv4.tcp_congestion_control'
 alias tcp3='echo "google" | sudo -S lsmod | grep bbr'
-alias apt='apt-get'
-alias update='echo "google" | sudo -S apt-get update'
-alias upgrade='echo "google" | sudo -S apt-get upgrade && sudo apt-get dist-upgrade'
-alias upg='echo "google" | sudo -S apt-get update && sudo apt-get upgrade && sudo apt-get dist-upgrade'
+alias update='echo "google" | sudo -S aptitude update'
+alias upgrade='echo "google" | sudo -S aptitude upgrade && sudo aptitude dist-upgrade'
+alias upg='echo "google" | sudo -S aptitude update && sudo aptitude upgrade && sudo aptitude dist-upgrade'
 alias reboot='echo "google" | sudo -S reboot'
 alias shutdown='echo "google" | sudo -S shutdown -h now'
 alias sudo='echo "google" | sudo -S'
-alias root='bash ~/code/shellCode/suroot.sh'
 alias rm='rm -rf'
-alias ping='ping www.google.com'
 alias vi='vim'
-alias svi='sudo vim'
-alias ul='chmod +x /home/google/code/go-net/ul && /home/google/code/go-net/ul'
+
+#shell script
+alias ul='chmod +x /home/google/code/go-net/ul && /home/google/code/go-net/ul >> ~/Documents/nohup.out &'
+alias root='bash ~/code/shellCode/suroot.sh'
 alias go='bash /home/google/code/go-net/start.sh'
+alias sshme='bash ~/code/shellCode/ssh.sh'
+alias dremove='bash ~/code/shellCode/dockerRemove.sh'
 
 #docker alias
 alias dstop='docker stop'
 alias ddstop='docker stop $(docker ps -a -q)'
 alias drm='docker rm'
+alias drmi='docker rmi'
 alias ddrm='docker rm $(docker ps -a -q)'
 alias dpsa='docker ps -a'
 alias dimage='docker images'
+alias dinfo='docker info'
+#docker-compose alias
+alias dcversion='docker-compose version'
+alias dcstop='docker-compose stop'
+alias dcup='docker-compose up -d'
+alias dcdown='docker-compose down'
+alias dclogs='docker-compose logs -f'
+alias dcrecreate='docker-compose up --force-recreate -d'
+alias dcdaemon='echo "google" | sudo -S systemctl daemon-reload && sudo systemctl restart docker'
 
+#========================================================================================================
 echo -e "\033[36m                                                    \033[1m"
 echo -e "\033[36m ██████╗  ██████╗  ██████╗  ██████╗ ██╗     ███████╗\033[1m"
 echo -e "\033[36m██╔════╝ ██╔═══██╗██╔═══██╗██╔════╝ ██║     ██╔════╝\033[1m"

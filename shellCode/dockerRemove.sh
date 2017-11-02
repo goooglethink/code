@@ -2,15 +2,11 @@
 ##############################################
 #Author: GoogleThink
 #Mail:goooglethink@gmail.com
-#Last modified: 2017-10-12 07:45
-#Filename: suroot.sh
+#Last modified: 2017-10-20 20:37
+#Filename: dockerRemove.sh
 #Description:
 ##############################################
 #!/bin/bash
-expect -c "  
-spawn su -  
-expect \":\"  
-send \"google\r\"  
-interact  
-" 
 
+read -p "Please input docker project: " docker
+docker stop $docker && docker rm $docker

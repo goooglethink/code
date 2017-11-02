@@ -1,9 +1,8 @@
-#!/bin/bash
 ##############################################
 #Author: GoogleThink
 #Mail:goooglethink@gmail.com
-#Last modified:2017-10-02 00:33
-#Filename:main.py
+#Last modified: 2017-11-01 07:39
+#Filename: main.py
 #Description:
 ##############################################
 # -*- coding: utf-8 -*-

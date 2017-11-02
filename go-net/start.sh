@@ -24,7 +24,7 @@ if [[ "$java_version" == "" ]]; then
   exit 1
 else
   cd `dirname $0`
-  $java_cmd -Xmx200m -cp lib/gogo.jar io.gogo.GoGo
+  $java_cmd -Xmx200m -cp ./lib/gogo.jar io.gogo.GoGo
   exit 1
 fi
 

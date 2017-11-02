@@ -2,3 +2,8 @@ startup folder		nautilus	Ctrl+Alt+N
 startup stardict	stardict	Ctrl+Alt+M
 startup	guake		guake		Ctrl+Alt+L
 startup	terminator	terminator	Ctrl+Alt+P
+startup google-chrome   google-chrome   Ctrl+Alt+O
+startup Shutter         shutter -s      Ctrl+Alt+A
+startup Pomodoro	Pomodoro	Ctrl+Alt+K
+
+hide all normal windows Super+D

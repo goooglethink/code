@@ -2,6 +2,7 @@
 sudo -S apt-get install guake -y
 sudo apt-get install terminator -y
 sudo apt-get install zsh
+sudo apt-get install aptitude -y
 #-----------------------------------------------------------
 #download
 sudo apt-get install axel -y
@@ -10,9 +11,11 @@ sudo apt-get install uget -y
 sudo apt-get install youtube-dl -y
 #-----------------------------------------------------------
 #bluetooth program
+sudo apt-get install bluetooth
 sudo apt-get install pavucontrol
 sudo apt-get install bluedevil -y
 sudo apt-get install pulseaudio pulseaudio-module-bluetooth pavucontrol bluez-firmware
+sudo apt-get install blueman -y
 #---------------------------------------------------------------
 sudo apt-get install build-essential
 sudo apt-get install build-essential dkms
@@ -25,6 +28,7 @@ sudo apt-get install build-essential linux-headers-$(uname -r) -y
 #sudo apt-get install network-manager-pptp network-manager-pptp-gnome network-manager-strongswan network-manager-vpnc network-manager-vpnc-gnome -y
 #sudo apt-get install realtek-rtl88xxau-dkms 
 sudo apt-get install nscd #dns
+sudo apt-get install pdns-recursor #dns
 #---------------------------------------------------------------
 #net-speeder environment
 sudo apt-get install libnet1
@@ -33,7 +37,7 @@ sudo apt-get install libnet1-dev
 sudo apt-get install libpcap0.8-dev
 #---------------------------------------------------------------
 #Video and Music
-sudo apt-get install vlc -y
+#sudo apt-get install vlc -y
 sudo apt-get install ffmpeg
 sudo apt-get install winff -y
 #---------------------------------------------------------------
@@ -69,7 +73,8 @@ sudo apt-get install ctags
 #sudo apt-get install silversearcher-ag
 #sudo apt-get install netcat -y
 sudo apt-get install stardict -y
-#sudo apt-get install fcitx fcitx-table-wbpy fcitx-config-gtk -y	#input sources
+#sudo apt-get install fcitx fcitx-table-wbpy fcitx-config-gtk fcitx-sunpinyin -y #input sources
+#sudo apt-get install fcitx-table-all -y
 #sudo apt-get install llvm-3.9 clang-3.9 libclang-3.9-dev libboost-all-dev
 sudo apt-get install mtools #UNetbootin
 sudo apt-get install prelink -y

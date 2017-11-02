@@ -1,0 +1,116 @@
+" ==========================================================
+" closed linux bell
+set visualbell
+set noerrorbells
+" 自动缩进
+set autoindent 
+" 智能缩进
+set smartindent 
+" tab为4个空格
+set tabstop=4 
+" 智能tab
+set smarttab 
+" 表示在编辑模式的时候按退格键的时候退回缩进的长度
+set softtabstop=4 
+" Highlight search results
+set hlsearch		
+" Makes search act like search in modern browsers
+set incsearch		
+" Ignore case when searching
+set ignorecase     
+" When searching try to be smart about cases    	
+set smartcase 
+" https://github.com/tpope/vim-surround
+set surround 
+" Always show current position
+set ruler 
+" Height of the command bar
+set cmdheight=2 
+" ==========================================================
+" ==========================================================
+" 相对行号: 行号变成相对，可以用 nj/nk 进行跳转
+set relativenumber number
+au FocusLost * :set norelativenumber number
+au FocusGained * :set relativenumber
+" 插入模式下用绝对行号, 普通模式下用相对
+autocmd InsertEnter * :set norelativenumber number
+autocmd InsertLeave * :set relativenumber
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set norelativenumber number
+  else
+    set relativenumber
+  endif
+endfunc
+nnoremap <C-n> :call NumberToggle()<CR>
+" ==========================================================
+" ==========================================================
+" easy window navigation
+" 切换左边标签
+nnoremap <a-h> gT
+" 切换右边标签	
+nnoremap <a-l> gt	
+" Move Curent Cursor to Left
+nnoremap <C-h> :action VimWindowLeft<CR> 
+" Move Curent Cursor to Down
+nnoremap <C-j> :action VimWindowDown<CR> 
+" Move Curent Cursor to Up
+nnoremap <C-k> :action VimWindowUp<CR> 
+" Move Curent Cursor to Right
+nnoremap <C-l> :action VimWindowRight<CR> 
+" Create a Window Horizontally
+nnoremap hsp :action SplitHorizontally<CR><C-j> 
+" Create a Window Vertically
+nnoremap vsp :action SplitVertically<CR><C-l> 
+
+nnoremap <C-w>j :action MoveTabDown<CR>
+nnoremap <C-w>l :action MoveTabRight<CR>
+nnoremap <C-w>u :action Unsplit<CR>
+nnoremap <C-w>uu :action UnsplitAll<CR>
+
+" unimpaired mappings
+nnoremap [<Space> O<esc>j
+nnoremap ]<Space> o<esc>k
+nnoremap [m :action MethodUp<CR>
+nnoremap ]m :action MethodDown<CR>
+nnoremap ]] :action MethodDown<CR>
+nnoremap [[ :action MethodUp<CR>
+" ==========================================================
+" ==========================================================
+" <leader> shurtcut
+let mapleader=','
+" Toggle StatusBar
+nnoremap <Leader>st :action ViewStatusBar<CR> 
+" System terminal
+nnoremap <leader>at :action ActivateTerminalToolWindow<CR>
+" exit idea
+map <leader>qq :action Exit<CR>
+" ==========================================================
+" ==========================================================
+" space actions
+nnoremap <space>q :action CloseContent<CR> 	
+nnoremap <space>\ :action VimFilePrevious<CR> 	
+nnoremap <space>e :action SearchEverywhere<CR> 	
+nnoremap <space>E :action Switcher<CR> 	
+" Acejump
+nnoremap <space>s :action AceAction<CR> 
+" Show Tabs on Top
+nmap <space>tt :action TabsPlacementTop<CR>
+" Hide Tabs
+nmap <space>tn :action TabsPlacementNone<CR>	
+
+nnoremap <space>w       :w<CR>
+nnoremap <space>a     <ESC>A;<ESC>
+" ==========================================================
+" ==========================================================
+"Run/Debug Action
+nnoremap \r :action RunClass<CR>
+nnoremap \R :action Run<CR>
+nnoremap \d :action DebugClass<CR>
+nnoremap \D :action Debug<CR>
+
+" code refactoring
+nnoremap cre :action RenameElement<CR>
+
+
+

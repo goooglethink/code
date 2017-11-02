@@ -14,4 +14,4 @@ sudo macchanger -m aa:bb:cc:dd:ee:ff wlan0
 sudo ifconfig wlan0 up
 
 
-service network-manager restart
+sudo service network-manager restart

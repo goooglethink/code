@@ -10,7 +10,7 @@ you-get -x 127.0.0.1:9666 --info <URL>
 #下载默认画质
 you-get <URL>
 you-get -x 127.0.0.1:9666 <URL>
- you-get --http-proxy 127.0.0.1:9666 <URL>
+you-get --http-proxy 127.0.0.1:9666 <URL>
 
 #下载其他格式
 you-get --itag=<number> <URL>

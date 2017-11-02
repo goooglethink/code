@@ -1,0 +1,52 @@
+1.Type less, accomplish more
+2.DRY, don't repeat yourself
+3.Care about your too
+
+history |
+>touch test |
+>echo "google" > test
+
+^ : 删掉多余部分
+mkidrr test
+^r
+mkidr test
+
+^old^cover : 替换指定的部分代码，主要用于改错
+ls /eettc/
+^eett^et
+ls /etc/
+echo 'googlethinnk'
+^nn^n
+echo 'googlethink'
+
+了解历史记录的大小
+echo $HISTSIZE
+历史记录的保存位置
+echo $HISTFILE
+查看历史
+history | less
+
+!! : 执行上一条命令
+!!
+sudo !!
+!his : 执行以his开头的历史命令
+!?is : 执行包含is开头的历史命令
+!n :  执行第 n 个命令
+
+!#: :  引用当前行
+cp filename !#:1.txt
+cp filename filename.txt
+cp filename !#:1
+cp filename filename
+
+!$ : 得到上一条命令的最后一位参数
+mkdir videos
+cd !$ [shutcut : alt + .]
+!^ :  得到上一条命令的第一个参数
+
+命令替换 $() 和 ``
+DIRS=$(ls)
+for f in $DIRS
+do
+	echo $f
+	done

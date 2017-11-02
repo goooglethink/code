@@ -228,7 +228,7 @@ sudo mkfs.ntfs /dev/sdd1
 sudo mkfs.vfat /dev/sdd1
 删除U盘分区
 sudo fdisk /dev/sdd
-Enter: d w 
+Enter: d w
 创建U盘挂载点
 sudo mkdir /mnt
 挂载U盘
@@ -236,10 +236,14 @@ sudo mount /dev/sde1 /mnt
 
 
 系统包管理器
-# 检索新的包列表
+# 更新源
 sudo apt-get update
-# 升级可更新的所有软件包
+# 更新已安装的包
 sudo apt-get upgrade
+# 升级系统
+sudo apt-get dist-upgrade
+# 使用 dselect 升级
+sudo apt-get dselect-upgrade
 # 安装 xxx 软件包
 sudo apt-get install xxx -y
 # 卸载 xxx 软件包(卸载，保留配置文件)
@@ -250,6 +254,24 @@ sudo apt-get purge xxx -y
 sudo apt-get remove --purge xxx -y
 # 自动删除已下载归档文件
 sudo apt-get autoclean && sudo apt-get clean && sudo apt-get autoremove
+#检查是否有损坏的依赖
+sudo apt-get check
+#更新可用的包列表
+aptitude update
+#升级可用的包
+aptitude upgrade
+#将系统升级到新的发行版
+aptitude dist-upgrade
+#安装包
+aptitude install xxx
+#删除包
+aptitude remove xxx
+#删除包及其配置文件
+aptitude purge xxx
+#删除下载的包文件
+aptitude clean
+#仅删除过期的包文件
+aptitude autoclean
 
 
 chmod 修改文件/文件夹权限

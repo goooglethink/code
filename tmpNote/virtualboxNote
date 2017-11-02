@@ -14,3 +14,6 @@ sudo /mnt/VBoxLinuxAdditions.run
 sudo gedit /etc/group
 vboxusers:x:126:google
 shutdown -r now
+
+
+

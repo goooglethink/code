@@ -26,12 +26,15 @@ class NetworkFunction(object):
             os.system('bash ~/code/shellCode/go-net.sh')
             print('')
         elif value == 4:
-            os.system('echo "google" | sudo -S sh ~/code/net-speeder-master/build.sh')
-            os.system('sudo ~/code/net-speeder-master/net_speeder wlan0 "ip"')
+            os.system('echo "google" | sudo -S sh ~/code/net-speeder/build.sh')
+            os.system('sudo ~/code/net-speeder/net_speeder wlan0:0 "tcp"')
             print('')
         elif value == 5:
             os.system('echo "google" | sudo -S /etc/init.d/networking restart');
             os.system('echo "google" | sudo -S /etc/init.d/nscd restart');
+            os.system('echo "google" | sudo systemctl restart NetworkManager');
+        elif value == 6:
+            os.system('bash ~/code/shellCode/macChange.sh')
             print('')
 
     def setNetworkFunction(self):
@@ -54,6 +57,9 @@ class NetworkFunction(object):
                 self.getShellCommand(value)
                 DelPrint.DelPrint().delNetworkPrint()
             elif value == 5:
+                self.getShellCommand(value)
+                DelPrint.DelPrint().delNetworkPrint()
+            elif value == 6:
                 self.getShellCommand(value)
                 DelPrint.DelPrint().delNetworkPrint()
             elif value == 0:

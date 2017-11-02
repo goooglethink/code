@@ -35,6 +35,8 @@ Ctrl + Shift + 1,2,3...9	快速添加指定数值的书签
 Ctrl + 1,2,3...9	定位到对应数值的书签位置 
 Alt + Shift + F9	弹出 Debug 的可选择菜单
 Alt + Shift + F10	弹出 Run 的可选择菜单
+Ctrl + Shift + F12 	隐藏/恢复所有窗口
+Ctrl + Shift + F4 	关闭活动选项卡
 
 
 缩写补全:
