@@ -6,79 +6,99 @@
 "#Description:
 "##############################################
 
-" F2			打开,关闭树形目录结构
-" F8			打开google-chrome预览
-" F9			关闭google-chrome预览
-" F5			添加作者信息
+" F2            打开,关闭树形目录结构
+" F8            打开google-chrome预览(仅markdown文件)
+" F9            关闭google-chrome预览(仅markdown文件)
+" F5            添加作者信息
 
 " ----------- Ctrl 系按键 -----------
 " 多光标操作(选中后, 可以进行增删替换c/x)
-" ctrl+m		 选中一个
-" ctrl+p		 放弃一个, 回到上一个
-" ctrl+x		 跳过当前选中, 选中下一个
-" esc			 退出
+" ctrl+m        选中一个
+" ctrl+p        放弃一个, 回到上一个
+" ctrl+x        跳过当前选中, 选中下一个
+" esc           退出
 
 " 分屏操作
-" ctrl + h		鼠标向左移动
-" ctrl + j		鼠标向下移动
-" ctrl + k		鼠标向上移动
-" ctrl + l		鼠标向右移动
+" ctrl + h      鼠标向左移动
+" ctrl + j      鼠标向下移动
+" ctrl + k      鼠标向上移动
+" ctrl + l      鼠标向右移动
 
 " 新标签页
-" ctrl + tt		新建标签页
-" ctrl + tw		关闭标签页
-" shift + h		切换到左边的标签页
-" shift + l		切换到右边的标签页
+" ctrl + tt     新建标签页
+" ctrl + tw     关闭标签页
+" shift + h     切换到左边的标签页
+" shift + l     切换到右边的标签页
 
 " ---------- Leader 系按键 ----------
 " 快速跳转,输入要搜索的字母
-" ,,w			跳转到当前光标前的位置
-" ,,b			跳转到当前光标后的位置
-" ,,s			搜索跳转
-" ,,j			向下行跳转
-" ,,k			向上行跳转
-" ,,h			向行内左边跳转
-" ,,l			向行内左边跳转
-" ,,.			重复上一次操作
+" ,,w           跳转到当前光标前的位置
+" ,,b           跳转到当前光标后的位置
+" ,,s           搜索跳转
+" ,,j           向下行跳转
+" ,,k           向上行跳转
+" ,,h           向行内左边跳转
+" ,,l           向行内左边跳转
+" ,,.           重复上一次操作
 
 " 文件搜索
-" ,f			模糊搜索最近打开的文件(MRU)
-" ,p			模糊搜索当前目录及其子目录下的所有文件
+" ,f            模糊搜索最近打开的文件(MRU)
+" ,p            模糊搜索当前目录及其子目录下的所有文件
 " 打搜索框,打开方式
-" ctrl + j/k		进行上下选择
-" ctrl + x		在当前窗口水平分屏打开文件
-" ctrl + v		同上, 垂直分屏
-" ctrl + t		在tab中打开
+" ctrl + j/k    进行上下选择
+" ctrl + x      在当前窗口水平分屏打开文件
+" ctrl + v      同上, 垂直分屏
+" ctrl + t      在tab中打开
 
-" ,<space>		一键去除所有行尾空格
+" ,<space>      一键去除所有行尾空格
 
 " 区域选中
-" v			选中指定范围
-" V			选中整合范围
+" v             选中指定范围
+" V             选中整合范围
 
-" ,zz			代码折叠或展开
+" ,zz           代码折叠或展开
 
 " 分割窗口
-" ,kw			向上分割
-" ,jw			向下分割
-" ,hw			向左分割
-" ,lw			向右分割
+" ,kw           向上分割
+" ,jw           向下分割
+" ,hw           向左分割
+" ,lw           向右分割
 
-" ,c			复制到寄存器，系统通用
-" ,a			复制所有到寄存器，系统通用
-" ,v			将系统剪贴板复制到vim
+" ,c            复制到寄存器，系统通用
+" ,a            复制所有到寄存器，系统通用
+" ,v            将系统剪贴板复制到vim
 
-" ,sh			窗口移到左边
-" ,sl			窗口移到右边
+" ,sh           窗口移到左边
+" ,sl           窗口移到右边
+
+" ,w            保存文本文件
+" ,q            退出当前的文本
+" ,qq           退出全部的文本文件
+" ,cc           注释当行
+" ,cu           取消当行的注释
+
+" 快速对齐
+" ,a=           对齐等号表达(常用)
+" ,a:           对齐冒号表达式(常用)
+" ,a"           对齐引号表达式(常用)
+" 默认左对齐
+" ,a<space>     首个空格对齐
+" ,a2<space>    第二个空格对齐
+" ,a-<space>    倒数第一个空格对齐(常用)
+" ,a-2<space>   倒数第二个空格对齐
+" ,a*<space>    所有空格依次对齐
+" 右对齐
+" ,a<Enter>*<space>
 
 " ------------ Other ------------
 " 相对行号,行号变成相对(n代表行数)
-" nj			向下跳转
-" nk			向上跳转
+" nj            向下跳转
+" nk            向上跳转
 
-" >			向右缩进
-" <			向左缩进
+" >             向右缩进
+" <             向左缩进
 
+" jj            退回正常模式
 
 " install bundles "
 if filereadable(expand("~/.vimrc.bundles"))
@@ -99,24 +119,25 @@ call vundle#begin()
 " The following are examples of different formats supported. "
 " Keep Plugin commands between vundle#begin/end. "
 " plugin on GitHub repo "
-Plugin 'VundleVim/Vundle.vim'			"let Vundle manage Vundle, required "
-Plugin 'bling/vim-airline'			"美化状态栏"
-Plugin 'scrooloose/nerdtree'			"给vim添加一个树形目录"
-Plugin 'Yggdroot/indentLine'			"缩进指示线"
-Plugin 'jiangmiao/auto-pairs' 			"括号和引号自动补全"
-Plugin 'tell-k/vim-autopep8'			"标准自动格式化代码"
-Plugin 'scrooloose/nerdcommenter'		"方便的写注释"
-Plugin 'scrooloose/syntastic'			"语法检查"
-Plugin 'Lokaltog/vim-easymotion'		"快速跳转"
-Plugin 'terryma/vim-multiple-cursors'		"多光标操作"
-Plugin 'kien/rainbow_parentheses.vim'		"括号高亮"
-Plugin 'ctrlpvim/ctrlp.vim'			"文件搜索"
-Plugin 'bronson/vim-trailing-whitespace'	"行尾空格处理"
-Plugin 'terryma/vim-expand-region'		"区域选中"
-Plugin 'tmux-plugins/vim-tmux-focus-events'	"vim-tmux-clipboard的依赖插件"
-Plugin 'roxma/vim-tmux-clipboard'		"Vim 和 Tmux 的剪切板共享"
-Plugin 'iamcco/mathjax-support-for-mkdp'	"markdown-preview辅助"
-Plugin 'iamcco/markdown-preview.vim'		"markdown预览"
+Plugin 'VundleVim/Vundle.vim'               "let Vundle manage Vundle, required "
+Plugin 'bling/vim-airline'                  "美化状态栏"
+Plugin 'scrooloose/nerdtree'                "给vim添加一个树形目录"
+Plugin 'Yggdroot/indentLine'                "缩进指示线"
+Plugin 'jiangmiao/auto-pairs'               "括号和引号自动补全"
+Plugin 'tell-k/vim-autopep8'                "标准自动格式化代码"
+Plugin 'scrooloose/nerdcommenter'           "方便的写注释"
+Plugin 'scrooloose/syntastic'               "语法检查"
+Plugin 'Lokaltog/vim-easymotion'            "快速跳转"
+Plugin 'terryma/vim-multiple-cursors'       "多光标操作"
+Plugin 'kien/rainbow_parentheses.vim'       "括号高亮"
+Plugin 'ctrlpvim/ctrlp.vim'                 "文件搜索"
+Plugin 'bronson/vim-trailing-whitespace'    "行尾空格处理"
+Plugin 'terryma/vim-expand-region'          "区域选中"
+Plugin 'tmux-plugins/vim-tmux-focus-events' "vim-tmux-clipboard的依赖插件"
+Plugin 'roxma/vim-tmux-clipboard'           "Vim 和 Tmux 的剪切板共享"
+Plugin 'iamcco/mathjax-support-for-mkdp'    "markdown-preview辅助"
+Plugin 'iamcco/markdown-preview.vim'        "markdown预览"
+Plugin 'junegunn/vim-easy-align'            "快速对齐"
 
 " All of your Plugins must be added before the following line "
 call vundle#end()            " required "
@@ -239,10 +260,10 @@ let g:NERDSpaceDelims=1
 "--------------------------------------------------------------"
 "------------------scrooloose/syntastic------------------------"
 "--------------------------------------------------------------"
-let g:syntastic_error_symbol='✗'	" 设置错误符号 "
-let g:syntastic_warning_symbol='⚠'	" 设置警告符号 "
-let g:syntastic_check_on_open=0		" 是否在打开文件时检查"
-let g:syntastic_check_on_wq=1		" 是否在保存文件后检查 "
+let g:syntastic_error_symbol='✗'    " 设置错误符号 "
+let g:syntastic_warning_symbol='⚠'  " 设置警告符号 "
+let g:syntastic_check_on_open=0     " 是否在打开文件时检查"
+let g:syntastic_check_on_wq=1       " 是否在保存文件后检查 "
 let g:syntastic_stl_format = '[%E{%e Errors}%B{, }%W{%w Warnings}]'
 let g:syntastic_enable_highlighting=1
 let g:syntastic_python_checkers=['pyflakes'] " 使用pyflakes,速度比pylint快
@@ -253,7 +274,7 @@ highlight SyntasticErrorSign guifg=white guibg=black
 
 " to see error location list
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0		"下栏提示"
+let g:syntastic_auto_loc_list = 0       "下栏提示"
 let g:syntastic_loc_list_height = 5
 function! ToggleErrors()
     let old_last_winnr = winnr('$')
@@ -271,8 +292,8 @@ set statusline+=%*
 " nnoremap <Leader>sp :lprevious<cr>
 let g:syntastic_python_checkers=['pylint']
 let g:syntastic_python_pylint_args='--disable=C0111,R0903,C0301'
-highlight link SyntasticError ErrorMsg		"程式碼內的錯誤提示"
-highlight link SyntasticErrorSign WarningMsg	"一行有錯誤的那個箭頭。"
+highlight link SyntasticError ErrorMsg      "程式碼內的錯誤提示"
+highlight link SyntasticErrorSign WarningMsg    "一行有錯誤的那個箭頭。"
 "--------------------------------------------------------------"
 
 "--------------------------------------------------------------"
@@ -368,7 +389,7 @@ vmap V <Plug>(expand_region_shrink)
 "--------------------------------------------------------------"
 
 "--------------------------------------------------------------"
-"--------------------------------------------------------------"
+"-------------iamcco/markdown-preview.vim----------------------"
 "--------------------------------------------------------------"
 nmap <silent> <F8> <Plug>MarkdownPreview        " 普通模式
 imap <silent> <F8> <Plug>MarkdownPreview        " 插入模式
@@ -386,6 +407,17 @@ let g:mkdp_auto_close = 1
 let g:mkdp_refresh_slow = 0
 " 设置为 1 则所有文件都可以使用 MarkdownPreview 进行预览，默认只有markdown文件可以使用改命令
 let g:mkdp_command_for_global = 0
+"--------------------------------------------------------------"
+
+"--------------------------------------------------------------"
+"---------------junegunn/vim-easy-align------------------------"
+"--------------------------------------------------------------"
+vmap <Leader>a <Plug>(EasyAlign)
+nmap <Leader>a <Plug>(EasyAlign)
+if !exists('g:easy_align_delimiters')
+  let g:easy_align_delimiters = {}
+endif
+let g:easy_align_delimiters['#'] = { 'pattern': '#', 'ignore_groups': ['String'] }
 "--------------------------------------------------------------"
 "============================================================================================="
 
@@ -431,7 +463,7 @@ endfunc
 "------------------------------------------------------------------------------------"
 
 "------------------------------------------------------------------------------------"
-set foldenable		"代码折叠"
+set foldenable      "代码折叠"
 " 折叠方法 "
 " manual    手工折叠 "
 " indent    使用缩进表示折叠 "
@@ -467,18 +499,18 @@ set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 set helplang=cn
 
 fun! ViewUTF8()
-	set encoding=utf-8
-	set termencoding=big5
+    set encoding=utf-8
+    set termencoding=big5
 endfun
 fun! UTF8()
-	set encoding=utf-8
-	set termencoding=big5
-	set fileencoding=utf-8
-	set fileencodings=ucs-bom,big5,utf-8,latin1
+    set encoding=utf-8
+    set termencoding=big5
+    set fileencoding=utf-8
+    set fileencodings=ucs-bom,big5,utf-8,latin1
 endfun
 fun! Big5()
-	set encoding=big5
-	set fileencoding=big5
+    set encoding=big5
+    set fileencoding=big5
 endfun
 
 " Use Unix as the standard file type "
@@ -519,12 +551,12 @@ endif
 
 "------------------------------------------------------------------------------------"
 "Font color
-hi Identifier ctermfg=81 cterm=bold	"关键字加粗"
-hi Comment ctermfg=159			"注释颜色"
-hi String ctermfg=224 			"字符串颜色"
-hi Number ctermfg=9			"数字颜色"
+hi Identifier ctermfg=81 cterm=bold "关键字加粗"
+hi Comment ctermfg=159          "注释颜色"
+hi String ctermfg=224           "字符串颜色"
+hi Number ctermfg=9         "数字颜色"
 hi Constant ctermfg=blue
-hi Statement ctermfg=red	"语言关键字颜色"
+hi Statement ctermfg=red    "语言关键字颜色"
 " 设置可以高亮的关键字
 if has("autocmd")
   " Highlight TODO, FIXME, NOTE, etc.
@@ -616,7 +648,7 @@ autocmd BufReadPost *
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 " 回车即选中当前项 "
-inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
+" inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
 
 " command-line window "
 autocmd CmdwinEnter * nnoremap <buffer> <CR> <CR>
@@ -705,68 +737,64 @@ let g:vim_markdown_frontmatter = 1
 "=============================================================="
 "=====================GeneralSettings=========================="
 "=============================================================="
-"{{{
 " 去掉输入错误的提示声音
 set novisualbell
 set noerrorbells
 set t_vb=
 set tm=500
-"}}}
 
-"{{{
-syntax enable             	" 打开语法高亮
-syntax on			" 开启文件类型侦测
-filetype on			" 检测文件类型 "
-filetype indent on		" 针对不同的文件类型采用不同的缩进格式
-filetype plugin on		" 针对不同的文件类型加载对应的插件
-filetype plugin indent on    	" 启用自动补全
-"}}}
+syntax enable                                 " 打开语法高亮
+syntax on                                     " 开启文件类型侦测
+filetype on                                   " 检测文件类型
+filetype indent on                            " 针对不同的文件类型采用不同的缩进格式
+filetype plugin on                            " 针对不同的文件类型加载对应的插件
+filetype plugin indent on                     " 启用自动补全
 
-set autoread			" 文件修改之后自动载入 "
-set shortmess=atI		" 启动的时候不显示那个援助乌干达儿童的提示 "
-set nobackup			" 取消备份。 视情况自己改 "
-set noswapfile			" 关闭交换文件 "
-set number			" 显示行号"
-set ignorecase        		" 不区分大小写"
-set incsearch			" 查找时自动跳转"
-set tabstop=4    		" 设置Tab键宽度"
-set shiftwidth=4        	" 表示每一级缩进的长度"
-set smartindent			" 提供自动缩进"
-set softtabstop=4		" 表示在编辑模式的时候按退格键的时候退回缩进的长度"
-set cindent        		" 设置C样式的缩进格式"
-set fileformat=unix    		" 设置以unix的格式保存文件"
-set autoindent			" 自动缩进"
-set noexpandtab        		" 不允许扩展Tab键,意思是不要用空格键代替空格"
-set fenc=utf-8     		" 文件编码"
-set nowrap    			" 设置不折行"
-set showmatch    		" 高亮显示匹配的括号"
-set guifont=Monaco:h14		" 设置字体"
-set background=dark		" 设置背景颜色"
-set scrolloff=5        		" 在上下移动光标时，光标的上方或下方至少会保留显示的行数"
-set laststatus=2   		" 状态行为两行,启动显示状态行"
-set hlsearch			" 高亮搜索项"
-set matchtime=5			" 匹配括号高亮的时间"
-set cursorline        		" 突出显示当前行"
-set cursorcolumn        	" 突出显示当前列"
-set ruler			" 显示标尺，就是在右下角显示光标位置"
-set backspace=eol,start,indent	" 设置使回格键处理indent, eol, start"
-set whichwrap+=h,l,b,s,<,>,[,] 	" 允许backspace和光标键跨越行边界"
-set mouse=a        		" 启用鼠标"
-set smartcase 			" 有一个或以上大写字母时仍大小写敏感
-set shiftround 			" 缩进时，取整 use multiple of shiftwidth when indenting with '<' and '>'
-set selection=inclusive	 	" 可以在buffer的任何地方使用鼠标"
-set selectmode=mouse,key 	" 可以在buffer的任何地方使用鼠标"
-set history=2000		" history存储容量"
-set nocompatible		" be iMproved, required " "去掉vi的一致性"
-set t_ti= t_te=			" 设置 退出vim后，内容显示在终端屏幕, 可以用于查看和复制, 不需要可以去掉
-set nrformats=			" 00x增减数字时使用十进制 "
-set title			" change the terminal's title "
-set magic			" For regular expressions turn magic on
-set clipboard=unnamed 		" Vim 与系统剪切板共享
-set completeopt=longest,menu	" 自动补全配置 "
-set wildmenu			" 增强模式中的命令行自动完成操作 "
-set wildignore=*.swp,*.bak,*.pyc,*.class,.svn	" Ignore compiled files "
-set hidden			" A buffer becomes hidden when it is abandoned
+set autoread                                  " 文件修改之后自动载入 "
+set shortmess=atI                             " 启动的时候不显示那个援助乌干达儿童的提示 "
+set nobackup                                  " 取消备份。 视情况自己改 "
+set noswapfile                                " 关闭交换文件 "
+set number                                    " 显示行号"
+set ignorecase                                " 不区分大小写"
+set incsearch                                 " 查找时自动跳转"
+set tabstop=4                                 " 设置Tab键宽度"
+set shiftwidth=4                              " 表示每一级缩进的长度"
+set smartindent                               " 提供自动缩进"
+set softtabstop=4                             " 表示在编辑模式的时候按退格键的时候退回缩进的长度"
+set cindent                                   " 设置C样式的缩进格式"
+set fileformat=unix                           " 设置以unix的格式保存文件"
+set autoindent                                " 自动缩进"
+set noexpandtab                               " 不允许扩展Tab键,意思是不要用空格键代替空格"
+set fenc=utf-8                                " 文件编码"
+set nowrap                                    " 设置不折行"
+set showmatch                                 " 高亮显示匹配的括号"
+set guifont=Monaco:h14                        " 设置字体"
+set background=dark                           " 设置背景颜色"
+set scrolloff=5                               " 在上下移动光标时，光标的上方或下方至少会保留显示的行数"
+set laststatus=2                              " 状态行为两行,启动显示状态行"
+set hlsearch                                  " 高亮搜索项"
+set matchtime=5                               " 匹配括号高亮的时间"
+set cursorline                                " 突出显示当前行"
+set cursorcolumn                              " 突出显示当前列"
+set ruler                                     " 显示标尺，就是在右下角显示光标位置"
+set backspace=eol,start,indent                " 设置使回格键处理indent, eol, start"
+set whichwrap+=h,l,b,s,<,>,[,]                " 允许backspace和光标键跨越行边界"
+set mouse=a                                   " 启用鼠标"
+set smartcase                                 " 有一个或以上大写字母时仍大小写敏感
+set shiftround                                " 缩进时，取整 use multiple of shiftwidth when indenting with '<' and '>'
+set selection=inclusive                       " 可以在buffer的任何地方使用鼠标"
+set selectmode=mouse,key                      " 可以在buffer的任何地方使用鼠标"
+set history=2000                              " history存储容量"
+set nocompatible                              " be iMproved, required " "去掉vi的一致性"
+set t_ti= t_te=                               " 设置 退出vim后，内容显示在终端屏幕, 可以用于查看和复制, 不需要可以去掉
+set nrformats=                                " 00x增减数字时使用十进制 "
+set title                                     " change the terminal's title "
+set magic                                     " For regular expressions turn magic on
+set clipboard=unnamed                         " Vim 与系统剪切板共享
+set completeopt=longest,menu                  " 自动补全配置 "
+set wildmenu                                  " 增强模式中的命令行自动完成操作 "
+set wildignore=*.swp,*.bak,*.pyc,*.class,.svn " Ignore compiled files "
+set hidden                                    " A buffer becomes hidden when it is abandoned
+set expandtab                                 " 解决普通文本和vim的空格的兼容性
 set wildmode=list:longest
 set ttyfast
-set expandtab
