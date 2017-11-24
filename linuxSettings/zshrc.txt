@@ -1,3 +1,55 @@
+##############################################
+#Author: GoogleThink
+#Mail:goooglethink@gmail.com
+#Last modified:2017-11-03 23:09
+#Filename:.zshrc
+#Description:
+##############################################
+
+# source <fileName>     立即生效
+
+# -----------Functions-------------
+# <Esc> <Esc>           快速添加sudo
+
+# lscolors              显示终端所有颜色
+
+# google                google搜索
+# baidu                 baidu搜索
+# bing                  bing搜索
+# yahoo                 yahoo搜索
+# yandex                yandex搜索
+
+# hr                    输入一条分割线
+
+# myip                  显示个人ip地址
+
+# -----------Ctrl shortcut-------------
+
+# ctrl+f	            在提示区域右移光标
+# ctrl+b	            在提示区域右移光标
+# ctrl+n	            在提示区域右移光标
+# ctrl+p	            在提示区域右移光标
+
+# Alt+f  	            在终端输入按单词前移（右向）
+# Alt+b  	            在终端输入按单词后移（左向）
+
+# ctrl+a	            移到命令行首
+# ctrl+e	            移到命令行尾
+
+# ctrl+l	            清屏
+# ctrl+c	            终止
+
+# ctrl+k	            从光标处删除至命令行尾
+# ctrl+u	            从光标处删除至命令行首
+# Alt+d  	            从光标处删除至字尾
+# ctrl+d	            删除光标处的字符
+# ctrl+h	            删除光标前的字符
+# alt+d		            删除当前光标到临近右边单词开始
+# rl+w		            删除此处到左边的单词
+
+# ctrl+d 	            关闭终端
+
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -85,21 +137,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #========================================================================================================
-
-##在命令前插入 sudo {{{
-#定义功能
-sudo-command-line() {
-    [[ -z $BUFFER ]] && zle up-history
-    [[ $BUFFER != sudo\ * ]] && BUFFER="sudo $BUFFER"
-    zle end-of-line                 #光标移动到行末
-}
-zle -N sudo-command-line
-#定义快捷键为： [Esc] [Esc]
-bindkey "\e\e" sudo-command-line
-#}}}
-
 #========================================================================================================
-
+# History
+#========================================================================================================
 #关于历史纪录的配置 {{{
 #历史纪录条目数量
 export HISTSIZE=10000
@@ -150,9 +190,7 @@ bindkey "\e[3~" delete-char
 #以下字符视为单词的一部分
 WORDCHARS='*?_-[]~=&;!#$%^(){}<>'
 #}}}
-
 #========================================================================================================
-
 #自动补全功能 {{{
 setopt AUTO_LIST
 setopt AUTO_MENU
@@ -244,30 +282,19 @@ bindkey "\t" user-complete
 
 #========================================================================================================
 
-##行编辑高亮模式 {{{
-# Ctrl+@ 设置标记，标记和光标点之间为 region
-zle_highlight=(region:bg=magenta #选中区域
-               special:bold      #特殊字符
-               isearch:underline)#搜索时使用的关键字
-#}}}
-
-#{{{ F1 计算器
-arith-eval-echo() {
-  LBUFFER="${LBUFFER}echo \$(( "
-  RBUFFER=" ))$RBUFFER"
-}
-zle -N arith-eval-echo
-bindkey "^[[11~" arith-eval-echo
-#}}}
-
-####{{{
-function timeconv { date -d @$1 +"%Y-%m-%d %T" }
-
-# }}}
-
 #========================================================================================================
 #Extensions Functions
 #========================================================================================================
+##在命令前插入 sudo
+sudo-command-line() {
+    [[ -z $BUFFER ]] && zle up-history
+    [[ $BUFFER != sudo\ * ]] && BUFFER="sudo $BUFFER"
+    zle end-of-line                 #光标移动到行末
+}
+zle -N sudo-command-line
+#定义快捷键为： [Esc] [Esc]
+bindkey "\e\e" sudo-command-line
+
 # display a list of supported colors
 function lscolors {
 	((cols = $COLUMNS - 4))
@@ -277,20 +304,13 @@ function lscolors {
 	done
 }
 
-
-# open a web browser on google for a query
-function google {
+# open a web browser on search website for a query
+function seach {
 	xdg-open "https://www.google.com/search?q=`urlencode "${(j: :)@}"`"
-}
-
-# get the content type of an http resource
-function htmime {
-	if [[ -z $1 ]]; then
-		print "USAGE: htmime <URL>"
-		return 1
-	fi
-	mime=$(curl -sIX HEAD $1 | sed -nr "s/Content-Type: (.+)/\1/p")
-	print $mime
+	xdg-open "https://www.baidu.com/search?q=`urlencode "${(j: :)@}"`"
+	xdg-open "https://www.bing.com/search?q=`urlencode "${(j: :)@}"`"
+	xdg-open "https://search.yahoo.com/search?q=`urlencode "${(j: :)@}"`"
+	xdg-open "https://www.yandex.com/search?q=`urlencode "${(j: :)@}"`"
 }
 
 # print a separator banner, as wide as the terminal
@@ -316,26 +336,75 @@ function myip {
 	echo # Newline.
 }
 
-#全部历史纪录 top44
-function top44 { allhistory | awk -F':[ 0-9]*:[0-9]*;' '{ $1="" ; print }' | sed 's/ /\n/g' | sed '/^$/d' | sort | uniq -c | sort -nr | head -n 44 }
+# docker functions
+function docker-enter() {
+    #if [ -e $(dirname "$0")/nsenter ]; then
+    #Change for centos bash running
+    if [ -e $(dirname '$0')/nsenter ]; then
+        # with boot2docker, nsenter is not in the PATH but it is in the same folder
+        NSENTER=$(dirname "$0")/nsenter
+    else
+        # if nsenter has already been installed with path notified, here will be clarified
+        NSENTER=$(which nsenter)
+        #NSENTER=nsenter
+    fi
+    [ -z "$NSENTER" ] && echo "WARN Cannot find nsenter" && return
 
-#}}}
+    if [ -z "$1" ]; then
+        echo "Usage: `basename "$0"` CONTAINER [COMMAND [ARG]...]"
+        echo ""
+        echo "Enters the Docker CONTAINER and executes the specified COMMAND."
+        echo "If COMMAND is not specified, runs an interactive shell in CONTAINER."
+    else
+        PID=$(sudo docker inspect --format "{{.State.Pid}}" "$1")
+        if [ -z "$PID" ]; then
+            echo "WARN Cannot find the given container"
+            return
+        fi
+        shift
 
+        OPTS="--target $PID --mount --uts --ipc --net --pid"
+
+        if [ -z "$1" ]; then
+            # No command given.
+            # Use su to clear all host environment variables except for TERM,
+            # initialize the environment variables HOME, SHELL, USER, LOGNAME, PATH,
+            # and start a login shell.
+            #sudo $NSENTER "$OPTS" su - root
+            sudo $NSENTER --target $PID --mount --uts --ipc --net --pid su - root
+        else
+            # Use env to clear all host environment variables.
+            sudo $NSENTER --target $PID --mount --uts --ipc --net --pid env -i $@
+        fi
+    fi
+}
+#========================================================================================================
 
 #========================================================================================================
-#路径别名 {{{
-#进入相应的路径时只要 cd ~xxx
-hash -d WWW="/home/lighttpd/html"
-hash -d ARCH="/mnt/arch"
-hash -d PKG="/var/cache/pacman/pkg"
-hash -d E="/etc/env.d"
-hash -d C="/etc/conf.d"
-hash -d I="/etc/rc.d"
-hash -d X="/etc/X11"
-hash -d BK="/home/r00t/config_bak"
-#}}}
+#Configure
+#========================================================================================================
+# 行编辑高亮模式
+# Ctrl+@ 设置标记，标记和光标点之间为 region
+zle_highlight=(region:bg=magenta #选中区域
+               special:bold      #特殊字符
+               isearch:underline)#搜索时使用的关键字
 
-#命令别名 {{{
+# 启动shell时自动启动tmux
+if [[ -z "$TMUX" ]] ;then
+    ID="`tmux ls | grep -vm1 attached | cut -d: -f1`" # get the id of a deattached session
+    if [[ -z "$ID" ]] ;then # if not available create a new one
+        tmux new-session
+    else
+        tmux attach-session -t "$ID" # if available attach to it
+    fi
+fi
+
+#========================================================================================================
+
+#========================================================================================================
+# Alias
+#========================================================================================================
+# 命令别名
 alias -g cp='cp -i'
 alias -g mv='mv -i'
 alias -g rm='rm -i'
@@ -344,56 +413,100 @@ alias -g ll='ls -l'
 alias -g grep='grep --color=auto'
 alias -g ee='emacsclient -t'
 
-#历史命令 top10
-alias top10='print -l  ${(o)history%% *} | uniq -c | sort -nr | head -n 10'
-#}}}
+# 免输入密码
+alias sudo='echo "google" | sudo -S'
 
-#[Esc][h] man 当前命令时，显示简短说明
+# 历史命令 top10
+alias top10='print -l  ${(o)history%% *} | uniq -c | sort -nr | head -n 10'
+
+# [Esc][h] man 当前命令时，显示简短说明
 alias run-help >&/dev/null && unalias run-help
 autoload run-help
 
-alias zz='tmux kill-server'
-alias mytools='sh start.sh'
+# System update
+alias update='echo "google" | sudo -S aptitude update'
+alias upgrade='echo "google" | sudo -S aptitude upgrade'
+alias dist-upgrade='echo "google" | sudo -S aptitude dist-upgrade'
+alias dist-updategrade='echo "google" | sudo -S aptitude update && sudo aptitude upgrade && sudo aptitude dist-upgrade'
+
+# Shell script
+alias root='bash ~/code/shellCode/suroot.sh'
+alias goproxy='bash /home/google/code/go-net/start.sh'
+alias sshme='bash ~/code/shellCode/ssh.sh'
+alias dkremove='bash ~/code/shellCode/dockerRemove.sh'
+alias mytools='bash ~/code/start.sh'
+alias pcinfo='bash ~/code/shellCode/PCINFO.sh'
+
+# Start up Program
+alias ul='chmod +x /home/google/code/go-net/ul && /home/google/code/go-net/ul >> ~/Documents/nohup.out &'
+
+# System clean and remove
+alias rm='rm -rf'
 alias clean='echo "google" | sudo -S aptitude autoclean && sudo aptitude clean'
 alias remove='echo "google" | sudo -S apt-get autoremove -y'
-alias cclear='echo "google" | sudo -S aptitude autoclean && sudo aptitude clean && sudo apt-get autoremove'
-alias tcp1='echo "google" | sudo -S sysctl net.ipv4.tcp_available_congestion_control'
-alias tcp2='echo "google" | sudo -S sysctl net.ipv4.tcp_congestion_control'
-alias tcp3='echo "google" | sudo -S lsmod | grep bbr'
-alias update='echo "google" | sudo -S aptitude update'
-alias upgrade='echo "google" | sudo -S aptitude upgrade && sudo aptitude dist-upgrade'
-alias upg='echo "google" | sudo -S aptitude update && sudo aptitude upgrade && sudo aptitude dist-upgrade'
+alias cleanremove='echo "google" | sudo -S aptitude autoclean && sudo aptitude clean && sudo apt-get autoremove'
+alias removeProgram='sudo apt-get remove --purge'
+
+# Tcp display
+alias tcpipv4='echo "google" | sudo -S sysctl net.ipv4.tcp_available_congestion_control && sudo sysctl net.ipv4.tcp_congestion_control'
+alias tcpbbr='echo "google" | sudo -S lsmod | grep bbr'
+
+# Power OFF
 alias reboot='echo "google" | sudo -S reboot'
 alias shutdown='echo "google" | sudo -S shutdown -h now'
-alias sudo='echo "google" | sudo -S'
-alias rm='rm -rf'
+
+# Disk
+alias fdisk='echo "google" | sudo fdisk -l'
+
+# System OS
+alias catos='cat /etc/os-release'
+
+# Self Monitoring Analysis and Reporting Technology (SMART)
+alias smarti='sudo smartctl -i '
+alias smarth='sudo smartctl -H '
+alias smarta='sudo smartctl -A '
+alias smarts='sudo smartctl -s -on '
+alias smartall='sudo smartctl -a '
+alias smartl='sudo smartctl -l selftest '
+alias smartts='sudo smartctl -t short '
+alias smarttl='suod smartctl -t long '
+alias smartCts='sudo smartctl -C -t short '
+alias smartCtl='suod smartctl -C -t long '
+
+# VIM
 alias vi='vim'
-alias vimplugininstall='vim +PluginInstall +qall'
+alias vimPluginInstall='vim +PluginInstall +qall'
 
-#shell script
-alias ul='chmod +x /home/google/code/go-net/ul && /home/google/code/go-net/ul >> ~/Documents/nohup.out &'
-alias root='bash ~/code/shellCode/suroot.sh'
-alias go='bash /home/google/code/go-net/start.sh'
-alias sshme='bash ~/code/shellCode/ssh.sh'
-alias dremove='bash ~/code/shellCode/dockerRemove.sh'
+# TMUX
+alias tnew='tmux new -s session'
+alias zz='tmux kill-server'
+alias tlst='tmux list-sessions'
 
-#docker alias
-alias dstop='docker stop'
-alias ddstop='docker stop $(docker ps -a -q)'
-alias drm='docker rm'
-alias drmi='docker rmi'
-alias ddrm='docker rm $(docker ps -a -q)'
-alias dpsa='docker ps -a'
-alias dimage='docker images'
-alias dinfo='docker info'
-#docker-compose alias
+#Docker alias
+alias dkstop='docker stop'
+alias dkstopAll='docker stop $(docker ps -a -q)'
+alias dkrm='docker rm'
+alias dkrmAll='docker rm $(docker ps -a -q)'
+alias dkrmi='docker rmi'
+alias dkps='docker ps -a'
+alias dkimages='docker images'
+alias dkinfo='docker info'
+alias dkdaemon='echo "google" | sudo -S systemctl daemon-reload && sudo systemctl restart docker'
+
+#Docker-compose alias
 alias dcversion='docker-compose version'
 alias dcstop='docker-compose stop'
 alias dcup='docker-compose up -d'
 alias dcdown='docker-compose down'
 alias dclogs='docker-compose logs -f'
 alias dcrecreate='docker-compose up --force-recreate -d'
-alias dcdaemon='echo "google" | sudo -S systemctl daemon-reload && sudo systemctl restart docker'
+
+#Docker functions
+alias docker-pid="sudo docker inspect --format '{{.State.Pid}}'"
+alias docker-ip="sudo docker inspect --format '{{ .NetworkSettings.IPAddress }}'"
+
+# sdcv
+alias sv='sdcv'
 
 #========================================================================================================
 echo -e "\033[36m                                                    \033[1m"
@@ -404,3 +517,4 @@ echo -e "\033[36m██║   ██║██║   ██║██║   ██║
 echo -e "\033[36m╚██████╔╝╚██████╔╝╚██████╔╝╚██████╔╝███████╗███████ \033[1m"
 echo -e "\033[36m ╚═════╝  ╚═════╝  ╚═════╝  ╚═════╝ ╚══════╝╚══════╝\033[1m"
 echo -e "\033[36m                                                    \033[1m"
+

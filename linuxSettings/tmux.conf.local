@@ -1,6 +1,10 @@
-
-
-
+##############################################
+#Author: GoogleThink
+#Mail:goooglethink@gmail.com
+#Last modified: 2017-11-04 02:29
+#Filename: .tmux.conf.local
+#Description:
+##############################################
 # -- navigation ----------------------------------------------------------------
 
 # if you're running tmux within iTerm2
@@ -262,3 +266,4 @@ tmux_conf_copy_to_os_clipboard=false
 
 # move status line to top
 #set -g status-position top
+

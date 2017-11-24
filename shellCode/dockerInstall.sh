@@ -43,20 +43,22 @@ sudo systemctl enable docker
 sudo systemctl start docker
 #===========================================================================================
 #删除包含指定的内容的行
-sudo sed -i '/ExecStart=\/usr\/bin\/dockerd/d' /etc/systemd/system/multi-user.target.wants/docker.service
+#sudo sed -i '/ExecStart=\/usr\/bin\/dockerd/d' /etc/systemd/system/multi-user.target.wants/docker.service
+sudo sed -i '/ExecStart=\/usr\/bin\/dockerd/d' /lib/systemd/system/docker.service
+sudo sed -i '/ExecReload=\/bin\/kill/i\ExecStart=/usr/bin/dockerd' /lib/systemd/system/docker.service
 #===========================================================================================
 #在指定文件的指定位置前面添加内容
 #匹配行前加用i，匹配行后加a
-sudo sed -i '/ExecReload=\/bin\/kill/i\ExecStart=/usr/bin/dockerd -H tcp://127.0.0.1:2375 \
-                           -H unix:///var/run/docker.sock \
-                           --insecure-registry registry.gozap.com \
-			   --storage-driver=overlay2 \
-			   --graph=/data/docker \
-			   --log-driver json-file \
-			   --log-opt max-size=50m \
-			   --log-opt max-file=3 \
-                           --registry-mirror=https://registry.docker-cn.com \' /etc/systemd/system/multi-user.target.wants/docker.service
-#-H : 指定docker的监听地址,一般默认为127.0.0.1
+#sudo sed -i '/ExecReload=\/bin\/kill/i\ExecStart=/usr/bin/dockerd -H tcp://127.0.0.1:2375 \
+#                           -H unix:///var/run/docker.sock \
+#                           --insecure-registry registry.gozap.com \
+#			   --storage-driver=overlay2 \
+#			   --graph=/data/docker \
+#			   --log-driver json-file \
+#			   --log-opt max-size=50m \
+#			   --log-opt max-file=3 \
+#                           --registry-mirror=https://registry.docker-cn.com \' /lib/systemd/system/docker.service
+#-H : 指定docker的监听地址(docker API),一般默认为127.0.0.1
 #—graph : 指定docker把数据存储到指定目录
 #—storage-driver=overlay2 指定docker使用overlay2存储驱动，提升存储性能
 #log的设置 : json-file 表示输出日志格式为 json

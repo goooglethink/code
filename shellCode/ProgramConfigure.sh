@@ -17,7 +17,12 @@ sudo apt-get install virtualbox -y
 sudo apt-get install shutter -y
 
 #gnome-extensions
-sudo apt-get install gnome-shell-pomodoro -y
-sudo apt-get install gnome-shell-extension-top-icons-plus -y
+#sudo apt-get install gnome-shell-pomodoro -y
+
+#Java Project
+sudo apt-get install maven -y
+sudo apt-get install gradle -y
+
+
 
 

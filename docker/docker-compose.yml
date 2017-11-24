@@ -1,0 +1,50 @@
+
+version: '2'
+# 添加版本信息
+services:
+# 需要将所有的服务放到 services 根下面
+  ss:
+    image: mritd/shadowsocks:3.1.0
+    # 指定为镜像名称或镜像 ID。如果镜像在本地不存在，Compose 将会尝试pull去这个镜像
+    container_name: ss
+    # 指定容器名称。默认将会使用 项目名称_服务名称_序号
+    restart: always
+    # 指定容器退出后的重启策略为始终重启。该命令对保持服务始终运行十分有效，在生产环境中推荐配置为 always
+    # always 表示任何时候出现异常都自动重启容器
+    ports:
+    # 设置端口映射
+    # 使用宿主：容器 （HOST:CONTAINER）格式，或者仅仅指定容器的端口（宿主将会随机选择端口）
+    # 默认不加任何协议的情况下，映射的都是 tcp 协议
+      - "23:23"
+      - "143:143/udp"
+      - "135:135"
+    environment:
+    # 设置容器环境变量
+    # 只给定名称的变量会自动获取运行Compose主机上对应shell变量的值，可以用来防止泄露不必要的数据
+      - SS_MODULE
+      - SS_CONFIG
+      - KCP_MODULE
+      - KCP_CONFIG
+    command: -m "$SS_MODULE" -s "$SS_CONFIG" -k "$KCP_CONFIG" -e "$KCP_MODULE" -x
+    # 覆盖容器启动后默认执行的命令
+    # command表示执行容器里的命令，如果容器里构建时用了ENTRYPOINT命令，那么第一个执行的就是ENTRYPOINT命令,写完后紧跟着就command命令
+
+  qq:
+    image: bestwu/qq:office
+    container_name: qq
+    devices:
+    # 指定设备映射关系
+      - /dev/snd #声音
+    volumes:
+    #挂载路径
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - /home/google/TencentFiles:/TencentFiles
+    environment:
+      - DISPLAY=unix$DISPLAY
+      # - XMODIFIERS=@im=fcitx #中文输入
+      # - QT_IM_MODULE=fcitx
+      # - GTK_IM_MODULE=fcitx
+      - AUDIO_GID=29
+      - GID=$GID # 可选 默认1000 主机当前用户 gid 解决挂载目录访问权限问题
+      - UID=$UID # 可选 默认1000 主机当前用户 uid 解决挂载目录访问权限问题
+

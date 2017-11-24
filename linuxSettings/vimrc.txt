@@ -1,10 +1,10 @@
-"##############################################
-"#Author: GoogleThink
-"#Mail:goooglethink@gmail.com
-"#Last modified: 2017-11-02 06:54
-"#Filename: .vimrc
-"#Description:
-"##############################################
+" ##############################################
+" #Author: GoogleThink
+" #Mail:goooglethink@gmail.com
+" #Last modified: 2017-11-04 02:26
+" #Filename: .vimrc
+" #Description:
+" ##############################################
 
 " F2            打开,关闭树形目录结构
 " F8            打开google-chrome预览(仅markdown文件)
@@ -90,6 +90,9 @@
 " 右对齐
 " ,a<Enter>*<space>
 
+" ,o            下插入一行空行
+" ,O            上插入一行空行
+
 " ------------ Other ------------
 " 相对行号,行号变成相对(n代表行数)
 " nj            向下跳转
@@ -99,6 +102,9 @@
 " <             向左缩进
 
 " jj            退回正常模式
+
+" shift + k     光标所在的单词调用sdcv进行查询
+" shift + f     光标所在的单词调用sdcv进行查询
 
 " install bundles "
 if filereadable(expand("~/.vimrc.bundles"))
@@ -488,6 +494,22 @@ endfun
 "------------------------------------------------------------------------------------"
 
 "------------------------------------------------------------------------------------"
+" sdcv configure
+function! Mydict()
+  let expl=system('sdcv -n ' .
+        \  expand("<cword>"))
+  windo if
+        \ expand("%")=="diCt-tmp" |
+        \ q!|endif
+  25vsp diCt-tmp
+  setlocal buftype=nofile bufhidden=hide noswapfile
+  1s/^/\=expl/
+  1
+endfunction
+nmap F :call Mydict()<CR>
+"------------------------------------------------------------------------------------"
+
+"------------------------------------------------------------------------------------"
 " ENCODING SETTINGS
 " 设置新文件的编码为 UTF-8 "
 set encoding=utf-8
@@ -667,6 +689,10 @@ imap <leader>v <esc>"+p
 nmap <leader>v "+p
 vmap <leader>v "+p
 
+" 普通模式下插入一个空行
+nnoremap <leader>o o<ESC>
+nnoremap <leader>O O<ESC>
+
 "Treat long lines as break lines (useful when moving around in them)
 nnoremap k gk
 nnoremap gk k
@@ -796,5 +822,8 @@ set wildmenu                                  " 增强模式中的命令行自�
 set wildignore=*.swp,*.bak,*.pyc,*.class,.svn " Ignore compiled files "
 set hidden                                    " A buffer becomes hidden when it is abandoned
 set expandtab                                 " 解决普通文本和vim的空格的兼容性
+set keywordprg=sdcv                           " 普通模式下按shift+k,光标所在的单词就会调用sdcv进行查询
 set wildmode=list:longest
 set ttyfast
+
+

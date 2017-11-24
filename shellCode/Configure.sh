@@ -5,7 +5,8 @@ sudo -S dpkg -i google-chrome-stable_current_amd64.deb
 sudo apt-get -f install -y
 
 #stardict dictionary
-for f in stardict*.tar.bz2; do sudo tar -jxvf $f -C /usr/share/stardict/dic; done
+mkdir -p ~/.stardict/dic
+for f in stardict*.tar.bz2; do sudo tar -jxvf $f -C ~/.stardict/dic; done
 
 #bluetooth cpnfigure
 sudo lsmod | grep blue

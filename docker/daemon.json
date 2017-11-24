@@ -1,0 +1,16 @@
+{
+	"data-root": "/data/docker",
+	"storage-driver": "overlay2",
+	"log-driver": "json-file",
+	"live-restore": true,
+	"log-opts": {"max-size": "50m","max-file": "3"},
+	"max-concurrent-downloads": 3,
+	"max-concurrent-uploads": 5,
+	"default-shm-size": "64M",
+	"shutdown-timeout": 15,
+	"debug": true,
+	"hosts": ["tcp://0.0.0.0:2375","unix:///var/run/docker.sock"],
+	"log-level": "info",
+	"registry-mirrors": ["https://registry.docker-cn.com"]
+}
+

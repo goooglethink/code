@@ -4,12 +4,12 @@ dbus-launch gsettings set org.gnome.desktop.session session-name 'gnome'
 gsettings get org.gnome.desktop.session session-name
 #回显："gnome"，表示成功。
 #恢复原有设置：
-dbus-launch gsettings set org.gnome.desktop.session session-name 'gnome-fallback'
+#dbus-launch gsettings set org.gnome.desktop.session session-name 'gnome-fallback'
 
-#预链接:减少软件启动是检测、链接的时间，从而加快软件启动速度
-sudo sed -i '/PRELINKING=/d' /etc/default/prelink
-sudo sed -i '/PRELINK_OPTS=/i\PRELINKING=yes' /etc/default/prelink
-sudo /etc/cron.daily/prelink
+#预链接:减少软件启动是检测、链接的时间，从而加快软件启动速度(慎用)
+#sudo sed -i '/PRELINKING=/d' /etc/default/prelink
+#sudo sed -i '/PRELINK_OPTS=/i\PRELINKING=yes' /etc/default/prelink
+#sudo /etc/cron.daily/prelink
 
 #禁用休眠/挂起功能(笔记本电脑最好不要禁用休眠/挂起功能)
 #RESUME=UUID=****这行注释掉（行首加#）
