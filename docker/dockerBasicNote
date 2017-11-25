@@ -35,20 +35,24 @@ docker images <ImageName>                                                # 根�
 docker images -q                                                         # 列出所有的虚悬镜像的 ID
 docker images --format "{{.ID}}: {{.Repository}}"                        # 列出镜像结果(只包含镜像ID和仓库名)
 docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"        # 以表格等距显示,并且有标题行
-docker rmi -f <Image>                                                    # 强制删除
+docker image rm <Image>                                                  # 删除镜像
 docker rmi $(docker images -q -f dangling=true)                          # 删除虚悬镜像
 docker image prune                                                       # 删除虚悬镜像(Docker 1.13+)
+docker image inspect <ImageName>                                         # 查看镜像的底层信息
+docker tag <ImageID> <ImageName>                                         # 修改镜像名称
+docker image build -t <ImageName>:<Tags> .                               # 构建镜像
+(注:并非在本地构建,而是Docker引擎中构建的, . 是在指定上下文的目录)(docker 1.13+)
 -------------------------------------------------------------------------------------
 
 -------------------------------------------------------------------------------------
 docker container
 -------------------------------------------------------------------------------------
-docker container ps							 # 查看正在运行的容器列表
+docker container ps                                                      # 查看正在运行的容器列表
 docker container ps -a                                                   # 查看所有容器的列表,甚至包含未运行的容器
-docker container logs <CONTAINER ID or NAMES>                            # 获取容器的输出信息
+docker container logs <CONTAINER ID or NAMES>                            # 获取容器的输出日志信息
 docker container start <CONTAINER ID or NAMES>                           # 启动已终止容器
 docker container stop <CONTAINER ID or NAMES>                            # 终止容器
-docker container stop $(docker ps -a -q)				 # 终止所有容器
+docker container stop $(docker ps -a -q)                                 # 终止所有容器
 docker container restart <CONTAINER ID or NAMES>                         # 将一个运行态的容器终止,然后再重新启动它
 docker container attach <CONTAINER ID or NAMES>                          # 进入容器
 exit(Ctrl + D)                                                           # 退出容器
@@ -59,10 +63,10 @@ cat <CONTAINER>.tar | docker image import - <Address><Reposiotry>:<Tags> # 将�
 docker container rm <CONTAINER ID or NAMES>                              # 删除一个处于终止状态的容器
 docker container rm -f <CONTAINER ID or NAMES>                           # 删除一个运行中的容器
 docker container rm $(docker ps -a -q)                                   # 清理所有处于终止状态的容器
-docker container rm -v <CONTAINER ID or NAMES> 				 # 删除数据卷容器
+docker container rm -v <CONTAINER ID or NAMES>                           # 删除数据卷容器
 docker container prune                                                   # 清理所有处于终止状态的容器
 docker diff <Container>                                                  # 改动容器的存储层,查看具体的改动
-docker container inspect <CONTAINER ID or NAMES>			 # 查看指定容器的信息 
+docker container inspect <CONTAINER ID or NAMES>                         # 查看指定容器的信息
 -------------------------------------------------------------------------------------
 
 
@@ -71,22 +75,6 @@ docker repositry
 -------------------------------------------------------------------------------------
 docker pull [Docker Registry Address]<Reposiotry>:<Tags>                 # 从Docker Registry获取镜像
 -------------------------------------------------------------------------------------
-
-
--------------------------------------------------------------------------------------
-docker container network configuration
--------------------------------------------------------------------------------------
--------------------------------------------------------------------------------------
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -55,3 +55,4 @@ registry               仓库
 mount                  加载
 stark                  技术栈
 compose                编排
+fetch   取得

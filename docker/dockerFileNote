@@ -1,33 +1,8 @@
-#FROM : 指定基础镜像
-#RUN : 执行命令行命令
+FROM                                       # 指定基础镜像
 
+RUN                                        # 执行命令行命令
 
+COPY <SOURCE_PATH> <AIM_PATH>
 
-docker build [选项] <上下文路径/URL/->
-docker build -t nginx /home/google/nginx 
-
-
-#FROM ubuntu
-#RUN : 执行命令行命令
-#RUN echo '<h1>Hello, Docker!</h1>' > /usr/share/nginx/html/index.html
-#COPY /code/ /date/
-#CMD echo $HOME
-
-# basic image
-FROM ubuntu
-# author
-MAINTAINER googlethink "goooglethink@gmail.com"
-# reference run command
-RUN apt-get update \
-    && apt-get install aptitude -y \
-    && apt-get clean \
-    && apt-get autoclean \
-    && apt-get autoremove \
-    && rm -rf /var/lib/apt/lists/* 
-# ports
-EXPOSE 123 321 233
-#mount volume
-VOLUME ["date/volume"]
-COPY ./code/ /date/volume/
 
 
