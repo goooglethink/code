@@ -87,8 +87,13 @@ Compose 中有两个重要的概念:
 
 Compose 的默认管理对象是项目,通过子命令对项目中的一组容器进行便捷地生命周期管理。
 
+Docker Engine包括这么几个部分:
+1.Docker Daemon — docker 的守护进程，属于C/S中的server
+2.Docker REST API — docker daemon向外暴露的REST 接口
+3.Docker CLI — docker向外暴露的命令行接口（Command Line API）
 
-
+Docker Machine是供给和管理docker化主机的工具.
+提供多种环境的docker主机,可以用Docker Machine在一个或者多个虚拟系统(本地或者远程)上安装Docker Engine.
 
 
 

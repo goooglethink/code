@@ -1,7 +1,0 @@
-#蓝牙音频设备可以配对但没声音
-1. 安装 blueman
-2. 将蓝牙音频设备与电脑配对
-3. 打开blueman-manager，应该能看到已配对的设备
-4. 在blueman中右键配对的设备, 选择 "Refresh Service"
-5. 再次右键配对的设备，选择"Audio Profile --> A2DP"
-

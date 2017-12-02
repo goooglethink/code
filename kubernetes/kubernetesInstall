@@ -1,0 +1,27 @@
+# Download apt-key.gpg
+https://packages.cloud.google.com/apt/doc/apt-key.gpg
+
+# add apt-key.gpg
+apt-key add apt-key.gpg
+
+# add kubernetes.list
+cat <<EOF >/etc/apt/sources.list.d/kubernetes.list
+deb http://apt.kubernetes.io/ kubernetes-xenial main
+EOF
+
+# update
+sudo apt-get update
+sudo apt-get -o Acquire::http::proxy="http://127.0.0.1:9666/" update
+
+# install
+sudo apt-get install -y kubelet kubeadm kubectl
+sudo apt-get -o Acquire::http::proxy="http://127.0.0.1:9666/" install kubelet kubeadm kubectl -y
+
+# remove kubernetes,list
+sudo rm /etc/apt/sources.list.d/kubernetes.list
+
+sudo systemctl start kubelet.service
+
+sudo systemctl enable kubelet.service
+
+

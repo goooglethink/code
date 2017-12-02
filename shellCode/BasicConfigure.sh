@@ -82,6 +82,7 @@ sudo apt-get install mtools #UNetbootin
 sudo apt-get install prelink -y
 sudo apt-get install smartmontools	#disk
 sudo apt-get install zeal
-#sudo apt-get install kali-linux-all -y
+sudo apt-get install privoxy -y
+sudo apt-get install kali-linux-all -y
 #---------------------------------------------------------------
 

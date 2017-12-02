@@ -1,0 +1,4 @@
+# version
+kubeadm version
+
+kubeadm init

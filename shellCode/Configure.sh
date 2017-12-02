@@ -17,6 +17,11 @@ sudo systemctl start bluetooth.service
 #解决音量设置无法保存：
 sudo alsactl store
 
+#验证swap状态
+sudo swapon -s
+#关闭swap交换分区
+sudo swapoff -a
+
 #extract tor-browser package
 #tar -xvf *.tar.xz
 #tar -xf *.tar.xz

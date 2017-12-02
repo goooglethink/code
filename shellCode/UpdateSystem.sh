@@ -37,7 +37,7 @@ else
 fi
 
 
-#sudo dpkg --configure -a   (ctrl+alt+space)
+#sudo dpkg --configure -a   (ctrl+alt+space)(yes)
 #dpkg: error processing package kali-linux-full (--configure):
 # dependency problems - leaving unconfigured
 #Errors were encountered while processing:

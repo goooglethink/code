@@ -198,3 +198,9 @@ net.ipv6.conf.all.autoconf = 1
 net.ipv6.conf.all.forwarding = 1
 # 开启所有网络设备的 IPv6 流量转发，用于支持 IPv6 的正常访问
 
+vm.swappiness=0
+#swappiness=0 表示最大限度使用物理内存
+#swappiness＝100 表示最大限度使用swap分区
+#cat /proc/sys/vm/swappiness 查看swappiness参数值
+#free -m 查看系统当前SWAP空间大小
+#swapon -s 验证swap状态

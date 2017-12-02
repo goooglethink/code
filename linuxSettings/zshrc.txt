@@ -378,6 +378,7 @@ function docker-enter() {
         fi
     fi
 }
+
 #========================================================================================================
 
 #========================================================================================================
@@ -404,19 +405,18 @@ fi
 #========================================================================================================
 # Alias
 #========================================================================================================
-# 命令别名
+# Command Alias
 alias -g cp='cp -i'
 alias -g mv='mv -i'
 alias -g rm='rm -i'
-alias -g ls='ls -F --color=auto'
 alias -g ll='ls -l'
 alias -g grep='grep --color=auto'
 alias -g ee='emacsclient -t'
 
-# 免输入密码
+# User Password
 alias sudo='echo "google" | sudo -S'
 
-# 历史命令 top10
+# History Command top10
 alias top10='print -l  ${(o)history%% *} | uniq -c | sort -nr | head -n 10'
 
 # [Esc][h] man 当前命令时，显示简短说明
@@ -433,12 +433,11 @@ alias dist-updategrade='echo "google" | sudo -S aptitude update && sudo aptitude
 alias root='bash ~/code/shellCode/suroot.sh'
 alias goproxy='bash /home/google/code/go-net/start.sh'
 alias sshme='bash ~/code/shellCode/ssh.sh'
-alias dkremove='bash ~/code/shellCode/dockerRemove.sh'
 alias mytools='bash ~/code/start.sh'
 alias pcinfo='bash ~/code/shellCode/PCINFO.sh'
 
 # Start up Program
-alias ul='chmod +x /home/google/code/go-net/ul && /home/google/code/go-net/ul >> ~/Documents/nohup.out &'
+alias ul='/home/google/code/go-net/ul >> ~/Documents/nohup.out &'
 
 # System clean and remove
 alias rm='rm -rf'
@@ -461,6 +460,9 @@ alias fdisk='echo "google" | sudo fdisk -l'
 # System OS
 alias catos='cat /etc/os-release'
 
+# power
+alias chmod='sudo chmod 777'
+
 # Self Monitoring Analysis and Reporting Technology (SMART)
 alias smarti='sudo smartctl -i '
 alias smarth='sudo smartctl -H '
@@ -482,15 +484,19 @@ alias tnew='tmux new -s session'
 alias zz='tmux kill-server'
 alias tlst='tmux list-sessions'
 
+# sdcv
+alias sv='sdcv'
+
 #Docker alias
-alias dkstop='docker stop'
-alias dkstopAll='docker stop $(docker ps -a -q)'
-alias dkrm='docker rm'
-alias dkrmAll='docker rm $(docker ps -a -q)'
-alias dkrmi='docker rmi'
-alias dkps='docker ps -a'
-alias dkimages='docker images'
+alias dkstop='docker container stop'
+alias dkstopAll='docker container stop $(docker ps -a -q)'
+alias dkrm='docker container rm -f'
+alias dkrmAll='docker container rm $(docker ps -a -q)'
+alias dkrmi='docker image rm -f'
+alias dkps='docker container ps -a'
+alias dkimages='docker images && docker system df'
 alias dkinfo='docker info'
+alias dklogs='docker container logs -f'
 alias dkdaemon='echo "google" | sudo -S systemctl daemon-reload && sudo systemctl restart docker'
 
 #Docker-compose alias
@@ -505,8 +511,8 @@ alias dcrecreate='docker-compose up --force-recreate -d'
 alias docker-pid="sudo docker inspect --format '{{.State.Pid}}'"
 alias docker-ip="sudo docker inspect --format '{{ .NetworkSettings.IPAddress }}'"
 
-# sdcv
-alias sv='sdcv'
+#Docker-machine alias
+alias dm='docker-machine'
 
 #========================================================================================================
 echo -e "\033[36m                                                    \033[1m"
@@ -517,4 +523,5 @@ echo -e "\033[36m██║   ██║██║   ██║██║   ██║
 echo -e "\033[36m╚██████╔╝╚██████╔╝╚██████╔╝╚██████╔╝███████╗███████ \033[1m"
 echo -e "\033[36m ╚═════╝  ╚═════╝  ╚═════╝  ╚═════╝ ╚══════╝╚══════╝\033[1m"
 echo -e "\033[36m                                                    \033[1m"
+
 

@@ -21,3 +21,5 @@ sudo smartctl -a /dev/sda | grep "test result"
 sudo smartctl -a /dev/sdb | grep "test result"
 sudo smartctl -a /dev/sdc | grep "test result"
 sudo smartctl -a /dev/sdd | grep "test result"
+
+sudo cat /sys/class/dmi/id/product_uuid

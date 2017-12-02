@@ -1,8 +1,15 @@
 docker镜像和容器的默认存放位置为:/var/lib/docker
 
-docker --version                                                         # 检测docker版本
-
 docker login                                                             # 使用您的Docker凭证登录此CLI会话
+
+-------------------------------------------------------------------------------------
+docker version
+-------------------------------------------------------------------------------------
+docker --version                                                         # docker version
+docker-compose -version                                                  # docker compose version
+docker-machine -version                                                  # docker machine version
+docker run --rm swarm -v                                                 # docker swarem version
+-------------------------------------------------------------------------------------
 
 -------------------------------------------------------------------------------------
 docker container run
@@ -27,6 +34,8 @@ docker container run --name db1 --volumes-from dbdata -it --rm ubuntu:17.10
 -------------------------------------------------------------------------------------
 docker image command
 -------------------------------------------------------------------------------------
+docker image pull [Docker Registry Address]<Reposiotry>:<Tags>           # 从Docker Registry获取镜像
+docker image push <Reposiotry>:<Tags>                                    # 推送镜像
 docker images                                                            # 列出所有顶级镜像
 docker system df                                                         # 查看镜像、容器、数据卷所占用的空间(Docker 1.13+)
 docker images -f dangling=true                                           # 虚悬镜像(无标签镜像:仓库名,标签均为<none>)
@@ -67,13 +76,16 @@ docker container rm -v <CONTAINER ID or NAMES>                           # 删�
 docker container prune                                                   # 清理所有处于终止状态的容器
 docker diff <Container>                                                  # 改动容器的存储层,查看具体的改动
 docker container inspect <CONTAINER ID or NAMES>                         # 查看指定容器的信息
+docker container top <CONTAINER ID or NAMES>                             # 查看容器内进程
 -------------------------------------------------------------------------------------
 
-
 -------------------------------------------------------------------------------------
-docker repositry
+docker daemon
 -------------------------------------------------------------------------------------
-docker pull [Docker Registry Address]<Reposiotry>:<Tags>                 # 从Docker Registry获取镜像
+ps -ef | grep docker                                                     # 查看docker守护进程
+sudo service docker start                                                # 启动docker守护进程
+sudo service docker stop                                                 # 停止docker守护进程
+sudo service docker restart                                              # 重启docker守护进程
 -------------------------------------------------------------------------------------
 
 
