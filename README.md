@@ -48,24 +48,24 @@ __5.My Terminal__
 My Study Task
 ----
 __1.Computer Language__
-- `JavaSE`
-- `Groovy`
+- __`JavaSE`__
+- __`Groovy`__
 - Shell
 - Python
 - C
 - Go
 
 __2.JavaEE Frame__
-- `Spring Boot`
-- `Spring Cloud`
+- __`Spring Boot`__
+- __`Spring Cloud`__
 
 __3.Database__
-- `MySQL`
+- __`MySQL`__
 - SQL-Server
 
 __4.Other Task__
-- `Docker`
-- `Gradle`
+- __`Docker`__
+- __`Gradle`__
 - Maven
 - Markdown
 - kali linux tools
