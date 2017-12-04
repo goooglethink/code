@@ -48,20 +48,27 @@ __5.My Terminal__
 My Study Task
 ----
 __1.Computer Language__
-- JavaSE
-- Groovy
+- `JavaSE`
+- `Groovy`
+- Shell
+- Python
+- C
+- Go
 
 __2.JavaEE Frame__
-- Spring Boot
-- Spring Cloud
+- `Spring Boot`
+- `Spring Cloud`
 
 __3.Database__
-- MySQL
+- `MySQL`
+- SQL-Server
 
 __4.Other Task__
-- Docker
-- Gradle
+- `Docker`
+- `Gradle`
 - Maven
+- Markdown
+- kali linux tools
 
 ----
 
@@ -91,5 +98,3 @@ FBI教你破解身体语言           | 乔·纳瓦罗,马文·卡尔林斯
 超越感觉:批判性思考指南       | 文森特•鲁吉罗
 身体语言密码                  | 皮斯
 金融心理学                    | 拉斯·特维德
-
-
