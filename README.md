@@ -4,20 +4,20 @@
 
 My Document Notes
 ====
+
 -------
 
 Author Information:
 ----
-
 ##### Author : GoogleThink
 ##### Author Email : <goooglethink@gmail.com>
 ##### Author Github : <https://github.com/goooglethink/>
 ##### Project URL : [https://github.com/goooglethink/code](https://github.com/goooglethink/code)
+
 -------
 
 Code Project:
 ----
-
 __1.Command , Note and Shortcut__
 - Linux,Git,Shell,YouGet,Youbule-dl,Vim,Cmatrix,Tmux Command
 - Kali-tools,docker Note
@@ -40,13 +40,22 @@ __4.Linux Configuration__
 - Strat up TCP congestion control:Hybla Google BBR
 - Configure DNS address
 
-__5.My Using__
+__5.My Terminal__
 - Vim+Zsh+Terminator+Tmux
 
 ------
 
+My Study Task
+----
+__1.Computer Language__
+- JavaSE
+- Groovy
 
-spring boot spring cloud docker kubernetes markdown java groovy gradle
-&copy;
+__2.JavaEE Frame__
+- Spring Boot
+- Spring Cloud
 
+__3.Other Task__
+- docker
+- gradle
 
