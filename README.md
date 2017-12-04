@@ -1,4 +1,4 @@
-<img src="https://github.com/goooglethink/code/blob/master/Pictures/kali.png" width = "400" alt="kali" align=center />
+<img src="https://github.com/goooglethink/code/blob/master/Pictures/kali.png" width = "400" alt="kali" align="center" />
 
 My Document Notes
 ====
