@@ -1,9 +1,15 @@
-Author Information:
+My Document Notes
 ====
+-------
 
-#### Author:GoogleThink
-##### Email:goooglethink@gmail.com
-##### Project URL:[https://github.com/goooglethink/code](https://github.com/goooglethink/code)
+Author Information:
+----
+
+##### Author : GoogleThink
+##### Author Email : <goooglethink@gmail.com>
+##### Author Github : <https://github.com/goooglethink/>
+##### Project URL : [https://github.com/goooglethink/code](https://github.com/goooglethink/code)
+-------
 
 My Github Project:
 ----
@@ -14,12 +20,12 @@ My Github Project:
 &emsp;1-3:Chrome,idea,Stardict,User-defined,Terminator,System,VimPlugin,Vimium,Zsh,VirtualBox Shortcut
 
 2.Script Project
-&emsp;2-1:Shell Script
-&emsp;2-2:Python Script
-&emsp;2-3:Chrome Script
+2-1.    Shell Script
+    2-2:Python Script
+    2-3:Chrome Script
 
-3.Network Project
-&emsp;3-1:Hosts File
+3.Network Project<br />
+&emsp;3-1:Hosts File<br/>
 &emsp;3-2:GoGo Proxy
 &emsp;3-3:Ultrasurf Proxy
 &emsp;3-4:net-speeder-master
@@ -35,36 +41,8 @@ My Github Project:
 
 ------
 
-需要完成的事情：
-----
 
-1.完成C程序设计备考
+spring boot spring cloud docker kubernetes markdown java groovy gradle
+&copy;
 
-2.复习HTML，CSS
-
-3.复习JavaSE
-
-4.备考计算机考试
-
-6.读完10篇新闻
-
-7.read book and make note:
-
- |             book                            |          author          | finish |
- | ------------------------------------------- | ------------------------ | ------ |
- | What Every Body is Saying                   | Joe Navarro              | no     |
- | Work Like a Spy                             | J.C.卡尔森               | no     |
- | Social engineering:the art of human hacking | Christopher Hadnagy      | no     |
- | FBI教你超级藏心术                           | 博锋                     | no     |
- | WHAT EVERY BODY IS SAYING                   | 马文·卡尔林斯            | no     |
-
-
-9.摸索GitHub,Stark Overfload,Gitbook
-
-10.抽空于随想交流
-
-11.~~学会使用markdowni~~(基本完成)
-
-12.学习docker
-
-13.Github Pages
+![Alt text](code/Pictures/kali.png)

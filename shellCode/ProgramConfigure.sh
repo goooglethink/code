@@ -39,3 +39,6 @@ sudo apt-get install snapd -y
 sudo systemctl enable snapd.service
 # sudo systemctl status snapd.service
 # sudo systemctl restart snapd.service
+
+sudo apt-get install chromium -y
+

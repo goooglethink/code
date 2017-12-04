@@ -437,7 +437,7 @@ alias mytools='bash ~/code/start.sh'
 alias pcinfo='bash ~/code/shellCode/PCINFO.sh'
 
 # Start up Program
-alias ul='/home/google/code/go-net/ul >> ~/Documents/nohup.out &'
+alias ul='chmod /home/google/code/go-net/ul && /home/google/code/go-net/ul >> ~/Documents/nohup.out &'
 
 # System clean and remove
 alias rm='rm -rf'
