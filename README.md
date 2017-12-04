@@ -1,4 +1,6 @@
-<img src="https://github.com/goooglethink/code/blob/master/Pictures/kali.png" width = "400" alt="kali" align="center" />
+<div align=center>
+    <img src="https://github.com/goooglethink/code/blob/master/Pictures/kali.png" width = "400" alt="kali" />
+</div>
 
 My Document Notes
 ====
