@@ -4,7 +4,7 @@
 
 My Document Notes
 ====
-
+[![google think]
 -------
 
 Author Information:
@@ -100,5 +100,3 @@ FBI教你破解身体语言           | 乔·纳瓦罗,马文·卡尔林斯
 身体语言密码                  | 皮斯
 金融心理学                    | 拉斯·特维德
 
-[![Build Status](https://travis-ci.org/pingcap/tidb.svg?branch=master)](https://travis-ci.org/pingcap/tidb)
-[![Go Report Card](https://goreportcard.com/badge/github.com/pingcap/tidb)](https://goreportcard.com/report/github.com/pingcap/tidb)
