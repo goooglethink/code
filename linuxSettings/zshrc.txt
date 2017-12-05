@@ -425,7 +425,7 @@ autoload run-help
 
 # System update
 alias update='echo "google" | sudo -S aptitude update'
-alias upgrade='echo "google" | sudo -S aptitude upgrade'
+alias upgrade='echo "google" | sudo -S aptitude upgrade -y'
 alias dist-upgrade='echo "google" | sudo -S aptitude dist-upgrade'
 alias dist-updategrade='echo "google" | sudo -S aptitude update && sudo aptitude upgrade && sudo aptitude dist-upgrade'
 
@@ -444,7 +444,7 @@ alias rm='rm -rf'
 alias clean='echo "google" | sudo -S aptitude autoclean && sudo aptitude clean'
 alias remove='echo "google" | sudo -S apt-get autoremove -y'
 alias cleanremove='echo "google" | sudo -S aptitude autoclean && sudo aptitude clean && sudo apt-get autoremove'
-alias removeProgram='sudo apt-get remove --purge'
+alias removeProgram='sudo aptitude purge'
 
 # Tcp display
 alias tcpipv4='echo "google" | sudo -S sysctl net.ipv4.tcp_available_congestion_control && sudo sysctl net.ipv4.tcp_congestion_control'

@@ -24,8 +24,8 @@ sudo apt-get install build-essential ncurses-dev yodl -y
 sudo apt-get install build-essential linux-headers-$(uname -r) -y
 #---------------------------------------------------------------
 #Network-Manager
-#sudo apt-get install network-manager-openvpn-gnome -y
-#sudo apt-get install network-manager-pptp network-manager-pptp-gnome network-manager-strongswan network-manager-vpnc network-manager-vpnc-gnome -y
+sudo apt-get install network-manager-openvpn-gnome -y
+sudo apt-get install network-manager-pptp network-manager-pptp-gnome network-manager-strongswan network-manager-vpnc network-manager-vpnc-gnome -y
 #sudo apt-get install realtek-rtl88xxau-dkms
 sudo apt-get install nscd #dns
 sudo apt-get install pdns-recursor #dns

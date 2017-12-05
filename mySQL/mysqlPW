@@ -1,0 +1,12 @@
+sudo service mysql stop  
+sudo mysqld_safe --skip-grant-tables --skip-networking &
+mysql -u root
+
+use mysql;
+update user set password=PASSWORD("googlethink") where User='root';
+flush privileges;
+quit
+
+sudo service mysql restart 
+
+sudo netstat -tap | grep mysql
