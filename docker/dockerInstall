@@ -21,7 +21,7 @@ fi
 sudo apt-get install docker-ce -y
 #===========================================================================================
 #删除包含指定的内容的行(-i∶直接修改读取的文件内容)
-sudo sed -i '/download.docker.com/d' /etc/apt/sources.list
+#sudo sed -i '/download.docker.com/d' /etc/apt/sources.list
 #===========================================================================================
 # manage Docker as a non-root user,建立docker组并将当前用户加入docker组:
 sudo groupadd docker
