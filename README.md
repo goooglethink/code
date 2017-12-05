@@ -4,7 +4,7 @@
 
 My Document Notes
 ====
-[![google think]
+[![google think](https://travis-ci.org/pingcap/tidb.svg?branch=master)](https://travis-ci.org/pingcap/tidb)
 -------
 
 Author Information:
