@@ -9,7 +9,7 @@ My Document Notes
 
 Author Information:
 ----
-##### Author : GoogleThink :us: :jp: :fr: :uk: :kr: :gb: :ru: :it:
+##### Author : GoogleThink :us: :jp: :fr: :uk: :kr: :gb: :ru: :it: :de:
 ##### Author Email : <goooglethink@gmail.com>
 ##### Author Github : <https://github.com/goooglethink/>
 ##### Project URL : [https://github.com/goooglethink/code](https://github.com/goooglethink/code)
@@ -78,7 +78,7 @@ My Book List
 Book                          | Author
 :---                          | :-----
 FBI教你超级藏心术             | 博锋
-NLP之父3天改變你的一生        | 理查‧班德勒
+NLP之父3天改变你的一生        | 理查‧班德勒
 欺骗的艺术                    | 凯文•米特尼克
 人类行为的202个秘密           | 萨勒
 你的身体相信你说的每句话      | 芭芭拉·乐芬
