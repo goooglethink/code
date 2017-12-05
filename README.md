@@ -9,7 +9,7 @@ My Document Notes
 
 Author Information:
 ----
-##### Author : GoogleThink
+##### Author : GoogleThink :us:
 ##### Author Email : <goooglethink@gmail.com>
 ##### Author Github : <https://github.com/goooglethink/>
 ##### Project URL : [https://github.com/goooglethink/code](https://github.com/goooglethink/code)
