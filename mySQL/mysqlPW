@@ -1,12 +1,20 @@
-sudo service mysql stop  
-sudo mysqld_safe --skip-grant-tables --skip-networking &
+sudo /etc/init.d/mysql stop  
+sudo /etc/init.d/mysql status 
+sudo mysqld_safe --skip-grant-tables & 
 mysql -u root
 
 use mysql;
-update user set password=PASSWORD("googlethink") where User='root';
+update user set password=PASSWORD('google') where User='root'; 
 flush privileges;
 quit
 
-sudo service mysql restart 
+sudo /etc/init.d/mysql restart
+mysql -uroot -p  
 
 sudo netstat -tap | grep mysql
+
+#Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)
+sudo /etc/init.d/mysql restart
+
+#查看到用户和密码
+select host,user,password from mysql.user;
