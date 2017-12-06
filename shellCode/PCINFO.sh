@@ -23,3 +23,5 @@ sudo smartctl -a /dev/sdc | grep "test result"
 sudo smartctl -a /dev/sdd | grep "test result"
 
 sudo cat /sys/class/dmi/id/product_uuid
+
+sudo lspci | grep -E "VGA|3D"
