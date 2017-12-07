@@ -21,4 +21,7 @@ select host,user,password from mysql.user;
 select user, plugin from mysql.user;
 
 
+sudo systemctl enable mysql.service
+
+
 

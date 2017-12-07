@@ -19,6 +19,8 @@ sudo sed -i 's/^/#/' /etc/initramfs-tools/conf.d/resume
 #修改grub2等待时间
 sudo sed -i '/GRUB_TIMEOUT=/d' /etc/default/grub
 sudo sed -i '/GRUB_DEFAULT=/a\GRUB_TIMEOUT=0' /etc/default/grub
+sudo sed -i '/GRUB_TIMEOUT=/a\GRUB_DISABLE_OS_PROBER=true'  /etc/default/grub
+sudo update-grub
 
 #使用TMPFS(临时文件系统)减少磁盘读写
 #一般情况下，Linux的/tmp文件夹接收着大量关于磁盘读写的操作。而通过优先使用物理内存，可以提高/tmp处理磁盘读写操作的速度。
