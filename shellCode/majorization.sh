@@ -22,9 +22,7 @@ sudo sed -i '/GRUB_DEFAULT=/a\GRUB_TIMEOUT=0' /etc/default/grub
 sudo sed -i '/GRUB_TIMEOUT=/a\GRUB_DISABLE_OS_PROBER=true'  /etc/default/grub
 sudo update-grub
 
-#使用TMPFS(临时文件系统)减少磁盘读写
-#一般情况下，Linux的/tmp文件夹接收着大量关于磁盘读写的操作。而通过优先使用物理内存，可以提高/tmp处理磁盘读写操作的速度。
-echo "google" | sudo -S su -c "echo 'tmpfs /tmp tmpfs defaults,noexec,nosuid 0 0' >> /etc/fstab"
+
 echo "google" | sudo -S sed -r -i ':1;N;s/^(.+)((\n.*)*)\n\1$/\1\2/M;$!b1' /etc/fstab
 sudo sed -i '/\<swap/s/^/#/' /etc/fstab
 #\< 匹配单词的开始
