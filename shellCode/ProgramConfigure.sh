@@ -42,4 +42,6 @@ sudo systemctl enable snapd.service
 
 sudo apt-get install chromium -y
 sudo apt-get install mysql-workbench -y
+sudo aptitude install mongodb -y
+
 

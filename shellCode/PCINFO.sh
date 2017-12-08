@@ -25,3 +25,7 @@ sudo smartctl -a /dev/sdd | grep "test result"
 sudo cat /sys/class/dmi/id/product_uuid
 
 sudo lspci | grep -E "VGA|3D"
+
+cat /etc/os-release | grep "VERSION"
+cat /etc/os-release | grep "NAME"
+

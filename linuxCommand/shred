@@ -1,0 +1,22 @@
+sudo apt-get install coreutils
+
+命令格式： shred [ 选项 ]... 文件 ...
+长选项必须使用的参数对于短选项时也是必需使用的。
+  -f, --force  必要时修改权限以使目标可写
+  -n, --iterations=N  覆盖 N 次，而非使用默认的 3 次
+      --random-source= 文件   从指定文件中取出随机字节
+  -s, --size=N  粉碎数据为指定字节的碎片
+  -u, --remove  覆盖后截断并删除文件
+  -v, --verbose  显示详细信息
+  -x, --exact  不将文件大小增加至最接近的块大小
+  -z, --zero  最后一次使用 0 进行覆盖以隐藏覆盖动作
+
+shred -u -z <fileName>
+
+
+
+
+
+
+
+

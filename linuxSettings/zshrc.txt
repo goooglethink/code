@@ -457,9 +457,6 @@ alias shutdown='echo "google" | sudo -S shutdown -h now'
 # Disk
 alias fdisk='echo "google" | sudo fdisk -l'
 
-# System OS
-alias catos='cat /etc/os-release'
-
 # power
 alias chmod='sudo chmod 777'
 
