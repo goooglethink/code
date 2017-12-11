@@ -20,6 +20,7 @@ sudo sed -i 's/^/#/' /etc/initramfs-tools/conf.d/resume
 sudo sed -i '/GRUB_TIMEOUT=/d' /etc/default/grub
 sudo sed -i '/GRUB_DEFAULT=/a\GRUB_TIMEOUT=0' /etc/default/grub
 sudo sed -i '/GRUB_TIMEOUT=/a\GRUB_DISABLE_OS_PROBER=true'  /etc/default/grub
+sudo sed -i '/GRUB_CMDLINE_LINUX=/a\GRUB_BACKGROUND="./Pictures/kali.png"'  /etc/default/grub
 sudo update-grub
 
 
