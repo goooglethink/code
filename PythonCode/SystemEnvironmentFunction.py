@@ -10,11 +10,11 @@ class SystemEnvironmentFunction(object):
 
     def setShellCommand(self, value):
         if value == 1:
-            os.system('echo "google" | bash ~/code/ShellCode/BasicConfigure.sh')
+            os.system('echo "google" | bash ~/code/ShellCode/Install.sh')
             os.system('sh ~/code/shellCode/restart.sh')
             print('')
         elif value == 2:
-            os.system('echo "google" | bash ~/code/ShellCode/ProgramConfigure.sh')
+            os.system('echo "google" | bash ~/code/ShellCode/Majorization.sh')
             os.system('sh ~/code/shellCode/restart.sh')
             print('')
         elif value == 3:
@@ -28,9 +28,7 @@ class SystemEnvironmentFunction(object):
             os.system('echo "google" | bash ~/code/ShellCode/HostsFile.sh')
             print('')
         elif value == 6:
-            os.system('echo "google" | bash ~/code/ShellCode/BashrcFile.sh')
-            os.system('echo "google" | bash ~/code/ShellCode/ZshrcVimrcFile.sh')
-            os.system('echo "google" | bash ~/code/ShellCode/Tmux.sh')
+            os.system('echo "google" | bash ~/code/ShellCode/BTVZFile.sh')
             print('')
         elif value == 7:
             os.system('echo "google" | bash ~/code/ShellCode/TCP.sh')

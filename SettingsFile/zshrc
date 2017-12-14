@@ -450,9 +450,9 @@ alias removeProgram='sudo aptitude purge'
 alias tcpipv4='echo "google" | sudo -S sysctl net.ipv4.tcp_available_congestion_control && sudo sysctl net.ipv4.tcp_congestion_control'
 alias tcpbbr='echo "google" | sudo -S lsmod | grep bbr'
 
-# Power OFF
-alias reboot='echo "google" | sudo -S reboot'
-alias poweroff='echo "google" | sudo -S shutdown -h now'
+# Power
+alias powerrestart='sudo shutdown -r now'
+alias poweroff='sudo shutdown -P now'
 
 # Disk
 alias fdisk='echo "google" | sudo fdisk -l'

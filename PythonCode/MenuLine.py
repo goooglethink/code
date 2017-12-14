@@ -21,8 +21,8 @@ class MenuLine(object):
     def setSystemEnvironmentFunctionMenuLine(self):
         print("*" * 50)
         print('\033[1m')
-        print("1.Basic-System-Environment-Function-Configure")
-        print("2.Program-System-Environment-Function-Configure")
+        print("1.Install-Software-Packages")
+        print("2.Majorization-Settings")
         print("3.System-Update-And-Upgrade")
         print("4.Cover-DNS-File")
         print("5.Cover-Hosts-File")
