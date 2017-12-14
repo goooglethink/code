@@ -13,9 +13,8 @@ then
 	touch "~/.vimrc"
 fi
 
-sudo -S bash -c 'cat ./code/LinuxSettings/zshrc > ./.zshrc'
-#sudo bash -c 'cat code/linuxSettings/zshrc.txt > /root/.zshrc'
-sudo bash -c 'cat ./code/LinuxSettings/vimrc > ./.vimrc'
+bash -c 'cat ~/code/SettingsFile/zshrc > ~/.zshrc'
+bash -c 'cat ~/code/SettingsFile/vimrc > ~/.vimrc'
 
 #emulate bash
 

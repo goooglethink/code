@@ -1,11 +1,3 @@
-关机与重启
-#关机
-shutdown -h now
-----------------
-#重启
-shutdown -r now
-#仅超级用户可以使用
-reboot
 
 
 Downloads Command

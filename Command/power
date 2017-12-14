@@ -1,0 +1,18 @@
+shutdown 8:00	
+#Schedule the system to shut down at 8 A.M
+
+shutdown 20:00 
+#Schedule the system to shut down at 8 P.M
+
+shutdown now
+#Bring down the system immediately
+
+shutdown -r now
+#Bring down the system immediately, and automatically reboot it
+
+shutdown -P now
+#Bring down the system immediately, and automatically power off the system
+
+reboot
+#Bring down the system immediately, and automatically reboot it(root user)
+
