@@ -1,0 +1,9 @@
+
+useradd -m google
+passwd google 
+usermod -a -G sudo google
+chsh -s /bin/bash google
+id google
+shutdown -r now
+#reboot and open new user on startup
+

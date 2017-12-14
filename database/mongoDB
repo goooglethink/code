@@ -1,5 +1,0 @@
-sudo systemctl status mongodb.service
-sudo systemctl start mongodb.service
-sudo systemctl stop mongodb.service
-sudo systemctl restart mongodb.service
-sudo systemctl enable mongodb.service

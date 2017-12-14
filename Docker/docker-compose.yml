@@ -1,0 +1,52 @@
+
+version: '3.3'
+services:
+  ss:
+    image: mritd/shadowsocks:latest
+    container_name: ss
+    restart: always
+    ports:
+      - "23:23"
+      - "143:143/udp"
+      - "135:135"
+    environment:
+      - SS_MODULE
+      - SS_CONFIG
+      - KCP_MODULE
+      - KCP_CONFIG
+    command: -m "$SS_MODULE" -s "$SS_CONFIG" -k "$KCP_CONFIG" -e "$KCP_MODULE" -x
+
+  qq:
+    image: bestwu/qq:office
+    container_name: qq
+    devices:
+      - /dev/snd 
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - ./Documents/TencentFiles:/TencentFiles
+    environment:
+      - DISPLAY=unix$DISPLAY
+      - AUDIO_GID=29
+      - XMODIFIERS=@im=ibus 
+      - GID=$GID 
+      - UID=$UID 
+
+  lantern:
+    image: wilon/lantern:4.4.0
+    container_name: lantern
+    restart: always
+    ports:
+      - "3128:3128"
+      - "8080:8080"
+
+  zeronet:
+    image: nofish/zeronet:latest
+    container_name: zeronet
+    restart: always
+    ports:
+      - "15441:15441"
+      - "43110:43110"
+    volumes:
+      - ./Documents/zeronet_date:/root/data
+
+
