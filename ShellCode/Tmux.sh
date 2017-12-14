@@ -9,7 +9,7 @@ then
 	touch "~/.tmux/.tmux.conf.local"
 fi
 
-cat ~/code/LinuxSettings/tmux.conf > ~/.tmux/.tmux.conf
-cat ~/code/LinuxSettings/tmux.conf.local > ~/.tmux/.tmux.conf.local
+cat ~/code/SettingsFile/tmux.conf > ~/.tmux/.tmux.conf
+cat ~/code/SettingsFile/tmux.conf.local > ~/.tmux/.tmux.conf.local
 
 ln -s -f ~/.tmux/.tmux.conf

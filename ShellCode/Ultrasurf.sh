@@ -10,6 +10,6 @@ if [ ! -d "~/Documents" ];then
 	mkdir "~/Documents"
 fi
 chmod ~/code/Network/ul
-#nohup /home/google/code/Network/ul & > nohup.out & 
+#nohup ~/code/Network/ul & > nohup.out & 
 ~/code/Network/ul > ~/Documents/nohup.out &
 
