@@ -16,8 +16,6 @@ fi
 bash -c 'cat ~/code/SettingsFile/zshrc > ~/.zshrc'
 bash -c 'cat ~/code/SettingsFile/vimrc > ~/.vimrc'
 
-#emulate bash
-
 #设置默认shell为zsh
 chsh -s $(which zsh)
 
