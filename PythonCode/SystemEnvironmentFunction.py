@@ -31,7 +31,7 @@ class SystemEnvironmentFunction(object):
             os.system('echo "google" | bash ~/code/ShellCode/BTVZFile.sh')
             print('')
         elif value == 7:
-            os.system('echo "google" | bash ~/code/ShellCode/TCP.sh')
+            os.system('echo "google" | bash ~/code/ShellCode/Sysctl.sh')
             print('')
         elif value == 8:
             os.system('echo "google" | bash ~/code/ShellCode/GithubProject.sh')

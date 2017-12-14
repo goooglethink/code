@@ -35,13 +35,13 @@ sudo sed -i '$a echo -e "\\033[36m                                              
 #=======================================================================================
 
 if [ ! -d "~/.tmux" ];then
-	mkdir "~/.tmux"
+	mkdir ~/.tmux
 elif [ ! -f "~/.tmux/.tmux.conf" ];
 then
-	touch "~/.tmux/.tmux.conf"
+	touch ~/.tmux/.tmux.conf
 elif [ ! -f "~/.tmux/.tmux.conf.local" ];
 then
-	touch "~/.tmux/.tmux.conf.local"
+	touch ~/.tmux/.tmux.conf.local
 fi
 
 cat ~/code/SettingsFile/tmux.conf > ~/.tmux/.tmux.conf
@@ -56,11 +56,11 @@ ln -s -f ~/.tmux/.tmux.conf
 #-f参数判断$zshrc是否存在 
 if [ ! -f "~/.zshrc" ];
 then
-	touch "~/.zshrc"
+	touch ~/.zshrc
 #-f参数判断$vimrc是否存在 
 elif [ ! -f "~/.vimrc" ];
 then
-	touch "~/.vimrc"
+	touch ~/.vimrc
 fi
 
 cat ~/code/SettingsFile/zshrc > ~/.zshrc
