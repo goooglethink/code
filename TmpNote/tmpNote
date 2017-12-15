@@ -128,8 +128,8 @@ EndSection
 #Replace the bold string with your Bus ID and save it to /etc/X11/xorg.conf
 
 7.Now we have to create some scripts according to our display manager https://wiki.archlinux.org/index.php...splay_Managers.Since im using default Kali linux which is GDM,i created two files:
-touch /usr/share/gdm/greeter/autostart/optimus.desktop
-touch /etc/xdg/autostart/optimus.desktop 
+sudo touch /usr/share/gdm/greeter/autostart/optimus.desktop
+sudo touch /etc/xdg/autostart/optimus.desktop 
 
 [Desktop Entry]
 Type=Application

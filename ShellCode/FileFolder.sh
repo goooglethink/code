@@ -12,9 +12,13 @@ fi
 
 for f in stardict*.tar.bz2; do tar -jxvf $f -C ~/.stardict/dic; done
 
-cp ~/code/SettingsFile/autoload.lua ~/.config/mpv/autoload.lua
-cp ~/code/SettingsFile/mpv.conf ~/.config/mpv/mpv.conf
-cp ~/code/SettingsFile/init.gradle ~/.gradle/init.gradle
+yes | cp ~/code/SettingsFile/autoload.lua ~/.config/mpv/autoload.lua
+
+yes | cp ~/code/SettingsFile/mpv.conf ~/.config/mpv/mpv.conf
+
+yes | cp ~/code/SettingsFile/init.gradle ~/.gradle/init.gradle
+
+yes | cp ~/code/SettingsFile/docker-compose.yml ~/
 
 cat ~/code/SettingsFile/ideavimrc > ~/.ideavimrc
 

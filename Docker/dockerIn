@@ -26,7 +26,6 @@ sudo apt-get install docker-ce -y
 # manage Docker as a non-root user,建立docker组并将当前用户加入docker组:
 sudo groupadd docker
 sudo usermod -aG docker $USER
-sudo usermod -aG docker google
 #===========================================================================================
 # configure Docker to start on boot
 sudo systemctl enable docker
@@ -56,7 +55,7 @@ sudo sed -i '/ExecReload=\/bin\/kill/i\ExecStart=/usr/bin/dockerd' /lib/systemd/
 #max-file 指定单个容器最多能有几个文件
 #两者加一起也就意味着 单个容器 最大只能产生 50*3  150MB 的日志,防止容器无限产生日志，把磁盘沾满了
 #===========================================================================================
-sudo cp code/docker/daemon.json /etc/docker/daemon.json
+sudo cp ~/code/SettingsFile/daemon.json /etc/docker/daemon.json
 sudo gedit /etc/docker/daemon.json
 #===========================================================================================
 #重载守护进程，重启docker

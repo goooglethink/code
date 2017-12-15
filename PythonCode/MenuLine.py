@@ -84,7 +84,7 @@ class MenuLine(object):
     def setOrderScriptFunctionMenuLine(self):
         print("*" * 50)
         print('\033[1m')
-        print("1.Order-System-Configure")
+        print("1.Cover-File-and-Folder")
         print("2.Startup-JavaIDEA")
         print("0.Return-To-The-Previous-Menu")
         print('\033[0m')

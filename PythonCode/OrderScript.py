@@ -11,7 +11,6 @@ class OrderScript(object):
     def setShellCommand(self,value):
         if value == 1:
             os.system('echo "google" | bash ~/code/ShellCode/FileFolder.sh')
-            os.system('sh ~/code/ShellCode/restart.sh')
         if value == 2:
             os.system("./ideaIU/bin/idea.sh")
 
