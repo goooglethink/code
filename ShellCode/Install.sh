@@ -3,101 +3,102 @@
 #-----------------------------------------------------------
 # basic software packages
 sudo -S apt-get install aptitude -y
-sudo aptitude install guake -y
-sudo aptitude install terminator -y
-sudo aptitude install zsh
-sudo aptitude install aptitude -y
+sudo apt-get install guake -y
+sudo apt-get install terminator -y
+sudo apt-get install zsh
+sudo apt-get install aptitude -y
 #-----------------------------------------------------------
 #download
-sudo aptitude install axel -y
-sudo aptitude install aria2 -y
-sudo aptitude install uget -y
-sudo aptitude install youtube-dl -y
+sudo apt-get install axel -y
+sudo apt-get install aria2 -y
+sudo apt-get install uget -y
+sudo apt-get install youtube-dl -y
 #-----------------------------------------------------------
 #bluetooth program
-sudo aptitude install bluetooth
-sudo aptitude install pavucontrol
-sudo aptitude install bluedevil -y
-sudo aptitude install pulseaudio pulseaudio-module-bluetooth pavucontrol bluez-firmware
-sudo aptitude install blueman -y
+sudo apt-get install bluetooth
+sudo apt-get install pavucontrol
+sudo apt-get install bluedevil -y
+sudo apt-get install pulseaudio pulseaudio-module-bluetooth pavucontrol bluez-firmware
+sudo apt-get install blueman -y
 #---------------------------------------------------------------
-sudo aptitude install build-essential
-sudo aptitude install build-essential dkms
-sudo aptitude install build-essential cmake -y
-sudo aptitude install build-essential ncurses-dev yodl -y
-sudo aptitude install build-essential linux-headers-$(uname -r) -y
+sudo apt-get install build-essential
+sudo apt-get install build-essential dkms
+sudo apt-get install build-essential cmake -y
+sudo apt-get install build-essential ncurses-dev yodl -y
+sudo apt-get install build-essential linux-headers-$(uname -r) -y
 #---------------------------------------------------------------
 #Network-Manager
-sudo aptitude install network-manager-openvpn-gnome -y
-sudo aptitude install network-manager-pptp network-manager-pptp-gnome network-manager-strongswan network-manager-vpnc network-manager-vpnc-gnome -y
-sudo aptitude install nscd #dns
-sudo aptitude install pdns-recursor #dns
-sudo aptitude install bridge-utils #docker
+sudo apt-get install network-manager-openvpn-gnome -y
+sudo apt-get install network-manager-pptp network-manager-pptp-gnome network-manager-strongswan network-manager-vpnc network-manager-vpnc-gnome -y
+sudo apt-get install nscd #dns
+sudo apt-get install pdns-recursor #dns
+sudo apt-get install bridge-utils #docker
 #---------------------------------------------------------------
 #net-speeder environment
-sudo aptitude install libnet1
-sudo aptitude install libpcap0.8
-sudo aptitude install libnet1-dev
-sudo aptitude install libpcap0.8-dev
+sudo apt-get install libnet1
+sudo apt-get install libpcap0.8
+sudo apt-get install libnet1-dev
+sudo apt-get install libpcap0.8-dev
 #---------------------------------------------------------------
 #Video and Music
-sudo aptitude install ffmpeg
+sudo apt-get install ffmpeg
 #---------------------------------------------------------------
 #python environment
-sudo aptitude install ipython3 -y
-sudo aptitude install python3-pip -y
-sudo aptitude install python-dev python3-dev
+sudo apt-get install ipython3 -y
+sudo apt-get install python3-pip -y
+sudo apt-get install python-dev python3-dev
 #---------------------------------------------------------------
 #input
-sudo aptitude install ibus -y
-sudo aptitude install ibus-pinyin -y
-sudo aptitude install ibus ibus-clutter ibus-gtk ibus-gtk3 ibus-qt4 -y
-sudo aptitude install xfonts-wqy -y
-sudo aptitude install ttf-freefont xfonts-intl-chinese xfonts-wqy
+sudo apt-get install ibus -y
+sudo apt-get install ibus-pinyin -y
+sudo apt-get install ibus ibus-clutter ibus-gtk ibus-gtk3 ibus-qt4 -y
+sudo apt-get install xfonts-wqy -y
+sudo apt-get install ttf-freefont xfonts-intl-chinese xfonts-wqy
 #---------------------------------------------------------------
 #system environment
-sudo aptitude install git -y
-sudo aptitude install figlet -y	#.bashrc file
-sudo aptitude install libappindicator1 libindicator7 -y	#Chrome
-sudo aptitude install vim -y
-sudo aptitude install libgnome2-0 -y
-sudo aptitude install libasound2 alsa-utils alsa-oss -y
-sudo aptitude install tree
-sudo aptitude install cmatrix -y
-sudo aptitude install cmake -y
-sudo aptitude install ctags
-sudo aptitude install stardict -y
-sudo aptitude install sdcv
-sudo aptitude install mtools #UNetbootin
-sudo aptitude install smartmontools	#disk
-sudo aptitude install zeal
-sudo aptitude install privoxy -y
-sudo aptitude install kali-linux-all -y
+sudo apt-get install git -y
+sudo apt-get install figlet -y	#.bashrc file
+sudo apt-get install libappindicator1 libindicator7 -y	#Chrome
+sudo apt-get install vim -y
+sudo apt-get install libgnome2-0 -y
+sudo apt-get install libasound2 alsa-utils alsa-oss -y
+sudo apt-get install tree
+sudo apt-get install cmatrix -y
+sudo apt-get install cmake -y
+sudo apt-get install ctags
+sudo apt-get install stardict -y
+sudo apt-get install sdcv
+sudo apt-get install mtools #UNetbootin
+sudo apt-get install smartmontools	#disk
+sudo apt-get install zeal
+sudo apt-get install privoxy -y
+sudo apt-get install kali-linux-all -y
+sudo apt-get install mesa-utils #nvidia x server settings
 #---------------------------------------------------------------
-sudo aptitude install synaptic -y
-sudo aptitude install htop
-sudo aptitude install bleachbit -y
-sudo aptitude install gdebi -y
-sudo aptitude install virtualbox -y
-sudo aptitude install shutter -y
-sudo aptitude install golang -y
-sudo aptitude install chromium -y
+sudo apt-get install synaptic -y
+sudo apt-get install htop
+sudo apt-get install bleachbit -y
+sudo apt-get install gdebi -y
+sudo apt-get install virtualbox -y
+sudo apt-get install shutter -y
+sudo apt-get install golang -y
+sudo apt-get install chromium -y
 #---------------------------------------------------------------
 #install docker environment
-sudo aptitude install apt-transport-https
-sudo aptitude install ca-certificates
-sudo aptitude install gnupg2
-sudo aptitude install curl
-sudo aptitude install software-properties-common
-sudo aptitude install lsb-release
+sudo apt-get install apt-transport-https
+sudo apt-get install ca-certificates
+sudo apt-get install gnupg2
+sudo apt-get install curl
+sudo apt-get install software-properties-common
+sudo apt-get install lsb-release
 #---------------------------------------------------------------
 #database
-sudo aptitude install mysql-workbench -y
-sudo aptitude install mongodb -y
+sudo apt-get install mysql-workbench -y
+sudo apt-get install mongodb -y
 #---------------------------------------------------------------
 #Java Project
-sudo aptitude install maven -y
-sudo aptitude install gradle -y
+sudo apt-get install maven -y
+sudo apt-get install gradle -y
 #---------------------------------------------------------------
 #sudo apt-get install snort -y
 #sudo apt-get install mitmf -y
