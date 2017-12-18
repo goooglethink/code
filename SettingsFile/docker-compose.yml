@@ -20,16 +20,16 @@ services:
     image: bestwu/qq:office
     container_name: qq
     devices:
-      - /dev/snd 
+      - /dev/snd
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix
       - ./Documents/TencentFiles:/TencentFiles
     environment:
       - DISPLAY=unix$DISPLAY
       - AUDIO_GID=29
-      - XMODIFIERS=@im=ibus 
-      - GID=$GID 
-      - UID=$UID 
+      - XMODIFIERS=@im=ibus
+      - GID=$GID
+      - UID=$UID
 
   lantern:
     image: wilon/lantern:4.4.0
@@ -37,7 +37,7 @@ services:
     restart: always
     ports:
       - "3128:3128"
-      - "8080:8080"
+      - "8090:8080"
 
   zeronet:
     image: nofish/zeronet:latest
