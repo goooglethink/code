@@ -437,7 +437,7 @@ alias mytools='bash ~/code/start.sh'
 alias pcinfo='bash ~/code/ShellCode/PCINFO.sh'
 
 # Start up Program
-alias ul='chmod ~/code/Network/ul && ~/code/Network/ul >> ~/Documents/nohup.out &'
+alias ul='sudo chmod 777 ~/code/Network/ul && ~/code/Network/ul >> ~/Documents/nohup.out &'
 
 # System clean and remove
 alias rm='rm -rf'
@@ -457,7 +457,7 @@ alias poweroff='sudo shutdown -P now'
 # Disk
 alias fdisk='echo "google" | sudo fdisk -l'
 
-# User 
+# User
 alias chmodon='sudo chmod 777'
 
 # Self Monitoring Analysis and Reporting Technology (SMART)
