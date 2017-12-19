@@ -8,7 +8,7 @@ gsettings get org.gnome.desktop.session session-name
 
 #禁用休眠/挂起功能(笔记本电脑最好不要禁用休眠/挂起功能)
 #RESUME=UUID=****这行注释掉（行首加#）
-echo "google" | sudo -S sudo sed -i 's/^/#/' /etc/initramfs-tools/conf.d/resume
+#echo "google" | sudo -S sudo sed -i 's/^/#/' /etc/initramfs-tools/conf.d/resume
 #^符号代表行首,$符号代表行尾
 
 #修改grub2等待时间
