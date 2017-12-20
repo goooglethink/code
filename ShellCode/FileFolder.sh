@@ -2,11 +2,25 @@
 
 if [ ! -d "~/.stardict/dic" ];then
 	mkdir -p ~/.stardict/dic
-elif [ ! -d "~/.config/mpv" ];then
+fi
+
+if [ ! -d "~/.config/mpv" ];then
 	mkdir -p ~/.config/mpv
-elif [ ! -d "~/.gradle" ];then
+fi
+
+if [ ! -d "~/.gradle" ];then
 	mkdir -p ~/.gradle
-elif [ ! -f "~/.ideavimrc" ];then
+fi
+
+if [ ! -d "~/.gradle" ];then
+	mkdir -p ~/.local/share/icons
+fi
+
+if [ ! -d "~/.gradle" ];then
+	mkdir -p ~/.local/share/themes
+fi
+
+if [ ! -f "~/.ideavimrc" ];then
 	touch ~/.ideavimrc
 fi
 
