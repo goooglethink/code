@@ -22,7 +22,7 @@ class MenuLine(object):
         print("*" * 50)
         print('\033[1m')
         print("1.Install-Software-Packages")
-        print("2.Majorization-Settings")
+        print("2.Optimize-Settings")
         print("3.System-Update-And-Upgrade")
         print("4.Cover-DNS-File")
         print("5.Cover-Hosts-File")

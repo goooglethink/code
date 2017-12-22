@@ -14,7 +14,7 @@ class SystemEnvironmentFunction(object):
             os.system('sh ~/code/shellCode/restart.sh')
             print('')
         elif value == 2:
-            os.system('echo "google" | bash ~/code/ShellCode/Majorization.sh')
+            os.system('echo "google" | bash ~/code/ShellCode/Optimize.sh')
             os.system('sh ~/code/shellCode/restart.sh')
             print('')
         elif value == 3:
