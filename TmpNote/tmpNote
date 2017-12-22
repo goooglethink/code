@@ -146,10 +146,3 @@ glxinfo | grep -i "direct rendering"
 Optional: you can now install your cuda toolkits:
 sudo apt-get install ocl-icd-libopencl1 nvidia-cuda-toolkit
 ====================================================================
-
-sudo apt-get install zfs-dkms zfsutils-linux -y
-sudo apt-get install zfs-initramfs -y
-sudo modprobe zfs
-sudo zfs list
-
-
