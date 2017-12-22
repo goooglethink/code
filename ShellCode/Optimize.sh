@@ -37,3 +37,4 @@ sudo systemctl start bluetooth.service
 #解决音量设置无法保存：
 sudo alsactl store
 
+

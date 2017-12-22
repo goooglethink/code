@@ -1,5 +1,6 @@
 #!/bin/bash
 #Settings proxy : sudo apt-get -o Acquire::http::proxy="http://proxyAddress:proxyPort/" 
+#sudo apt-get -o Acquire::http::proxy="http://127.0.0.1:1090/" 
 #-----------------------------------------------------------
 # basic software packages
 sudo -S apt-get install aptitude -y

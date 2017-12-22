@@ -151,3 +151,5 @@ sudo apt-get install zfs-dkms zfsutils-linux -y
 sudo apt-get install zfs-initramfs -y
 sudo modprobe zfs
 sudo zfs list
+
+
