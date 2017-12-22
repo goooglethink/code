@@ -1,0 +1,70 @@
+#kali linux install nvidia drivers
+1. Verify you have hybrid graphics:
+lspci | grep -E "VGA|3D"
+
+2.Disable nouveau:
+echo -e "blacklist nouveau\noptions nouveau modeset=0\nalias nouveau off" > /etc/modprobe.d/blacklist-nouveau.conf
+update-initramfs -u && reboot
+
+3.system will reboot and nouveau should be disabled.verify if nouveau is disabled:
+lsmod |grep -i nouveau
+#If shows nothing,means nouveau successfully disabled.
+
+4.Install nvidia driver from kali repo:
+sudo aptitude install  nvidia-driver nvidia-xconfig
+
+5.Now we have to find bus id of our nvidia card:
+nvidia-xconfig --query-gpu-info | grep 'BusID : ' | cut -d ' ' -f6
+#it should show something like this:
+PCI:1:0:0
+#This is our Bus ID.
+
+6.Now we generate /etc/X11/xorg.conf file with this bus ID according to nvidia guide:
+Section "ServerLayout"
+    Identifier "layout"
+    Screen 0 "nvidia"
+    Inactive "intel"
+EndSection
+
+Section "Device"
+    Identifier "nvidia"
+    Driver "nvidia"
+    BusID "PCI:1:0:0"
+EndSection
+
+Section "Screen"
+    Identifier "nvidia"
+    Device "nvidia"
+    Option "AllowEmptyInitialConfiguration"
+EndSection
+
+Section "Device"
+    Identifier "intel"
+    Driver "modesetting"
+EndSection
+
+Section "Screen"
+    Identifier "intel"
+    Device "intel"
+EndSection
+#Replace the bold string with your Bus ID and save it to /etc/X11/xorg.conf
+
+7.Now we have to create some scripts according to our display manager https://wiki.archlinux.org/index.php...splay_Managers.Since im using default Kali linux which is GDM,i created two files:
+sudo touch /usr/share/gdm/greeter/autostart/optimus.desktop
+sudo touch /etc/xdg/autostart/optimus.desktop 
+
+[Desktop Entry]
+Type=Application
+Name=Optimus
+Exec=sh -c "xrandr --setprovideroutputsource modesetting NVIDIA-0; xrandr --auto"
+NoDisplay=true
+X-GNOME-Autostart-Phase=DisplayServer
+
+8. Now reboot and you should be using Nvidia Driver.Verify if everything is ok:
+sudo apt-get install mesa-utils
+glxinfo | grep -i "direct rendering"
+#direct rendering: Yes
+
+Optional: you can now install your cuda toolkits:
+sudo apt-get install ocl-icd-libopencl1 nvidia-cuda-toolkit
+

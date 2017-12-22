@@ -80,7 +80,7 @@ sudo apt-get install synaptic -y
 sudo apt-get install htop
 sudo apt-get install bleachbit -y
 sudo apt-get install gdebi -y
-sudo apt-get install virtualbox -y
+sudo apt-get install virtualbox -y && sudo usermod -aG vboxusers $USER
 sudo apt-get install shutter -y
 sudo apt-get install golang -y
 sudo apt-get install chromium -y

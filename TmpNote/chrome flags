@@ -1,0 +1,11 @@
+chrome flags
+chrome://flags/
+
+Smooth Scrolling           enabled
+Overlay Scrollbars         enabled
+Accelerated 2D canvas      enabled
+Display list 2D canvas     enabled
+New style notification     enabled
+Experimental QUIC protocol disabled
+Number of raster threads   4
+
