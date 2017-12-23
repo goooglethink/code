@@ -17,23 +17,13 @@ class NetworkFunction(object):
 
     def setShellCommand(self,value):
         if value == 1:
-            os.system('bash ~/code/ShellCode/GoProxy.sh')
-            print('')
-        elif value == 2:
             os.system('bash ~/code/ShellCode/Ultrasurf.sh')
             print('')
-        elif value == 3:
-            os.system('bash ~/code/ShellCode/go-net.sh')
-            print('')
-        elif value == 4:
+        elif value == 2:
             os.system('echo "google" | sudo -S sh ~/code/Network/NetSpeeder/build.sh')
             os.system('sudo ~/code/Network/NetSpeeder/net_speeder wlan0:0 "tcp"')
             print('')
-        elif value == 5:
-            os.system('echo "google" | sudo -S /etc/init.d/networking restart');
-            os.system('echo "google" | sudo -S /etc/init.d/nscd restart');
-            os.system('echo "google" | sudo systemctl restart NetworkManager');
-        elif value == 6:
+        elif value == 3:
             os.system('bash ~/code/ShellCode/macChange.sh')
             print('')
 
@@ -51,15 +41,6 @@ class NetworkFunction(object):
                 self.getShellCommand(value)
                 DelPrint.DelPrint().delNetworkPrint()
             elif value == 3:
-                self.getShellCommand(value)
-                DelPrint.DelPrint().delNetworkPrint()
-            elif value == 4:
-                self.getShellCommand(value)
-                DelPrint.DelPrint().delNetworkPrint()
-            elif value == 5:
-                self.getShellCommand(value)
-                DelPrint.DelPrint().delNetworkPrint()
-            elif value == 6:
                 self.getShellCommand(value)
                 DelPrint.DelPrint().delNetworkPrint()
             elif value == 0:

@@ -431,7 +431,6 @@ alias dist-updategrade='echo "google" | sudo -S aptitude update && sudo aptitude
 
 # Shell script
 alias root='bash ~/code/ShellCode/suroot.sh'
-alias goproxy='bash ~/code/Network/start.sh'
 alias sshme='bash ~/code/ShellCode/ssh.sh'
 alias mytools='bash ~/code/start.sh'
 alias pcinfo='bash ~/code/ShellCode/PCINFO.sh'

@@ -17,11 +17,9 @@ class GithubScriptFunction(object):
         elif value == 2:
             os.system('bash ~/code/ShellCode/GithubUltrasurf.sh')
         elif value == 3:
-            os.system('bash ~/code/ShellCode/GithubGoProxy.sh')
-        elif value == 4:
             urlValue = input("Please input github URL:")
             os.system('git clone %s'%urlValue)
-        elif value == 5:
+        elif value == 4:
             urlValue = input("Please input local github project:")
             os.chdir(urlValue)
             subprocess.call(["git","status"])
@@ -55,9 +53,6 @@ class GithubScriptFunction(object):
                 self.getShellCommand(value)
                 DelPrint.DelPrint().delGithubPrint()
             elif value == 4:
-                self.getShellCommand(value)
-                DelPrint.DelPrint().delGithubPrint()
-            elif value == 5:
                 self.getShellCommand(value)
                 DelPrint.DelPrint().delGithubPrint()
             elif value == 0:
