@@ -1,6 +1,6 @@
 #!/bin/bash
 #Settings proxy : sudo apt-get -o Acquire::http::proxy="http://proxyAddress:proxyPort/" 
-#sudo apt-get -o Acquire::http::proxy="http://127.0.0.1:1090/" 
+#sudo apt-get -o Acquire::http::proxy="http://127.0.0.1:/" 
 #-----------------------------------------------------------
 # basic software packages
 sudo -S apt-get install aptitude -y
@@ -32,7 +32,7 @@ sudo apt-get install build-essential linux-headers-$(uname -r) -y
 sudo apt-get install network-manager-openvpn-gnome -y
 sudo apt-get install network-manager-pptp network-manager-pptp-gnome network-manager-strongswan network-manager-vpnc network-manager-vpnc-gnome -y
 sudo apt-get install nscd #dns
-sudo apt-get install pdns-recursor #dns
+sudo apt-get install pdns-recursor -y #dns
 sudo apt-get install bridge-utils #docker
 #---------------------------------------------------------------
 #net-speeder environment
@@ -73,7 +73,6 @@ sudo apt-get install mtools #UNetbootin
 sudo apt-get install smartmontools	#disk
 sudo apt-get install zeal
 sudo apt-get install privoxy -y
-sudo apt-get install kali-linux-all -y
 sudo apt-get install mesa-utils #nvidia x server settings
 #---------------------------------------------------------------
 sudo apt-get install synaptic -y
@@ -101,6 +100,7 @@ sudo apt-get install mongodb -y
 sudo apt-get install maven -y
 sudo apt-get install gradle -y
 #---------------------------------------------------------------
+#sudo apt-get install kali-linux-all -y
 #sudo apt-get install snort -y
 #sudo apt-get install mitmf -y
 #sudo apt-get install fcitx fcitx-table-wbpy fcitx-config-gtk fcitx-sunpinyin -y #input sources

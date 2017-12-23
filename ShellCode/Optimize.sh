@@ -28,13 +28,7 @@ sudo sed -i '/\<swap/s/^/#/' /etc/fstab
 #\< 匹配单词的开始
 #\> 匹配单词的结束
 
-#bluetooth cpnfigure
-sudo lsmod | grep blue
-sudo systemctl enable bluetooth.service
-sudo systemctl start bluetooth.service
-#sudo service bluetooth stop
-
 #解决音量设置无法保存：
-sudo alsactl store
+#sudo alsactl store
 
 

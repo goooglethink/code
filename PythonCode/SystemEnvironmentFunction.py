@@ -11,11 +11,11 @@ class SystemEnvironmentFunction(object):
     def setShellCommand(self, value):
         if value == 1:
             os.system('echo "google" | bash ~/code/ShellCode/Install.sh')
-            os.system('sh ~/code/shellCode/restart.sh')
+            os.system('sh ~/code/ShellCode/restart.sh')
             print('')
         elif value == 2:
             os.system('echo "google" | bash ~/code/ShellCode/Optimize.sh')
-            os.system('sh ~/code/shellCode/restart.sh')
+            os.system('sh ~/code/ShellCode/restart.sh')
             print('')
         elif value == 3:
             os.system('echo "google" | bash ~/code/ShellCode/UpdateSystem.sh')

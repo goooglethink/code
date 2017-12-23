@@ -9,7 +9,7 @@
 if [ ! -d "~/Documents" ];then
 	mkdir "~/Documents"
 fi
-chmod ~/code/Network/ul
+sudo chmod 777 ~/code/Network/ul
 #nohup ~/code/Network/ul & > nohup.out & 
 ~/code/Network/ul > ~/Documents/nohup.out &
 
