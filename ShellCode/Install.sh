@@ -74,6 +74,7 @@ sudo apt-get install smartmontools	#disk
 sudo apt-get install zeal
 sudo apt-get install privoxy -y
 sudo apt-get install mesa-utils #nvidia x server settings
+sudo apt-get install flatpak -y
 #---------------------------------------------------------------
 sudo apt-get install synaptic -y
 sudo apt-get install htop
