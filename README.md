@@ -29,7 +29,6 @@ __1.Command , Note and Shortcut__
 
 __3.Network Project__
 - Hosts File
-- GoGo Proxy
 - ltrasurf Proxy
 - net-speeder-master
 
