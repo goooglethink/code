@@ -14,7 +14,7 @@ class SystemEnvironmentFunction(object):
             os.system('sh ~/code/ShellCode/restart.sh')
             print('')
         elif value == 2:
-            os.system('echo "google" | bash ~/code/ShellCode/Optimize.sh')
+            os.system('echo "google" | bash ~/code/ShellCode/grub.sh')
             os.system('sh ~/code/ShellCode/restart.sh')
             print('')
         elif value == 3:
@@ -25,15 +25,9 @@ class SystemEnvironmentFunction(object):
             os.system('echo "google" | bash ~/code/ShellCode/DNS.sh')
             print('')
         elif value == 5:
-            os.system('echo "google" | bash ~/code/ShellCode/HostsFile.sh')
+            os.system('echo "google" | bash ~/code/ShellCode/SettingsHub.sh')
             print('')
         elif value == 6:
-            os.system('echo "google" | bash ~/code/ShellCode/BTVZFile.sh')
-            print('')
-        elif value == 7:
-            os.system('echo "google" | bash ~/code/ShellCode/Sysctl.sh')
-            print('')
-        elif value == 8:
             os.system('echo "google" | bash ~/code/ShellCode/GithubProject.sh')
             print('')
 

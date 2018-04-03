@@ -1,130 +1,100 @@
 #!/bin/bash
-#Settings proxy : sudo apt-get -o Acquire::http::proxy="http://proxyAddress:proxyPort/" 
-#sudo apt-get -o Acquire::http::proxy="http://127.0.0.1:/" 
-#-----------------------------------------------------------
-# basic software packages
-sudo -S apt-get install aptitude -y
-sudo apt-get install guake -y
-sudo apt-get install terminator -y
-sudo apt-get install zsh
-sudo apt-get install aptitude -y
-#-----------------------------------------------------------
-#download
-sudo apt-get install axel -y
-sudo apt-get install aria2 -y
-sudo apt-get install uget -y
-sudo apt-get install youtube-dl -y
-#-----------------------------------------------------------
-#bluetooth program
-sudo apt-get install bluetooth
-sudo apt-get install pavucontrol
-sudo apt-get install bluedevil -y
-sudo apt-get install pulseaudio pulseaudio-module-bluetooth pavucontrol bluez-firmware
-sudo apt-get install blueman -y
 #---------------------------------------------------------------
-sudo apt-get install build-essential
-sudo apt-get install build-essential dkms
-sudo apt-get install build-essential cmake -y
-sudo apt-get install build-essential ncurses-dev yodl -y
-sudo apt-get install build-essential linux-headers-$(uname -r) -y
+#basic development environment
+echo "google" | sudo -S su -c "aptitude install terminator zsh git vim mpv flatpak -y"
 #---------------------------------------------------------------
-#Network-Manager
-sudo apt-get install network-manager-openvpn-gnome -y
-sudo apt-get install network-manager-pptp network-manager-pptp-gnome network-manager-strongswan network-manager-vpnc network-manager-vpnc-gnome -y
-sudo apt-get install nscd #dns
-sudo apt-get install pdns-recursor -y #dns
-sudo apt-get install bridge-utils #docker
+#download tools applications
+sudo su -c "aptitude install aria2 axel curl uget -y"
 #---------------------------------------------------------------
-#net-speeder environment
-sudo apt-get install libnet1
-sudo apt-get install libpcap0.8
-sudo apt-get install libnet1-dev
-sudo apt-get install libpcap0.8-dev
+#Virtual Machine
+sudo su -c "aptitude install virtualbox -y" && sudo usermod -aG vboxusers $USER
 #---------------------------------------------------------------
-#Video and Music
-sudo apt-get install ffmpeg
+#Input Sources
+sudo su -c "aptitude install ibus-pinyin -y"
 #---------------------------------------------------------------
-#python environment
-sudo apt-get install ipython3 -y
-sudo apt-get install python3-pip -y
-sudo apt-get install python-dev python3-dev
+#Web Browser
+sudo su -c "aptitude install chromium -y"
 #---------------------------------------------------------------
-#input
-sudo apt-get install ibus -y
-sudo apt-get install ibus-pinyin -y
-sudo apt-get install ibus ibus-clutter ibus-gtk ibus-gtk3 ibus-qt4 -y
-sudo apt-get install xfonts-wqy -y
-sudo apt-get install ttf-freefont xfonts-intl-chinese xfonts-wqy
+#Auto set wallpaper
+sudo su -c "aptitude install variety -y"
 #---------------------------------------------------------------
-#system environment
-sudo apt-get install git -y
-sudo apt-get install figlet -y	#.bashrc file
-sudo apt-get install libappindicator1 libindicator7 -y	#Chrome
-sudo apt-get install vim -y
-sudo apt-get install libgnome2-0 -y
-sudo apt-get install libasound2 alsa-utils alsa-oss -y
-sudo apt-get install tree
-sudo apt-get install cmatrix -y
-sudo apt-get install cmake -y
-sudo apt-get install ctags
-sudo apt-get install stardict -y
-sudo apt-get install sdcv
-sudo apt-get install mtools #UNetbootin
-sudo apt-get install smartmontools	#disk
-sudo apt-get install zeal
-sudo apt-get install privoxy -y
-sudo apt-get install mesa-utils #nvidia x server settings
-sudo apt-get install flatpak -y
+#Terminal Dictionary
+sudo su -c "aptitude install sdcv -y"
 #---------------------------------------------------------------
-sudo apt-get install synaptic -y
-sudo apt-get install htop
-sudo apt-get install bleachbit -y
-sudo apt-get install gdebi -y
-sudo apt-get install virtualbox -y && sudo usermod -aG vboxusers $USER
-sudo apt-get install shutter -y
-sudo apt-get install golang -y
-sudo apt-get install chromium -y
+#Install terminal fonts color
+sudo su -c "aptitude install lolcat -y"
 #---------------------------------------------------------------
-#install docker environment
-sudo apt-get install apt-transport-https
-sudo apt-get install ca-certificates
-sudo apt-get install gnupg2
-sudo apt-get install curl
-sudo apt-get install software-properties-common
-sudo apt-get install lsb-release
+#Install terminal screen saver color
+sudo su -c "aptitude install cmatrix -y"
 #---------------------------------------------------------------
-#database
-sudo apt-get install mysql-workbench -y
-sudo apt-get install mongodb -y
+#Install terminal folders display
+sudo su -c "aptitude install tree -y"
 #---------------------------------------------------------------
-#Java Project
-sudo apt-get install maven -y
-sudo apt-get install gradle -y
+#UNetbootin dependence package
+sudo su -c "aptitude install mtools -y"
 #---------------------------------------------------------------
-#sudo apt-get install kali-linux-all -y
-#sudo apt-get install snort -y
-#sudo apt-get install mitmf -y
-#sudo apt-get install fcitx fcitx-table-wbpy fcitx-config-gtk fcitx-sunpinyin -y #input sources
-#sudo apt-get install fcitx-table-all -y
-#sudo apt-get install llvm-3.9 clang-3.9 libclang-3.9-dev libboost-all-dev
-#sudo apt-get install silversearcher-ag
-#sudo apt-get install netcat -y
-#sudo apt-get install openvas -y
-#sudo apt-get install rkhunter -y
-#sudo apt-get install recordmydesktop -y
-#sudo apt-get install wicd wicd-gtk -y	#wifi
-#sudo apt-get install realtek-rtl88xxau-dkms
-#sudo apt-get install vlc -y
-#sudo apt-get install winff -y
-#sudo apt-get install gufw -y
-#sudo apt-get install snapd -y
-#sudo systemctl enable snapd.service
-#sudo systemctl status snapd.service
-#sudo systemctl restart snapd.service
-#sudo apt-get install k3b -y
-#sudo apt-get install psensor -y
-#sudo apt-get install gscan2pdf -y
-#sudo apt-get install evince -y #pdf
-#sudo apt-get install conky -y
-#sudo apt-get install conky-all -y
-#sudo apt-get install conky-manager -y
+#Find orphaned packages tool
+sudo su -c "aptitude install deborphan -y"
+#---------------------------------------------------------------
+#etcher-1.3.1-x86_64.AppImage dependence package
+sudo su -c "aptitude install libgconf-2-4 -y"
+#---------------------------------------------------------------
+#sudo aptitude install wine winetricks
+#sudo aptitude install build-essential dkms -y #virtualbox environment
+#sudo aptitude install smartmontools -y #Smartmontools package dependences
+#sudo aptitude install mesa-utils -y #Nvidia X Server package dependences
+#sudo aptitude install apt-transport-https ca-certificates gnupg2 software-properties-common lsb-release -y #docker package dependences
+#sudo aptitude install ipython3 python3-pip python-dev python3-dev -y #python development environment
+#sudo aptitude install cmake libncurses5-dev yodl linux-headers-$(uname -r) -y #System environment
+#sudo aptitude install libasound2 alsa-utils alsa-oss -y #sound package dependences
+#sudo aptitude install golang -y
+#sudo aptitude install ctags -y #vim plugin dependences
+#sudo aptitude install nscd pdns-recursor -y  #DNS optimization
+#sudo aptitude install libnet1 libpcap0.8 libnet1-dev libpcap0.8-dev -y #net-speeder package dependences
+#sudo aptitude install stardict
+#sudo aptitude install maven -y
+#sudo aptitude install synaptic gdebi -y
+#sudo aptitude install mysql-workbench -y
+#sudo aptitude install ibus-clutter ibus-gtk ibus-gtk3 ibus-qt4
+#sudo aptitude install ttf-freefont xfonts-intl-chinese xfonts-wqy -y
+#sudo aptitude install libappindicator1 libindicator7 -y #Chrome dependences
+#sudo aptitude install network-manager-openvpn-gnome network-manager-pptp network-manager-pptp-gnome network-manager-strongswan network-manager-vpnc network-manager-vpnc-gnome -y
+#sudo aptitude install bridge-utils #docker network
+#sudo aptitude install bluetooth pulseaudio pulseaudio-module-bluetooth pavucontrol bluez-firmware bluedevil blueman -y
+#sudo aptitude install figlet -y	#.bashrc
+#sudo aptitude install libgnome2-0 -y
+#sudo aptitude install youtube-dl -y
+#sudo aptitude install htop
+#sudo aptitude install zeal
+#sudo aptitude install shutter -y
+#sudo aptitude install gradle -y
+#sudo aptitude install mongodb -y
+#sudo aptitude install ffmpeg
+#sudo aptitude install guake -y
+#sudo aptitude install privoxy -y
+#sudo aptitude install bleachbit -y
+#sudo aptitude install kali-linux-all -y
+#sudo aptitude install snort -y
+#sudo aptitude install mitmf -y
+#sudo aptitude install fcitx fcitx-table-wbpy fcitx-config-gtk fcitx-sunpinyin -y #input sources
+#sudo aptitude install fcitx-table-all -y
+#sudo aptitude install llvm-3.9 clang-3.9 libclang-3.9-dev libboost-all-dev
+#sudo aptitude install silversearcher-ag
+#sudo aptitude install netcat -y
+#sudo aptitude install openvas -y
+#sudo aptitude install rkhunter -y
+#sudo aptitude install recordmydesktop -y
+#sudo aptitude install wicd wicd-gtk -y	#wifi
+#sudo aptitude install realtek-rtl88xxau-dkms
+#sudo aptitude install vlc -y
+#sudo aptitude install winff -y
+#sudo aptitude install gufw -y
+#sudo aptitude install snapd -y
+#sudo aptitude install k3b -y
+#sudo aptitude install psensor -y
+#sudo aptitude install gscan2pdf -y
+#sudo aptitude install evince -y #pdf
+#sudo aptitude install conky -y
+#sudo aptitude install conky-all -y
+#sudo aptitude install conky-manager -y
+#sudo aptitude install linux-image-$(uname -r|sed 's,[^-]*-[^-]*-,,') linux-headers-$(uname -r|sed 's,[^-]*-[^-]*-,,') broadcom-sta-dkms #BCM94352HMB

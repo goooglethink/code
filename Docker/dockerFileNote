@@ -1,8 +1,0 @@
-FROM                                       # 指定基础镜像
-
-RUN                                        # 执行命令行命令
-
-COPY <SOURCE_PATH> <AIM_PATH>
-
-
-

@@ -1,0 +1,39 @@
+# add Docker repo gpg key(官方源)
+sudo su -c "chmod 777 /etc/apt/sources.list"
+sudo su -c "curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -"
+echo "google" | sudo -S su -c "echo 'deb https://download.docker.com/linux/debian stretch stable' >> /etc/apt/sources.list"
+#===========================================================================================
+#删除重复内容
+echo "google" | sudo -S sed -r -i ':1;N;s/^(.+)((\n.*)*)\n\1$/\1\2/M;$!b1' /etc/apt/sources.list
+#===========================================================================================
+sudo su -c "aptitude update"
+#===========================================================================================
+#install docker-ce
+sudo su -c "aptitude install docker-ce -y"
+#===========================================================================================
+# manage Docker as a non-root user,建立docker组并将当前用户加入docker组:
+sudo groupadd docker
+sudo usermod -aG docker $USER
+#===========================================================================================
+# configure Docker to start on boot
+sudo systemctl enable docker
+sudo systemctl start docker
+#===========================================================================================
+#删除包含指定的内容的行
+sudo sed -i '/ExecStart=\/usr\/bin\/dockerd/d' /lib/systemd/system/docker.service
+sudo sed -i '/ExecReload=\/bin\/kill/i\ExecStart=/usr/bin/dockerd' /lib/systemd/system/docker.service
+#===========================================================================================
+sudo cp ~/code/SettingsFile/daemon.json /etc/docker/daemon.json
+#===========================================================================================
+#重载守护进程，重启docker
+sudo systemctl daemon-reload && sudo systemctl restart docker && sudo ps -ef | grep dockerd
+#===========================================================================================
+#install docker-compose
+sudo su -c "aptitude install docker-compose -y"
+#===========================================================================================
+# check docker and docker-compose installed
+sudo docker info && sudo docker version && docker-compose version
+#===========================================================================================
+# remove docker repo gpg key in /etc/apt/sources.list
+sudo sed -i '/stretch/d' /etc/apt/sources.list && sudo su -c "aptitude update && reboot"
+

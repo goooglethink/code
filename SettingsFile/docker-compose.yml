@@ -1,29 +1,14 @@
 
 version: '3.3'
 services:
-  ss:
-    image: mritd/shadowsocks:latest
-    container_name: ss
-    restart: always
-    ports:
-      - "23:23"
-      - "143:143/udp"
-      - "135:135"
-    environment:
-      - SS_MODULE
-      - SS_CONFIG
-      - KCP_MODULE
-      - KCP_CONFIG
-    command: -m "$SS_MODULE" -s "$SS_CONFIG" -k "$KCP_CONFIG" -e "$KCP_MODULE" -x
-
   qq:
-    image: bestwu/qq:office
+    image: bestwu/qq:latest
     container_name: qq
     devices:
       - /dev/snd
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix
-      - ./Documents/TencentFiles:/TencentFiles
+      - ./Technology/TencentFiles:/TencentFiles
     environment:
       - DISPLAY=unix$DISPLAY
       - AUDIO_GID=29
@@ -32,7 +17,7 @@ services:
       - UID=$UID
 
   lantern:
-    image: wilon/lantern:4.4.0
+    image: wilon/lantern:latest
     container_name: lantern
     restart: always
     ports:
@@ -47,6 +32,31 @@ services:
       - "15441:15441"
       - "43110:43110"
     volumes:
-      - ./Documents/zeronet_date:/root/data
+      - ./Technology/zeronet_date:/root/data
 
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    restart: always
+    environment:
+      - MONGO_DATA_DIR=/data/db
+      - MONGO_LOG_DIR=/dev/null
+    volumes:
+      - ./Technology/mongoData/db:/data/db
+    ports:
+      - "27017:27017"
+
+  mysql:
+    image: mysql:latest
+    container_name: mysql
+    restart: always
+    volumes:
+      - ./Technology/mysql:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    environment:
+       MYSQL_ROOT_PASSWORD: '123'
+       MYSQL_DATABASE: 'database'
+       MYSQL_USER: 'user'
+       MYSQL_PASSWORD: '123'
 

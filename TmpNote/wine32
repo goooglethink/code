@@ -1,0 +1,4 @@
+echo "google" | sudo -S su -c "dpkg --add-architecture i386"
+echo "google" | sudo -S su -c "aptitude update"
+sudo su -c "aptitude install wine32 -y"
+sudo dpkg --remove-architecture i386

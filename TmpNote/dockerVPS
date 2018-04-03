@@ -1,0 +1,56 @@
+========================================================================
+VPS install docker ,docker-compose and.
+========================================================================
+yum install -y yum-utils device-mapper-persistent-data lvm2
+yum-config-manager \
+    --add-repo \
+    https://download.docker.com/linux/centos/docker-ce.repo
+yum-config-manager --enable docker-ce-edge
+yum-config-manager --enable docker-ce-test
+yum makecache fast
+yum install docker-ce
+sudo groupadd docker
+sudo usermod -aG docker $USER
+sudo systemctl enable docker
+sudo systemctl start docker
+yum install python-pip
+pip install -U docker-compose
+docker-compose version
+========================================================================
+
+========================================================================
+shadowsocks
+========================================================================
+# Server
+export SS_MODULE="ss-server"
+export SS_CONFIG="-s 0.0.0.0 -p 23 -k goooglethink -m aes-256-cfb --plugin obfs-server --plugin-opts obfs=http"
+export KCP_MODULE="kcpserver"
+export KCP_CONFIG="-t 127.0.0.1:23 -l :143 -mode fast3"
+
+# Client
+export SS_MODULE="ss-local"
+export SS_CONFIG="-s 127.0.0.1 -p 23 -b 0.0.0.0 -l 135 -k goooglethink -m aes-256-cfb --plugin obfs-local --plugin-opts obfs=http;obfs-host=www.bing.com"
+export KCP_MODULE="kcpclient"
+export KCP_CONFIG="-r 150.95.138.184 -l :23 -mode fast3"
+
+#chacha20
+#aes-256-cfb
+========================================================================
+
+========================================================================
+docker-compose
+========================================================================
+docker info
+docker ps -al
+docker-compose up -d
+docker-compose logs -f
+docker-compose down
+========================================================================
+
+
+
+
+
+
+
+

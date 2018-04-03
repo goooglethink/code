@@ -1,0 +1,19 @@
+chrome flags URL
+chrome://flags/
+
+#enabled
+Smooth Scrolling
+Overlay Scrollbars
+Accelerated 2D canvas
+Display list 2D canvas
+New style notification
+Experimental QUIC protocol
+Offline Auto-Reload Mode
+Simple Cache for HTTP
+LCD text antialiasing
+Include title for the current URL in the omnibox
+Omnibox UI Vertical Layout
+
+#4
+Number of raster threads
+

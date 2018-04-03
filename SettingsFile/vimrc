@@ -1,14 +1,4 @@
-" ##############################################
-" #Author: GoogleThink
-" #Mail:goooglethink@gmail.com
-" #Last modified: 2017-11-04 02:26
-" #Filename: .vimrc
-" #Description:
-" ##############################################
-
 " F2            打开,关闭树形目录结构
-" F8            打开google-chrome预览(仅markdown文件)
-" F9            关闭google-chrome预览(仅markdown文件)
 " F5            添加作者信息
 
 " ----------- Ctrl 系按键 -----------
@@ -106,6 +96,16 @@
 " shift + k     光标所在的单词调用sdcv进行查询
 " shift + f     光标所在的单词调用sdcv进行查询
 
+"============================================================================================="
+
+" install vim plugin command: "
+" vim +BundleInstall +qall
+
+" github project: "
+" git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+"============================================================================================="
+
 " install bundles "
 if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
@@ -120,7 +120,7 @@ filetype plugin indent on
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins "
-"call vundle#begin('~/some/path/here') "
+" call vundle#begin('~/some/path/here') "
 
 " The following are examples of different formats supported. "
 " Keep Plugin commands between vundle#begin/end. "
@@ -130,25 +130,19 @@ Plugin 'bling/vim-airline'                  "美化状态栏"
 Plugin 'scrooloose/nerdtree'                "给vim添加一个树形目录"
 Plugin 'Yggdroot/indentLine'                "缩进指示线"
 Plugin 'jiangmiao/auto-pairs'               "括号和引号自动补全"
-Plugin 'tell-k/vim-autopep8'                "标准自动格式化代码"
-Plugin 'scrooloose/nerdcommenter'           "方便的写注释"
-Plugin 'scrooloose/syntastic'               "语法检查"
 Plugin 'Lokaltog/vim-easymotion'            "快速跳转"
 Plugin 'terryma/vim-multiple-cursors'       "多光标操作"
 Plugin 'kien/rainbow_parentheses.vim'       "括号高亮"
-Plugin 'ctrlpvim/ctrlp.vim'                 "文件搜索"
 Plugin 'bronson/vim-trailing-whitespace'    "行尾空格处理"
 Plugin 'terryma/vim-expand-region'          "区域选中"
 Plugin 'tmux-plugins/vim-tmux-focus-events' "vim-tmux-clipboard的依赖插件"
 Plugin 'roxma/vim-tmux-clipboard'           "Vim 和 Tmux 的剪切板共享"
-Plugin 'iamcco/mathjax-support-for-mkdp'    "markdown-preview辅助"
-Plugin 'iamcco/markdown-preview.vim'        "markdown预览"
 Plugin 'junegunn/vim-easy-align'            "快速对齐"
 
 " All of your Plugins must be added before the following line "
 call vundle#end()            " required "
 " To ignore plugin indent changes, instead use: "
-"filetype plugin on "
+" filetype plugin on "
 " "
 " Brief help "
 " :PluginList       - lists configured plugins "
@@ -250,59 +244,6 @@ let g:indentLine_color_gui  = '#A4E57E'
 "--------------------------------------------------------------"
 
 "--------------------------------------------------------------"
-"-------------------tell-k/vim-autopep8------------------------"
-"--------------------------------------------------------------"
-autocmd FileType python noremap <buffer> <F8> :call Autopep8()<CR>
-let g:autopep8_disable_show_diff=1
-"--------------------------------------------------------------"
-
-"--------------------------------------------------------------"
-"-----------------scrooloose/nerdcommenter---------------------"
-"--------------------------------------------------------------"
-" 注释的时候自动加个空格
-let g:NERDSpaceDelims=1
-"--------------------------------------------------------------"
-
-"--------------------------------------------------------------"
-"------------------scrooloose/syntastic------------------------"
-"--------------------------------------------------------------"
-let g:syntastic_error_symbol='✗'    " 设置错误符号 "
-let g:syntastic_warning_symbol='⚠'  " 设置警告符号 "
-let g:syntastic_check_on_open=0     " 是否在打开文件时检查"
-let g:syntastic_check_on_wq=1       " 是否在保存文件后检查 "
-let g:syntastic_stl_format = '[%E{%e Errors}%B{, }%W{%w Warnings}]'
-let g:syntastic_enable_highlighting=1
-let g:syntastic_python_checkers=['pyflakes'] " 使用pyflakes,速度比pylint快
-let g:syntastic_javascript_checkers = ['jsl', 'jshint']
-let g:syntastic_html_checkers=['tidy', 'jshint']
-" 修改高亮的背景色, 适应主题
-highlight SyntasticErrorSign guifg=white guibg=black
-
-" to see error location list
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0       "下栏提示"
-let g:syntastic_loc_list_height = 5
-function! ToggleErrors()
-    let old_last_winnr = winnr('$')
-    lclose
-    if old_last_winnr == winnr('$')
-        " Nothing was closed, open syntastic error location panel
-        Errors
-    endif
-endfunction
-nnoremap <Leader>s :call ToggleErrors()<cr>
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-" nnoremap <Leader>sn :lnext<cr>
-" nnoremap <Leader>sp :lprevious<cr>
-let g:syntastic_python_checkers=['pylint']
-let g:syntastic_python_pylint_args='--disable=C0111,R0903,C0301'
-highlight link SyntasticError ErrorMsg      "程式碼內的錯誤提示"
-highlight link SyntasticErrorSign WarningMsg    "一行有錯誤的那個箭頭。"
-"--------------------------------------------------------------"
-
-"--------------------------------------------------------------"
 "-----------------Lokaltog/vim-easymotion----------------------"
 "--------------------------------------------------------------"
 let g:EasyMotion_smartcase = 1
@@ -347,38 +288,12 @@ let g:rbpt_colorpairs = [
     \ ['red',         'firebrick3'],
     \ ]
 
-" 不加入这行, 防止黑色括号出现, 很难识别
-" \ ['black',       'SeaGreen3'],
-
 let g:rbpt_max = 16
 let g:rbpt_loadcmd_toggle = 0
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
-"--------------------------------------------------------------"
-
-"--------------------------------------------------------------"
-"---------------------ctrlpvim/ctrlp.vim-----------------------"
-"--------------------------------------------------------------"
-" 指定触发按键
-let g:ctrlp_map = '<leader>p'
-" 指定默认触发的搜索模式
-let g:ctrlp_cmd = 'CtrlP'
-" 不使用缓存
-let g:ctrlp_use_caching   = 0
-map <leader>f :CtrlPMRU<CR>
-" 指定自定义的忽略文件列表
-let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\v[\/]\.(git|hg|svn|rvm)$',
-    \ 'file': '\v\.(exe|so|dll|zip|tar|tar.gz|pyc)$',
-    \ }
-let g:ctrlp_working_path_mode=0
-let g:ctrlp_match_window_bottom=1
-let g:ctrlp_max_height=15
-let g:ctrlp_match_window_reversed=0
-let g:ctrlp_mruf_max=500
-let g:ctrlp_follow_symlinks=1
 "--------------------------------------------------------------"
 
 "--------------------------------------------------------------"
@@ -392,27 +307,6 @@ map <leader><space> :FixWhitespace<cr>
 "--------------------------------------------------------------"
 vmap v <Plug>(expand_region_expand)
 vmap V <Plug>(expand_region_shrink)
-"--------------------------------------------------------------"
-
-"--------------------------------------------------------------"
-"-------------iamcco/markdown-preview.vim----------------------"
-"--------------------------------------------------------------"
-nmap <silent> <F8> <Plug>MarkdownPreview        " 普通模式
-imap <silent> <F8> <Plug>MarkdownPreview        " 插入模式
-nmap <silent> <F9> <Plug>StopMarkdownPreview    " 普通模式
-imap <silent> <F9> <Plug>StopMarkdownPreview    " 插入模式
-" 设置 chrome 浏览器的路径（或是启动 chrome（或其他现代浏览器）的命令）
-let g:mkdp_path_to_chrome = "google-chrome"
-" 设置为 1 可以在打开 markdown 文件的时候自动打开浏览器预览，只在打开markdown 文件的时候打开一次
-let g:mkdp_auto_start = 0
-" 设置为 1 在编辑 markdown 的时候检查预览窗口是否已经打开，否则自动打开预览窗口
-let g:mkdp_auto_open = 0
-" 在切换 buffer 的时候自动关闭预览窗口，设置为 0 则在切换 buffer 的时候不自动关闭预览窗口
-let g:mkdp_auto_close = 1
-" 设置为 1 则只有在保存文件，或退出插入模式的时候更新预览，默认为 0，实时更新预览
-let g:mkdp_refresh_slow = 0
-" 设置为 1 则所有文件都可以使用 MarkdownPreview 进行预览，默认只有markdown文件可以使用改命令
-let g:mkdp_command_for_global = 0
 "--------------------------------------------------------------"
 
 "--------------------------------------------------------------"
@@ -569,39 +463,6 @@ if &term =~ '256color'
   " see also http://snk.tuxfamily.org/log/vim-256color-bce.html
   set t_ut=
 endif
-"------------------------------------------------------------------------------------"
-
-"------------------------------------------------------------------------------------"
-"Font color
-hi Identifier ctermfg=81 cterm=bold "关键字加粗"
-hi Comment ctermfg=159          "注释颜色"
-hi String ctermfg=224           "字符串颜色"
-hi Number ctermfg=9         "数字颜色"
-hi Constant ctermfg=blue
-hi Statement ctermfg=red    "语言关键字颜色"
-" 设置可以高亮的关键字
-if has("autocmd")
-  " Highlight TODO, FIXME, NOTE, etc.
-  if v:version > 701
-    autocmd Syntax * call matchadd('Todo',  '\W\zs\(TODO\|FIXME\|CHANGED\|DONE\|XXX\|BUG\|HACK\)')
-    autocmd Syntax * call matchadd('Debug', '\W\zs\(NOTE\|INFO\|IDEA\|NOTICE\)')
-  endif
-endif
-" Window splits & ruler are too bright, so change to white on grey (non-GUI)
-highlight StatusLine       cterm=NONE ctermbg=blue ctermfg=white
-highlight StatusLineTerm   cterm=NONE ctermbg=blue ctermfg=white
-highlight StatusLineNC     cterm=NONE ctermbg=black ctermfg=white
-highlight StatusLineTermNC cterm=NONE ctermbg=black ctermfg=white
-highlight VertSplit        cterm=NONE ctermbg=black ctermfg=white
-" Markdown could be more fruit salady
-highlight link markdownH1 PreProc
-highlight link markdownH2 PreProc
-highlight link markdownLink Character
-highlight link markdownBold String
-highlight link markdownItalic Statement
-highlight link markdownCode Delimiter
-highlight link markdownCodeBlock Delimiter
-highlight link markdownListMarker Todo
 "------------------------------------------------------------------------------------"
 
 "------------------------------------------------------------------------------------"
@@ -825,5 +686,3 @@ set expandtab                                 " 解决普通文本和vim的空�
 set keywordprg=sdcv                           " 普通模式下按shift+k,光标所在的单词就会调用sdcv进行查询
 set wildmode=list:longest
 set ttyfast
-
-

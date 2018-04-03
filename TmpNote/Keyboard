@@ -1,0 +1,11 @@
+startup nautilus	nautilus	Ctrl+Alt+N
+startup	terminator	terminator	Ctrl+Alt+P
+
+hide all normal windows Super+D
+
+startup chromium        chromium        Ctrl+Alt+O
+startup Shutter         shutter -s      Ctrl+Alt+A
+startup	guake		guake		Ctrl+Alt+L
+startup stardict	stardict	Ctrl+Alt+M
+startup Pomodoro	Pomodoro	Ctrl+Alt+K
+startup google-chrome   google-chrome   Ctrl+Alt+O

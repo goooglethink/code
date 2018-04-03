@@ -3,15 +3,15 @@
 lspci | grep -E "VGA|3D"
 
 2.Disable nouveau:
-echo -e "blacklist nouveau\noptions nouveau modeset=0\nalias nouveau off" > /etc/modprobe.d/blacklist-nouveau.conf
-update-initramfs -u && reboot
+sudo su -c "echo -e 'blacklist nouveau\noptions nouveau modeset=0\nalias nouveau off' > /etc/modprobe.d/blacklist-nouveau.conf"
+sudo su -c "update-initramfs -u" && sudo su -c "reboot"
 
 3.system will reboot and nouveau should be disabled.verify if nouveau is disabled:
 lsmod |grep -i nouveau
 #If shows nothing,means nouveau successfully disabled.
 
 4.Install nvidia driver from kali repo:
-sudo aptitude install  nvidia-driver nvidia-xconfig -y
+sudo su -c "aptitude install nvidia-driver nvidia-xconfig -y"
 
 5.Now we have to find bus id of our nvidia card:
 nvidia-xconfig --query-gpu-info | grep 'BusID : ' | cut -d ' ' -f6
@@ -19,7 +19,7 @@ nvidia-xconfig --query-gpu-info | grep 'BusID : ' | cut -d ' ' -f6
 PCI:1:0:0
 #This is our Bus ID.
 
-6.Now we generate /etc/X11/xorg.conf file with this bus ID according to nvidia guide:
+6.Now we generate sudo gedit /etc/X11/xorg.conf file with this bus ID according to nvidia guide:
 Section "ServerLayout"
     Identifier "layout"
     Screen 0 "nvidia"
@@ -61,10 +61,9 @@ NoDisplay=true
 X-GNOME-Autostart-Phase=DisplayServer
 
 8. Now reboot and you should be using Nvidia Driver.Verify if everything is ok:
-sudo apt-get install mesa-utils
 glxinfo | grep -i "direct rendering"
 #direct rendering: Yes
 
-Optional: you can now install your cuda toolkits:
-sudo apt-get install ocl-icd-libopencl1 nvidia-cuda-toolkit -y
+9.Optional: you can now install your cuda toolkits:
+#sudo aptitude install ocl-icd-libopencl1 nvidia-cuda-toolkit -y
 

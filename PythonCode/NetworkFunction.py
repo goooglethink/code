@@ -17,15 +17,8 @@ class NetworkFunction(object):
 
     def setShellCommand(self,value):
         if value == 1:
-            os.system('bash ~/code/ShellCode/Ultrasurf.sh')
-            print('')
-        elif value == 2:
-            os.system('echo "google" | sudo -S sh ~/code/Network/NetSpeeder/build.sh')
-            os.system('sudo ~/code/Network/NetSpeeder/net_speeder wlan0:0 "tcp"')
-            print('')
-        elif value == 3:
-            os.system('bash ~/code/ShellCode/macChange.sh')
-            print('')
+           os.system('bash ~/code/ShellCode/macChange.sh')
+           print('')
 
     def setNetworkFunction(self):
         while True:
@@ -35,9 +28,6 @@ class NetworkFunction(object):
             value = int(input("Please input serial number:"))
             print('')
             if value == 1:
-                self.getShellCommand(value)
-                DelPrint.DelPrint().delNetworkPrint()
-            elif value == 2:
                 self.getShellCommand(value)
                 DelPrint.DelPrint().delNetworkPrint()
             elif value == 3:

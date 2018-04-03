@@ -7,3 +7,4 @@
 不最大化当前窗口 Alt+F5
 切换窗口  Alt+ Tab
 Hide window  Super+H
+Gnome Screenshot Shift+PrtSc or PrtSc

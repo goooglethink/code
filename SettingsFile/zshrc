@@ -1,27 +1,22 @@
 ##############################################
 #Author: GoogleThink
 #Mail:goooglethink@gmail.com
-#Last modified:2017-11-03 23:09
+#Last modified:2018-01-03 14:27
 #Filename:.zshrc
 #Description:
 ##############################################
+
+#Setting zsh defualt terminal
+#chsh -s /bin/zsh
 
 # source <fileName>     立即生效
 
 # -----------Functions-------------
 # <Esc> <Esc>           快速添加sudo
-
 # lscolors              显示终端所有颜色
-
 # google                google搜索
-# baidu                 baidu搜索
 # bing                  bing搜索
-# yahoo                 yahoo搜索
-# yandex                yandex搜索
-
 # hr                    输入一条分割线
-
-# myip                  显示个人ip地址
 
 # -----------Ctrl shortcut-------------
 
@@ -45,97 +40,24 @@
 # ctrl+d	            删除光标处的字符
 # ctrl+h	            删除光标前的字符
 # alt+d		            删除当前光标到临近右边单词开始
-# rl+w		            删除此处到左边的单词
+# arl+w		            删除此处到左边的单词
 
 # ctrl+d 	            关闭终端
 
+# -----------Plugins shortcut-------------
 
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+# ESC twice   		Puts sudo in front of the current command
 
-# Path to your oh-my-zsh installation.
-#隐藏固定的 user@hostname 信息
+#========================================================================================================
+#========================================================================================================
+# Basic Settings
+#========================================================================================================
 export ZSH=$HOME/.oh-my-zsh
-
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="xiong-chiamiov-plus"
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git wd web-search history history-substring-search extract z)
-#来源
+plugins=(command-not-found docker sudo git history web-search)
 source $ZSH/oh-my-zsh.sh
+#========================================================================================================
 
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 #========================================================================================================
 #========================================================================================================
 # History
@@ -190,6 +112,11 @@ bindkey "\e[3~" delete-char
 #以下字符视为单词的一部分
 WORDCHARS='*?_-[]~=&;!#$%^(){}<>'
 #}}}
+#========================================================================================================
+
+#========================================================================================================
+#========================================================================================================
+# Automatic perfect
 #========================================================================================================
 #自动补全功能 {{{
 setopt AUTO_LIST
@@ -279,7 +206,6 @@ user-complete(){
 zle -N user-complete
 bindkey "\t" user-complete
 #}}}
-
 #========================================================================================================
 
 #========================================================================================================
@@ -307,10 +233,7 @@ function lscolors {
 # open a web browser on search website for a query
 function seach {
 	xdg-open "https://www.google.com/search?q=`urlencode "${(j: :)@}"`"
-	xdg-open "https://www.baidu.com/search?q=`urlencode "${(j: :)@}"`"
 	xdg-open "https://www.bing.com/search?q=`urlencode "${(j: :)@}"`"
-	xdg-open "https://search.yahoo.com/search?q=`urlencode "${(j: :)@}"`"
-	xdg-open "https://www.yandex.com/search?q=`urlencode "${(j: :)@}"`"
 }
 
 # print a separator banner, as wide as the terminal
@@ -318,69 +241,9 @@ function hr {
 	print ${(l:COLUMNS::=:)}
 }
 
-# get public ip
-function myip {
-	local api
-	case "$1" in
-		"-4")
-			api="http://v4.ipv6-test.com/api/myip.php"
-			;;
-		"-6")
-			api="http://v6.ipv6-test.com/api/myip.php"
-			;;
-		*)
-			api="http://ipv6-test.com/api/myip.php"
-			;;
-	esac
-	curl -s "$api"
-	echo # Newline.
-}
-
-# docker functions
-function docker-enter() {
-    #if [ -e $(dirname "$0")/nsenter ]; then
-    #Change for centos bash running
-    if [ -e $(dirname '$0')/nsenter ]; then
-        # with boot2docker, nsenter is not in the PATH but it is in the same folder
-        NSENTER=$(dirname "$0")/nsenter
-    else
-        # if nsenter has already been installed with path notified, here will be clarified
-        NSENTER=$(which nsenter)
-        #NSENTER=nsenter
-    fi
-    [ -z "$NSENTER" ] && echo "WARN Cannot find nsenter" && return
-
-    if [ -z "$1" ]; then
-        echo "Usage: `basename "$0"` CONTAINER [COMMAND [ARG]...]"
-        echo ""
-        echo "Enters the Docker CONTAINER and executes the specified COMMAND."
-        echo "If COMMAND is not specified, runs an interactive shell in CONTAINER."
-    else
-        PID=$(sudo docker inspect --format "{{.State.Pid}}" "$1")
-        if [ -z "$PID" ]; then
-            echo "WARN Cannot find the given container"
-            return
-        fi
-        shift
-
-        OPTS="--target $PID --mount --uts --ipc --net --pid"
-
-        if [ -z "$1" ]; then
-            # No command given.
-            # Use su to clear all host environment variables except for TERM,
-            # initialize the environment variables HOME, SHELL, USER, LOGNAME, PATH,
-            # and start a login shell.
-            #sudo $NSENTER "$OPTS" su - root
-            sudo $NSENTER --target $PID --mount --uts --ipc --net --pid su - root
-        else
-            # Use env to clear all host environment variables.
-            sudo $NSENTER --target $PID --mount --uts --ipc --net --pid env -i $@
-        fi
-    fi
-}
-
 #========================================================================================================
 
+#========================================================================================================
 #========================================================================================================
 #Configure
 #========================================================================================================
@@ -399,19 +262,26 @@ if [[ -z "$TMUX" ]] ;then
         tmux attach-session -t "$ID" # if available attach to it
     fi
 fi
-
 #========================================================================================================
 
+#========================================================================================================
 #========================================================================================================
 # Alias
 #========================================================================================================
-# Command Alias
-alias -g cp='cp -i'
-alias -g mv='mv -i'
-alias -g rm='rm -i'
-alias -g ll='ls -l'
-alias -g grep='grep --color=auto'
-alias -g ee='emacsclient -t'
+# Basic Command
+alias vi='vim'
+alias sv='sdcv'
+alias rm='rm -rf'
+alias cat='lolcat'
+alias ll='ls -alF'
+alias la='ls -A'
+alias chmod777='sudo chmod 777'
+alias showallpackages='sudo dpkg --get-selections'
+
+# Aptitude Command
+alias aepurge='sudo aptitude purge'
+alias aeinstall='sudo aptitude install'
+alias aeproxy='sudo aptitude -o Acquire::http::proxy=http://127.0.0.1:9666'
 
 # User Password
 alias sudo='echo "google" | sudo -S'
@@ -419,81 +289,49 @@ alias sudo='echo "google" | sudo -S'
 # History Command top10
 alias top10='print -l  ${(o)history%% *} | uniq -c | sort -nr | head -n 10'
 
-# [Esc][h] man 当前命令时，显示简短说明
-alias run-help >&/dev/null && unalias run-help
-autoload run-help
-
 # System update
-alias update='echo "google" | sudo -S aptitude update'
-alias upgrade='echo "google" | sudo -S aptitude upgrade -y'
-alias dist-upgrade='echo "google" | sudo -S aptitude dist-upgrade'
-alias dist-updategrade='echo "google" | sudo -S aptitude update && sudo aptitude upgrade && sudo aptitude dist-upgrade'
+alias update='echo "google" | sudo -S su -c "aptitude update"'
+alias upgrade='echo "google" | sudo -S su -c "aptitude upgrade -y"'
+alias dist-upgrade='echo "google" | sudo -S su -c "aptitude dist-upgrade -y"'
+
+# System clean and remove
+alias autoremove='echo "google" | sudo -S su -c "apt-get autoremove -y"'
+alias autoclean='echo "google" | sudo -S su -c "aptitude autoclean" && sudo su -c "aptitude clean"'
+alias autocleanremove='echo "google" | sudo -S su -c "aptitude autoclean" && sudo su -c "aptitude clean" && sudo su -c "apt-get autoremove" && sudo su -c "apt-get autoclean" && sudo su -c "apt-get clean"'
+alias orphanedpackages='sudo deborphan && hr && deborphan --guess-data'
 
 # Shell script
 alias root='bash ~/code/ShellCode/suroot.sh'
 alias sshme='bash ~/code/ShellCode/ssh.sh'
 alias mytools='bash ~/code/start.sh'
-alias pcinfo='bash ~/code/ShellCode/PCINFO.sh'
+alias aboutpc='bash ~/code/ShellCode/AboutPC.sh'
+alias cleanorphanedpackages='bash ~/code/ShellCode/Deborphan.sh'
 
-# Start up Program
-alias ul='sudo chmod 777 ~/code/Network/ul && ~/code/Network/ul >> ~/Documents/nohup.out &'
-
-# System clean and remove
-alias rm='rm -rf'
-alias clean='echo "google" | sudo -S aptitude autoclean && sudo aptitude clean'
-alias remove='echo "google" | sudo -S apt-get autoremove -y'
-alias cleanremove='echo "google" | sudo -S aptitude autoclean && sudo aptitude clean && sudo apt-get autoremove'
-alias removeProgram='sudo aptitude purge'
-
-# Tcp display
-alias tcpipv4='echo "google" | sudo -S sysctl net.ipv4.tcp_available_congestion_control && sudo sysctl net.ipv4.tcp_congestion_control'
-alias tcpbbr='echo "google" | sudo -S lsmod | grep bbr'
+# Start up ultrasurf
+alias ultrasurf='sudo chmod 777 ~/Applications/ultrasurf && ~/Applications/ultrasurf'
+alias freegate='wine ~/Applications/freegate.exe'
 
 # Power
 alias powerrestart='sudo shutdown -r now'
 alias poweroff='sudo shutdown -P now'
 
-# Disk
-alias fdisk='echo "google" | sudo fdisk -l'
-
-# User
-alias chmodon='sudo chmod 777'
-
-# Self Monitoring Analysis and Reporting Technology (SMART)
-alias smarti='sudo smartctl -i '
-alias smarth='sudo smartctl -H '
-alias smarta='sudo smartctl -A '
-alias smarts='sudo smartctl -s -on '
-alias smartall='sudo smartctl -a '
-alias smartl='sudo smartctl -l selftest '
-alias smartts='sudo smartctl -t short '
-alias smarttl='suod smartctl -t long '
-alias smartCts='sudo smartctl -C -t short '
-alias smartCtl='suod smartctl -C -t long '
-
-# VIM
-alias vi='vim'
-alias vimPluginInstall='vim +PluginInstall +qall'
-
-# TMUX
-alias tnew='tmux new -s session'
-alias zz='tmux kill-server'
-alias tlst='tmux list-sessions'
-
-# sdcv
-alias sv='sdcv'
+# Tmux
+alias txnew='tmux new -s session'
+alias txkill='tmux kill-server'
+alias txlist='tmux list-sessions'
 
 #Docker alias
-alias dkstop='docker container stop'
-alias dkstopAll='docker container stop $(docker ps -a -q)'
-alias dkrm='docker container rm -f'
-alias dkrmAll='docker container rm $(docker ps -a -q)'
-alias dkrmi='docker image rm -f'
-alias dkps='docker container ps -a'
-alias dkimages='docker images && docker system df'
-alias dkinfo='docker info'
-alias dklogs='docker container logs -f'
-alias dkdaemon='echo "google" | sudo -S systemctl daemon-reload && sudo systemctl restart docker'
+alias drstop='docker container stop'
+alias drstopAll='docker container stop $(docker ps -a -q)'
+alias drrm='docker container rm -f'
+alias drrmAll='docker container rm $(docker ps -a -q)'
+alias drrmi='docker image rm -f'
+alias drps='docker container ps -a'
+alias drimages='docker images'
+alias drsystemdf='docker system df'
+alias drinfo='docker info'
+alias drlogs='docker container logs -f'
+alias drdaemon='echo "google" | sudo -S systemctl daemon-reload && sudo systemctl restart docker'
 
 #Docker-compose alias
 alias dcversion='docker-compose version'
@@ -503,12 +341,9 @@ alias dcdown='docker-compose down'
 alias dclogs='docker-compose logs -f'
 alias dcrecreate='docker-compose up --force-recreate -d'
 
-#Docker functions
-alias docker-pid="sudo docker inspect --format '{{.State.Pid}}'"
-alias docker-ip="sudo docker inspect --format '{{ .NetworkSettings.IPAddress }}'"
-
-#Docker-machine alias
-alias dm='docker-machine'
+#Flatpak alias
+alias fklist='flatpak list'
+alias fkuninstall='flatpak uninstall '
 
 #========================================================================================================
 echo -e "\033[36m                                                    \033[1m"
@@ -519,5 +354,3 @@ echo -e "\033[36m██║   ██║██║   ██║██║   ██║
 echo -e "\033[36m╚██████╔╝╚██████╔╝╚██████╔╝╚██████╔╝███████╗███████ \033[1m"
 echo -e "\033[36m ╚═════╝  ╚═════╝  ╚═════╝  ╚═════╝ ╚══════╝╚══════╝\033[1m"
 echo -e "\033[36m                                                    \033[1m"
-
-
